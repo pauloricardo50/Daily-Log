@@ -10,9 +10,8 @@
 - Jardielma Queiroz de Lima: <a href="url"> jardielmaqueiroz@hotmail.com </a>
 - Paulo Ricardo Viana Ferreira: <a href="url"> paulo_ricardosf@outlook.com <br></a>
 
-### 2. PROPOSITO DO SISTEMA<br>
-<P align="justify">&nbsp&nbsp Sistema tem o propósito de facilitar a organização do tempo para execução de atividades e retornar
-ao usuário um feedback sobre qual categoria de atividade está sendo gasto maior parte do seu tempo. </p>
+### 2. DIÁRIO DE BORDO<br>
+- [Link Para Acessar o documento no Drive.](https://drive.google.com/open?id=15EeHTSu6TpxJOVPpxTKpXdgdKLLh4x7XicEWmQWy7Z4)
 
 ### 3.MINI-MUNDO<br>
 <P align="justify">&nbsp&nbsp O Daily Log tem como intuito facilitar a organização do tempo que é  utilizado na execução das atividades durante o expediente de trabalho. Sua principal funcionalidade é registrar as atividades desenvolvidas, ações necessárias ou eventos significativos não capturados e mostrar para o usuário um relatório com quais categorias de atividades ele gasta maior parte do seu tempo. </p>
@@ -25,4 +24,5 @@ ao usuário um feedback sobre qual categoria de atividade está sendo gasto maio
 <P align="justify">&nbsp&nbsp Os usuários que tiverem perfil administrador poderão visualizar os seus relatórios e também os relatórios 
 de outros usuários. O sistema deve armazenar os registros de eventos e ser compatível com dispositivos mobile.</p>
 
-### 4.RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
+### 4.PROJECT MODEL CANVAS (PMV)<br>
+- [Link Para Acessar o documento no Drive.](https://drive.google.com/open?id=1Rn2uGL4AyojqxlBiWGUDyfspa55MZ79VLvq4QVdpycY)
