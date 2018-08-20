@@ -8,7 +8,7 @@
 **Integrantes do grupo:**<br>
 - Ana Carolina Cebin Pereira: <a href="url"> carolcebin@gmail.com </a>
 - Jardielma Queiroz de Lima: <a href="url"> jardielmaqueiroz@hotmail.com </a>
-- Paulo Ricardo Viana Ferreira: <a href="url"> paulo_ricardosff@outlook.com <br></a>
+- Paulo Ricardo Viana Ferreira: <a href="url"> paulo_ricardosf@outlook.com <br></a>
 
 ### 2. DIÁRIO DE BORDO<br>
 - [Link Para Acessar o documento no Drive.](https://drive.google.com/open?id=15EeHTSu6TpxJOVPpxTKpXdgdKLLh4x7XicEWmQWy7Z4)
