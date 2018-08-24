@@ -25,4 +25,5 @@
 de outros usuários. O sistema deve armazenar os registros de eventos e ser compatível com dispositivos mobile.</p>
 
 ### 4.PROJECT MODEL CANVAS (PMV)<br>
+ ![Alt Text](https://github.com/CarolCebin/Daily-Log/blob/master/Imagens/Daily%20Log.png.jpg?raw=true)
 - [Link Para Acessar o documento no Drive.](https://drive.google.com/open?id=1Rn2uGL4AyojqxlBiWGUDyfspa55MZ79VLvq4QVdpycY)
