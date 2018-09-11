@@ -13,7 +13,10 @@
 ### 2. DIÁRIO DE BORDO<br>
 - [Link Para Acessar o documento no Drive.](https://drive.google.com/open?id=15EeHTSu6TpxJOVPpxTKpXdgdKLLh4x7XicEWmQWy7Z4)
 
-### 3.MINI-MUNDO<br>
+### 3. QUADRO KANBAN<br>
+- [Link Para Acessar o quadro no Trello.](https://trello.com/b/PRqMaHOL/daily-log)
+
+### 4.MINI-MUNDO<br>
 <P align="justify">&nbsp&nbsp O Daily Log tem como intuito facilitar a organização do tempo que é  utilizado na execução das atividades durante o expediente de trabalho. Sua principal funcionalidade é registrar as atividades desenvolvidas, ações necessárias ou eventos significativos não capturados e mostrar para o usuário um relatório com quais categorias de atividades ele gasta maior parte do seu tempo. </p>
 
 <P align="justify">&nbsp&nbsp O usuário poderá definir o início e o fim do expediente - ex: 08h às 18h ou 12h às 19h, somente os usuários que possuírem perfil administrador e perfil de cadastro poderão criar categorias, os usuários com perfil de usuário poderão cadastrar atividades, consultar atividades, gerar relatórios sobre suas atividades e visualizar gráficos.</p>
@@ -24,12 +27,12 @@
 <P align="justify">&nbsp&nbsp Os usuários que tiverem perfil administrador poderão visualizar os seus relatórios e também os relatórios 
 de outros usuários. O sistema deve armazenar os registros de eventos e ser compatível com dispositivos mobile.</p>
 
-### 4.PROJECT MODEL CANVAS (PMC)<br>
+### 5.PROJECT MODEL CANVAS (PMC)<br>
  ![Alt Text](https://github.com/CarolCebin/Daily-Log/blob/master/Imagens/Daily%20Log.png.jpg?raw=true)
 - [Link Para Acessar o documento no Drive.](https://drive.google.com/open?id=1Rn2uGL4AyojqxlBiWGUDyfspa55MZ79VLvq4QVdpycY)
 
-### 5.MAPA MENTAL<br>
+### 6.MAPA MENTAL<br>
  ![Alt Text](https://github.com/CarolCebin/Daily-Log/blob/master/MapaDaily.PNG)
  
-### 6.RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
+### 7.RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
 - [MOCKUP - PERFIL USUARIO](https://github.com/CarolCebin/Daily-Log/blob/master/Documentos/Mockups/Mockup%20-%20Usuario%20Comum.pdf)
