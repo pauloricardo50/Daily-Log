@@ -29,6 +29,7 @@ de outros usuários. O sistema deve armazenar os registros de eventos e ser comp
 - [Link Para Acessar o documento no Drive.](https://drive.google.com/open?id=1Rn2uGL4AyojqxlBiWGUDyfspa55MZ79VLvq4QVdpycY)
 
 ### 5.MAPA MENTAL<br>
-
+ ![Alt Text](https://github.com/CarolCebin/Daily-Log/blob/master/MapaDaily.PNG)
+ 
 ### 6.RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
 - [MOCKUP - PERFIL USUARIO](https://github.com/CarolCebin/Daily-Log/blob/master/Documentos/Mockups/Mockup%20-%20Usuario%20Comum.pdf)
