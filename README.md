@@ -28,11 +28,13 @@
 de outros usuários. O sistema deve armazenar os registros de eventos e ser compatível com dispositivos mobile.</p>
 
 ### 5.PROJECT MODEL CANVAS (PMC)<br>
- ![Alt Text](https://github.com/CarolCebin/Daily-Log/blob/master/Imagens/Daily%20Log.png.jpg?raw=true)
+ ![Alt Text](https://github.com/CarolCebin/Daily-Log/blob/master/Imagens/.PROJECT%20MODEL%20CANVAS%20(PMC).jpg)
 - [Link Para Acessar o documento no Drive.](https://drive.google.com/open?id=1Rn2uGL4AyojqxlBiWGUDyfspa55MZ79VLvq4QVdpycY)
 
 ### 6.MAPA MENTAL<br>
- ![Alt Text](https://github.com/CarolCebin/Daily-Log/blob/master/MapaDaily.PNG)
+ ![Alt Text](https://github.com/CarolCebin/Daily-Log/blob/master/Imagens/Mapa%20Mental%20do%20Sistema.PNG)
  
 ### 7.RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
-- [MOCKUP - PERFIL USUARIO](https://github.com/CarolCebin/Daily-Log/blob/master/Documentos/Mockups/Mockup%20-%20Usuario%20Comum.pdf)
+- [MOCKUP - PERFIL USUARIO](https://github.com/CarolCebin/Daily-Log/blob/master/Documentos/Prot%C3%B3tipos/Daily%20Log%20-%20Perfil%20Usuario%20Comum%20.pdf)
+- [MOCKUP - PERFIL DE CADASTRO](https://github.com/CarolCebin/Daily-Log/blob/master/Documentos/Prot%C3%B3tipos/Daily%20Log%20%20-%20Perfil%20de%20Cadastro.pdf)
+- [MOCKUP - PERFIL ADMINISTRADOR](https://github.com/CarolCebin/Daily-Log/blob/master/Documentos/Prot%C3%B3tipos/Daily%20Log%20-%20Perfil%20Adiministrador.pdf)
