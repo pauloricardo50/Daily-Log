@@ -39,9 +39,9 @@ de outros usuários. O sistema deve armazenar os registros de eventos e ser comp
 - [MOCKUP - PERFIL DE CADASTRO](https://github.com/CarolCebin/Daily-Log/blob/master/Documentos/Prot%C3%B3tipos/Daily%20Log%20%20-%20Perfil%20de%20Cadastro.pdf)
 - [MOCKUP - PERFIL ADMINISTRADOR](https://github.com/CarolCebin/Daily-Log/blob/master/Documentos/Prot%C3%B3tipos/Daily%20Log%20-%20Perfil%20Adiministrador.pdf)
 
-### 8. MODELO DE ENTIDADE DE RELACIONAMENTO <br>
+### 8. MODELO CONCEITUAL <br>
  ![Alt Text](https://github.com/CarolCebin/Daily-Log/blob/master/Imagens/Modelo%20Conceitual%20Daily%20Log.png?raw=true)
  
- ### 9. DIAGRAMA DE CLASSES <br>
- ![Alt Text](https://github.com/CarolCebin/Daily-Log/blob/master/Imagens/Modelo%20Conceitual%20Daily%20Log.png?raw=true)
+ ### 9. DIAGRAMA DE CLASSES UML<br>
+ ![Alt Text](https://github.com/CarolCebin/Daily-Log/blob/master/Imagens/Diagrama%20UML%20Daily%20Log.jpeg?raw=true)
 
