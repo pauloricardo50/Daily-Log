@@ -40,5 +40,5 @@ de outros usuários. O sistema deve armazenar os registros de eventos e ser comp
 - [MOCKUP - PERFIL ADMINISTRADOR](https://github.com/CarolCebin/Daily-Log/blob/master/Documentos/Prot%C3%B3tipos/Daily%20Log%20-%20Perfil%20Adiministrador.pdf)
 
 ### MODELO CONCEITUAL <br>
+ ![Alt Text](https://github.com/CarolCebin/Daily-Log/blob/master/Imagens/Modelo%20Conceitual%20Daily%20Log.png?raw=true)
 
-### MODELO LÓGICO <br>
