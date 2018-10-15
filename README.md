@@ -38,3 +38,7 @@ de outros usuários. O sistema deve armazenar os registros de eventos e ser comp
 - [MOCKUP - PERFIL USUARIO](https://github.com/CarolCebin/Daily-Log/blob/master/Documentos/Prot%C3%B3tipos/Daily%20Log%20-%20Perfil%20Usuario%20Comum%20.pdf)
 - [MOCKUP - PERFIL DE CADASTRO](https://github.com/CarolCebin/Daily-Log/blob/master/Documentos/Prot%C3%B3tipos/Daily%20Log%20%20-%20Perfil%20de%20Cadastro.pdf)
 - [MOCKUP - PERFIL ADMINISTRADOR](https://github.com/CarolCebin/Daily-Log/blob/master/Documentos/Prot%C3%B3tipos/Daily%20Log%20-%20Perfil%20Adiministrador.pdf)
+
+### MODELO CONCEITUAL <br>
+
+### MODELO LÓGICO <br>
