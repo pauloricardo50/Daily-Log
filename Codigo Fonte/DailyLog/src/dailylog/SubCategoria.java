@@ -6,9 +6,11 @@
 package dailylog;
 
 /**
- *
- * @author Carol Cebin
+ *  @author Ana Carolina Cebin Pereira
+ *  @author Jardielma Queiroz de Lima
+ *  @author Paulo Ricardo Viana Ferreira
  */
+
 public class SubCategoria {
     private final int id;
     private String nome;
@@ -18,11 +20,23 @@ public class SubCategoria {
         this.nome = nome;
     }
 
+    /**
+     * Pega a valor do id da SubCategoria
+     * @return Retorna o Id da SubCategoria
+     *
+     */
     public int getId() {
+
         return id;
     }
 
+    /**
+     * Pega o nome da categoria
+     * @return O nome da Subcategoria no formato de String
+     *
+     */
     public String getNome() {
+
         return nome;
     }
 }

@@ -5,14 +5,12 @@
  */
 package dailylog;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
 /**
- *
- * @author Carol Cebin
+ *  @author Ana Carolina Cebin Pereira
+ *  @author Jardielma Queiroz de Lima
+ *  @author Paulo Ricardo Viana Ferreira
  */
+
 public class DailyLog {
 
     /**
@@ -38,10 +36,14 @@ public class DailyLog {
         evento.listarSubCategorias();
         System.out.println("-------------------------------------------------------------------------");
         System.out.println("Teste Criando Atividades: ");
-        user.adicionarAtiviade("24/03/1996", 0, "Reuniao com alguem ai", "Reuinao no 15 andar com o pessoal da NExa", "12:00", "14:30", 01, 04);
-        user.adicionarAtiviade("24/03/1996", 1, "Reuniao com alguem ai", "Reuinao no 15 andar com o pessoal da NExa", "11:00", "14:00", 01, 04);
-        user.adicionarAtiviade("24/03/1996", 2, "Aniversario do mes de marco", "Sala do 16 andar com o bone", "10:00", "11:00", 01, 04);
-        user.listarAtiviade("24/03/1996");
+        user.adicionarAtividade("24/03/1996", 0, "Reuniao com alguem ai", "Reuinao no 15 andar com o pessoal da NExa", "12:00", "14:30", 01, 04);
+        user.adicionarAtividade("24/03/1996", 1, "Reuniao com alguem ai", "Reuinao no 15 andar com o pessoal da NExa", "11:00", "14:00", 01, 04);
+        user.adicionarAtividade("24/03/1996", 2, "Aniversario do mes de marco", "Sala do 16 andar com o bone", "10:00", "11:00", 01, 04);
+
+        System.out.println("-------------------------------------------------------------------------");
+        user.listarAtividadesCompleta("24/03/1996");
+        System.out.println("-------------------------------------------------------------------------");
+        user.listarAtividadesSimplificada("24/03/1996");
 
     }
     
