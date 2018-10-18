@@ -9,9 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author Carol Cebin
+ *  @author Ana Carolina Cebin Pereira
+ *  @author Jardielma Queiroz de Lima
+ *  @author Paulo Ricardo Viana Ferreira
  */
+
 public class Categoria {
     private final int id;
     private String nome;
@@ -22,12 +24,19 @@ public class Categoria {
         this.nome = nome;
     }
 
-
+    /**
+     * Cria a nova subcategoria e insere na lista de subCategorias
+     * @param nomeSubCategoria nome da nova SubCategoria
+     * @param idSubCategoria id da nova SubCategoria
+     */
     public void adicionarSubcategoria(String nomeSubCategoria, int idSubCategoria){
         SubCategoria subCategoria = new SubCategoria(idSubCategoria, nomeSubCategoria);
         this.subCategorias.add(subCategoria);
     }
 
+    /**
+     * Lista as Subcategorias da categoria
+     */
     public void listarSubCategorias(){
         System.out.println("Categoria " + this. nome);
         for(SubCategoria subcategoria: subCategorias){
