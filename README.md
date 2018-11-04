@@ -35,6 +35,7 @@ de outros usuários. O sistema deve armazenar os registros de eventos e ser comp
 ### 6. TECNOLOGIAS UTILIZADAS<br>
 - **Java:** Implementação do código fonte;
 - **MySQL:** Implementação de Bando de Dados;
+- **Biblioteca Sqlite:** Implementação do Banco de Dados
 - **Balsamiq:** Protótipós;
 
 ### 7. DIÁRIO DE BORDO<br>
