@@ -42,7 +42,7 @@ de outros usuários. O sistema deve armazenar os registros de eventos e ser comp
 - [Link Para Acessar o documento no Drive.](https://drive.google.com/open?id=1P6XwhbS9ZVZyNuUQGXmAFkPPXhGp1INxyhvCrwF9Y6E)
 
 ### 8. QUADRO KANBAN<br>
-- [Link Para Acessar o quadro no Trello.]()
+- [Link Para Acessar o quadro no Trello.](https://trello.com/b/HZuN7nHJ/dailylog2)
 
 ### 9. JavaDoc<br>
 - [Link Para Acessar o JavDoc.](http://dailylogjavadoc.gearhostpreview.com/)
