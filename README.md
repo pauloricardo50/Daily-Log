@@ -45,7 +45,7 @@ de outros usuários. O sistema deve armazenar os registros de eventos e ser comp
 - [Link Para Acessar o quadro no Trello.](https://trello.com/b/HZuN7nHJ/dailylog2)
 
 ### 9. JavaDoc<br>
-- [Link Para Acessar o JavDoc.](http://dailylogjavadoc.gearhostpreview.com/)
+- [Link Para Acessar o JavDoc.]()
 
 ### 10.PROTÓTIPOS DO SISTEMA(MOCKUPS)<br>
 - [MOCKUP - PERFIL USUARIO](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Documentos/Prot-tipos/Daily%20Log%20-%20Perfil%20Usuario%20Comum%20.pdf)
@@ -53,10 +53,10 @@ de outros usuários. O sistema deve armazenar os registros de eventos e ser comp
 - [MOCKUP - PERFIL ADMINISTRADOR](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Documentos/Prot-tipos/Daily%20Log%20-%20Perfil%20Adiministrador.pdf)
 
 ### 11. DIAGRAMA DE CLASSES UML<br>
- ![Alt Text]()
+ ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Diagrama%20de%20Classe%20-%20Daily%20Log.jpg?raw=true)
 
 ### 12. MODELO CONCEITUAL <br>
- ![Alt Text])
+ ![Alt Text]()
  
 
 
