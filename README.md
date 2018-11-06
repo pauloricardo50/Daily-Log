@@ -48,9 +48,9 @@ de outros usuários. O sistema deve armazenar os registros de eventos e ser comp
 - [Link Para Acessar o JavDoc.](http://dailylogjavadoc.gearhostpreview.com/)
 
 ### 10.PROTÓTIPOS DO SISTEMA(MOCKUPS)<br>
-- [MOCKUP - PERFIL USUARIO]()
-- [MOCKUP - PERFIL DE CADASTRO]()
-- [MOCKUP - PERFIL ADMINISTRADOR]()
+- [MOCKUP - PERFIL USUARIO](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Documentos/Prot-tipos/Daily%20Log%20-%20Perfil%20Usuario%20Comum%20.pdf)
+- [MOCKUP - PERFIL DE CADASTRO](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Documentos/Prot-tipos/Daily%20Log%20%20-%20Perfil%20de%20Cadastro.pdf)
+- [MOCKUP - PERFIL ADMINISTRADOR](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Documentos/Prot-tipos/Daily%20Log%20-%20Perfil%20Adiministrador.pdf)
 
 ### 11. DIAGRAMA DE CLASSES UML<br>
  ![Alt Text]()
