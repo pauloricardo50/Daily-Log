@@ -5,71 +5,120 @@
  */
 package dailylog;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
+import bancoDeDados.ConexaoSQLite;
+import bancoDeDados.SelectNasTables;
+
 
 /**
- *  @author Ana Carolina Cebin Pereira
- *  @author Jardielma Queiroz de Lima
- *  @author Paulo Ricardo Viana Ferreira
+ *
+ * @author PAULOR RICARDO GAMEPLAYS E JARDIELMA QUEIROZ DE LIMA
  */
-
-public class Usuario{
-    private LocalTime horarioPadraoInicial;
-    private LocalTime horarioPadraoFinal;
+public class Usuario 
+{
+    /* atributos */
+    
+    private int id;
+    private int idade;
+    private String horarioPadraoInicial;
+    private String horarioPadraoFinal;
     protected String nome;
     protected String senha;
     protected int tamanhoFonte;
     protected boolean autoContraste;
-    protected int id;
-    public List<Expediente> expedientes = new ArrayList();
-
-
-    public Usuario(String horarioPadraoInicial, String horarioPadraoFinal, String nome, String senha, int tamanhoFonte, boolean autoContraste, int id) {
-        this.horarioPadraoInicial = LocalTime.parse(horarioPadraoInicial + ":00", DateTimeFormatter.ofPattern("HH:mm:ss"));
-        this.horarioPadraoFinal = LocalTime.parse(horarioPadraoFinal + ":00", DateTimeFormatter.ofPattern("HH:mm:ss"));
-        this.nome = nome;
-        this.senha = senha;
-        this.tamanhoFonte = tamanhoFonte;
-        this.autoContraste = autoContraste;
-        this.id = id;
-        
+    
+    /* Getters e Setters */
+    
+    public int getId() {
+        return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public String getHorarioPadraoInicial() {
+        return horarioPadraoInicial;
+    }
+
+    public void setHorarioPadraoInicial(String horarioPadraoInicial) {
+        this.horarioPadraoInicial = horarioPadraoInicial;
+    }
+
+    public String getHorarioPadraoFinal() {
+        return horarioPadraoFinal;
+    }
+
+    public void setHorarioPadraoFinal(String horarioPadraoFinal) {
+        this.horarioPadraoFinal = horarioPadraoFinal;
+    }
 
     public String getNome() {
-
-        return this.nome;
+        return nome;
     }
 
-    /**
-     * Adiciona uma atividade verificando se vai existir um conflito com alguma outra atividade  registrada no dia
-     *
-     * @param data              data da atividade
-     * @param id                id da atividade
-     * @param titulo            titulo da atividade
-     * @param descricao         descricao da atividade
-     * @param horarioInicio     horario de inicio da atividade
-     * @param horarioFim        horario de termino da atividade
-     * @param idCategoria       id da categoria da ativiade
-     * @param idSubCategoria    id da SubCategoria da atividade
-     */
-    public void adicionarAtividade(String data, int id, String titulo, String descricao, String horarioInicio, String horarioFim, int idCategoria, int idSubCategoria){
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public int getTamanhoFonte() {
+        return tamanhoFonte;
+    }
+
+    public void setTamanhoFonte(int tamanhoFonte) {
+        this.tamanhoFonte = tamanhoFonte;
+    }
+
+    public boolean isAutoContraste() {
+        return autoContraste;
+    }
+
+    public void setAutoContraste(boolean autoContraste) {
+        this.autoContraste = autoContraste;
+    }
+
+    
+    public void bucarUsuario(){
+        ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
+        conexaoSQLite.conectar(); //conectando
+        
+        SelectNasTables consulta = new SelectNasTables(conexaoSQLite);
+        consulta.exibirUsuario();
+    }
+   /* 
+    
+    public void adicionarAtiviade(String data, int id, String titulo, String descricao, String horarioInicio, String horarioFim, int idCategoria, int idSubCategoria){
         if(!existeExpediente(data)){
             adicionarExpediente(data);
         }
         for (Expediente expediente: expedientes) {
-            if(data.equals(expediente.getDataString())){
-                if ((!expediente.existeAtividadesCadastradas()) || (!expediente.vericaConflitoHorario(horarioInicio, horarioFim)) ){
-                    Atividade atividade = new Atividade(id , titulo, descricao, horarioInicio, horarioFim, idCategoria, idSubCategoria);
+            if(data.equals(expediente.getData())){
+                if (!expediente.existeAtiviadesCadastradas()){
+                    Atividade atividade = new Atividade(id , titulo, descricao, horarioInicio, horarioFim, 01, 03);
                     expediente.adicionaAtividade(atividade);
-                } else{
-                    System.out.println("Atividade nao pode ser adicionada devido a conflitos");
+                }else{
+                    if(!expediente.vericaConflitoHorario(horarioInicio, horarioFim)) {
+                        Atividade atividade = new Atividade(id, titulo, descricao, horarioInicio, horarioFim, 01, 03);
+                        expediente.adicionaAtividade(atividade);
+                    } else{
+                        System.out.println("Atividade nao pode ser adicionada devido a conflitos");
+                    }
                 }
-
             }
         }
     }
@@ -92,28 +141,11 @@ public class Usuario{
         //E altera a infomação
         
     }
-
-    /**
-     * Lista as atividade de um determinado dia com as informacoes completas da atividade
-     * @param data data referente as atividades que devem ser listadas
-     */
-    public void listarAtividadesCompleta(String data){
+    
+    public void listarAtiviade(String data){
         for( Expediente expediente : expedientes) {
-            if (data.equals(expediente.getDataString())) {
-                expediente.listarAtividadesCompleta();
-            }
-        }
-    }
-
-
-    /**
-     * Lista as atividade de um determinado dia com as informacoes simplificadas(Horario de comeco e termino, e titulo) da atividade
-     * @param data data referente as atividades que devem ser listadas
-     */
-    public void listarAtividadesSimplificada(String data){
-        for( Expediente expediente : expedientes) {
-            if (data.equals(expediente.getDataString())) {
-                expediente.listarAtividadesSimplificada();
+            if (data.equals(expediente.getData())) {
+                expediente.listarAtividades();
             }
         }
     }
@@ -123,33 +155,25 @@ public class Usuario{
    
     }
 
-
-    /**
-     * Cria um novo expediente e adiona na lista de expedientes do usuario
-     * @param dataString data do expediente que sera criado
-     */
-    private void adicionarExpediente(String dataString){
-        LocalDate localDate = LocalDate.parse("2018/07/22", DateTimeFormatter.ofPattern("yyyy/MM/dd"));
-        Expediente novoExpediente = new Expediente(dataString, this.horarioPadraoInicial, this.horarioPadraoFinal);
+    private void adicionarExpediente(String data){
+        Expediente novoExpediente = new Expediente(data, this.horarioPadraoInicial, this.horarioPadraoFinal);
         this.expedientes.add(novoExpediente);
         
     }
 
-    /**Verifica se o Expediente ja esta cadastrado
-     * @param dataString String com a informação da data que sera verificado se existe o expediente
-     */
-    private boolean existeExpediente(String dataString){
-
+    //Verifica se o Expediente ja esta cadastrado//
+    private boolean existeExpediente(String data){
         for( Expediente expediente : expedientes){
-            if(dataString.equals(expediente.getDataString())){
+            if(data.equals(expediente.getData())){
                 return true;
             } 
         }
         return false;
     }
-
-
-}
-
-
     
+    
+    */
+    
+    
+    
+}

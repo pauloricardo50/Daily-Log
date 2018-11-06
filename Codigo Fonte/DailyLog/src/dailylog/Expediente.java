@@ -5,116 +5,114 @@
  */
 package dailylog;
 
-import javax.print.DocFlavor;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
+import bancoDeDados.ConexaoSQLite;
+import bancoDeDados.SelectNasTables;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
- *  @author Ana Carolina Cebin Pereira
- *  @author Jardielma Queiroz de Lima
- *  @author Paulo Ricardo Viana Ferreira
- *
+ * @author PAULOR RICARDO GAMEPLAYS E JARDIELMA QUEIROZ DE LIMA
  */
+public class Expediente 
+{
+    private int id;
+    private String data;
+    private String horarioInicial;
+    private String horarioFinal;
 
-public class Expediente {
-    private LocalDate data;
-    private LocalTime horarioInicial;
-    private LocalTime horarioFinal;
-    private List<Atividade> atividadesDoDia = new ArrayList();
+    public int getId() {
+        return id;
+    }
 
-    public Expediente(String data, LocalTime horarioInicial, LocalTime horarioFinal) {
-        this.data = LocalDate.parse(data, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getHorarioInicial() {
+        return horarioInicial;
+    }
+
+    public void setHorarioInicial(String horarioInicial) {
+        this.horarioInicial = horarioInicial;
+    }
+
+    public String getHorarioFinal() {
+        return horarioFinal;
+    }
+
+    public void setHorarioFinal(String horarioFinal) {
+        this.horarioFinal = horarioFinal;
+    }
+
+    public void bucarExpediente(){
+        ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
+        conexaoSQLite.conectar(); //conectando
+        
+        SelectNasTables consulta = new SelectNasTables(conexaoSQLite);
+        consulta.exibirExpediente();
+    }
+    
+    /*
+    
+    public Expediente(String data, OffsetTime horarioInicial, OffsetTime horarioFinal) {
+        this.data = data;
         this.horarioInicial = horarioInicial;
         this.horarioFinal = horarioFinal;
     }
 
-    /**
-     * Pega o data do expediente
-     * @return A data do expediente
-     */
-    public LocalDate getData() {
-
+    public String getData() {
         return this.data;
     }
-
-    public String getDataString(){
-        DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String dataString = this.data.format(formatoData);
-        return dataString;
-    }
-    
-    /**Percorre as atividades do dia e verifica se um intervalo horario não disponivel para inserir uma nova atividade
-     *
-     * @param horario1   Horario inicial da nova atividade
-     * @param horario2   Horario final da nova atividade
-     *
-     * @return Verdadeiro se o horario nao estiver disponivel e Falso se estiver disponivel
-     * */
-    public boolean vericaConflitoHorario(String horario1, String horario2){
-        /**Converte duas Strings pra LocalTime*/
-        LocalTime horarioInicial = LocalTime.parse(horario1 + ":00", DateTimeFormatter.ofPattern("HH:mm:ss"));
-        LocalTime horarioFinal = LocalTime.parse(horario2 + ":00", DateTimeFormatter.ofPattern("HH:mm:ss"));
-
-        /**Percorre as atividades do dia*/
+    /*
+    /**Percorre as ativiades do dia, e verifica se o intervalo de tempo inserido(HorarioInicial e horarioFIna) NÃO esta sem disponivel(True). */
+    /*public boolean vericaConflitoHorario(String horario1, String horario2){
+        //Converte As duas Strings pra OffSetTime//
+        OffsetTime horarioInicial = OffsetTime.parse(horario1 + ":00+00:00");
+        OffsetTime horarioFinal = OffsetTime.parse(horario2 + ":00+00:00");
+        ///Percorre as atividades//
         for(Atividade atividade: atividadesDoDia){
-            /**Explicações das verificações:
+            //Explicacoes das verificacoes:
              * 1 Caso: Verifica se horario Inicial esta no meio de uma atividade
              * 2 Caso: Verifica se o horario Final esta no meio de uma atividade
              * 3 Caso: Verifica se existe uma atividade entre o horario Inicial e o horario final
-             * Caso algum desses casos ocorra, existe um conflito de atividades(Return TRUE).
-             */
-            if((horarioInicial.isAfter(atividade.getHorarioInicial()) && horarioInicial.isBefore(atividade.getHorarioFinal()) )
-                    || (horarioFinal.isAfter(atividade.getHorarioInicial()) && horarioFinal.isBefore(atividade.getHorarioFinal()))
-                    || (horarioInicial.isBefore(atividade.getHorarioInicial()) && horarioFinal.isAfter(atividade.getHorarioFinal()))){
-
+             * Caso algum desses casos ocorra, existira um conflito de atividades(Return true).
+             //
+            if((horarioInicial.isAfter(atividade.getHorarioInicial()) && horarioInicial.isBefore(atividade.getHorarioFinal()) ) || (horarioFinal.isAfter(atividade.getHorarioInicial()) && horarioFinal.isBefore(atividade.getHorarioFinal())) || (horarioInicial.isBefore(atividade.getHorarioInicial()) && horarioFinal.isAfter(atividade.getHorarioFinal()))){
                 return true;
             }
+
         }
+
         return false;
     }
-
-
-    /**
-     *  Exibir todas as atividades do dia com as seguintes informações: Titulo, descricao, categoria, subcategoria, horaio inicial, horario final
-     */
-    public void listarAtividadesCompleta(){
+    
+    /**Pecorre as atividades do dia exibindo elas*/
+    /*
+    public void listarAtividades(){
         for(Atividade atividade: atividadesDoDia){
             atividade.exibirAtividade();
         }
     }
 
-    /**
-     *  Exibir todas as atividades do dia com as seguinte informações: Hoario de inicio, Hoario final e Titulo
-     */
-    public void listarAtividadesSimplificada(){
-        for(Atividade atividade: atividadesDoDia){
-            atividade.exibirAtividadeSimplificada();
-        }
-    }
-
-    /**Verifica se existe ja existe alguma atividade no dia
-     *
-     * @return Verdadeiro se existe atividade casdastrada no Expediente e false se não existe atividade cadastrada no Expediente
-     *
-     */
-    public boolean existeAtividadesCadastradas(){
+    /**Verifica se existe ja existe alguma atividade no dia*/
+    /*
+    public boolean existeAtiviadesCadastradas(){
         if (this.atividadesDoDia.isEmpty()){
             return false;
         }
         return true;
     }
 
-    /**Adiciona a atividade na lista de atividades do expediente
-     *
-     * @param atividade  Nova atividade
-     *
-     */
     public void adicionaAtividade(Atividade atividade){
-
         this.atividadesDoDia.add(atividade);
     }
 
@@ -128,6 +126,7 @@ public class Expediente {
             }
         }
     }*/
+    
     
     
     
