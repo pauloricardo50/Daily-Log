@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bancoDeDados;
-import bancoDeDados.ConexaoSQLite;
+package BancoDeDados;
+import BancoDeDados.ConexaoSQLite;
 import dailylog.Atividade;
 import dailylog.Categoria;
 import dailylog.Expediente;
@@ -57,8 +57,8 @@ public class InsertNasTables
         {
             preparedStatement.setInt(1,pessoa1.getId());
             preparedStatement.setInt(2,pessoa1.getIdade());
-            preparedStatement.setString(3,pessoa1.getHorarioPadraoInicial());
-            preparedStatement.setString(4,pessoa1.getHorarioPadraoFinal());
+            preparedStatement.setTime(3,pessoa1.getHorarioPadraoInicial());
+            preparedStatement.setTime(4,pessoa1.getHorarioPadraoFinal());
             preparedStatement.setString(5, pessoa1.getNome());
             preparedStatement.setString(6, pessoa1.getSenha());
             preparedStatement.setInt(7,pessoa1.getTamanhoFonte());
@@ -125,8 +125,8 @@ public class InsertNasTables
             preparedStatement.setInt(1,atividade.getId());
             preparedStatement.setString(2,atividade.getTitulo());
             preparedStatement.setString(3,atividade.getDescricao());
-            preparedStatement.setString(4,atividade.getHorarioInicial());
-            preparedStatement.setString(5,atividade.getHorarioFinal());
+            preparedStatement.setTime(4,atividade.getHorarioInicial());
+            preparedStatement.setTime(5,atividade.getHorarioFinal());
             preparedStatement.setInt(6,atividade.getIdCategoria());
             preparedStatement.setInt(7,atividade.getIdSubCategoria());
                         

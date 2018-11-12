@@ -5,6 +5,7 @@
  */
 package dailylog;
 
+import java.text.ParseException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -38,7 +39,7 @@ public class AtividadeIT {
     }
 
     @Test
-    public void testAdicionarAtividade() {
+    public void testAdicionarAtividade() throws ParseException {
         System.out.println("Adicionar Atividade");
         
         Atividade atividade = new Atividade();
@@ -66,7 +67,7 @@ public class AtividadeIT {
      * Test of setIdSubCategoria method, of class Atividade.
      */
     @Test
-    public void testCamposAtividade() {
+    public void testCamposCategoria() {
         System.out.println("verificar campos preenchido.");
         
         Atividade atividade = new Atividade();

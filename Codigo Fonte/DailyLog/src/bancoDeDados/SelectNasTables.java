@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bancoDeDados;
-import bancoDeDados.ConexaoSQLite;
+package BancoDeDados;
+import BancoDeDados.ConexaoSQLite;
 import java.sql.SQLException;
 import java.sql.Statement;
-import bancoDeDados.ConexaoSQLite;
+import BancoDeDados.ConexaoSQLite;
 import dailylog.Atividade;
 import dailylog.Categoria;
 import dailylog.Expediente;

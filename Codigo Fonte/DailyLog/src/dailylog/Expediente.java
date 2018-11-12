@@ -5,8 +5,8 @@
  */
 package dailylog;
 
-import bancoDeDados.ConexaoSQLite;
-import bancoDeDados.SelectNasTables;
+import BancoDeDados.ConexaoSQLite;
+import BancoDeDados.SelectNasTables;
 import java.util.ArrayList;
 
 /**

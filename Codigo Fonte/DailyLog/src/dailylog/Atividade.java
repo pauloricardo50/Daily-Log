@@ -5,9 +5,13 @@
  */
 package dailylog;
 
-import bancoDeDados.ConexaoSQLite;
-import bancoDeDados.InsertNasTables;
-import bancoDeDados.SelectNasTables;
+import BancoDeDados.ConexaoSQLite;
+import BancoDeDados.InsertNasTables;
+import BancoDeDados.SelectNasTables;
+import java.sql.Date;
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -18,8 +22,8 @@ public class Atividade
     private int id;
     private String titulo;
     private String descricao;
-    private String horarioInicial;
-    private String horarioFinal;
+    private Time horarioInicial;
+    private Time horarioFinal;
     private int idCategoria;
     private int idSubCategoria;
 
@@ -49,20 +53,26 @@ public class Atividade
         this.descricao = descricao;
     }
 
-    public String getHorarioInicial() {
+    public Time getHorarioInicial() {
         return horarioInicial;
     }
 
-    public void setHorarioInicial(String horarioInicial) {
-        this.horarioInicial = horarioInicial;
+    public void setHorarioInicial(String horarioInicial) throws ParseException {
+        SimpleDateFormat formatador = new SimpleDateFormat("HH:mm");
+        Date data = (Date) formatador.parse(horarioInicial);
+        Time time = new Time(data.getTime());
+        this.horarioInicial = time;
     }
 
-    public String getHorarioFinal() {
+    public Time getHorarioFinal() {
         return horarioFinal;
     }
 
-    public void setHorarioFinal(String horarioFinal) {
-        this.horarioFinal = horarioFinal;
+    public void setHorarioFinal(String horarioFinal) throws ParseException {
+        SimpleDateFormat formatador = new SimpleDateFormat("HH:mm");
+        Date data = (Date) formatador.parse(horarioFinal);
+        Time time = new Time(data.getTime());
+        this.horarioFinal = time;
     }
 
     public int getIdCategoria() {

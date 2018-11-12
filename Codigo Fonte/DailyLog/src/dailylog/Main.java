@@ -5,19 +5,20 @@
  */
 package dailylog;
 
-import bancoDeDados.ConexaoSQLite;
+import BancoDeDados.ConexaoSQLite;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import bancoDeDados.CriarBancoSQLiteeTales;
-import bancoDeDados.DeleteNasTables;
-import bancoDeDados.InsertNasTables;
-import bancoDeDados.SelectNasTables;
-import bancoDeDados.UpdatenasTabels;
+import BancoDeDados.CriarBancoSQLiteeTales;
+import BancoDeDados.DeleteNasTables;
+import BancoDeDados.InsertNasTables;
+import BancoDeDados.SelectNasTables;
+import BancoDeDados.UpdatenasTabels;
 import dailylog.Usuario;
 import dailylog.Atividade;
 import dailylog.Expediente;
 import dailylog.Categoria;
+import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
@@ -29,7 +30,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 
         ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
         conexaoSQLite.conectar(); //conectando 
@@ -106,11 +107,15 @@ public class Main {
         atividade2.setIdSubCategoria(2);
         
         // INSERINDO ATIVIDADES
+        atividade1.adicionarAtividade(atividade1);
+        atividade2.adicionarAtividade(atividade2);
         
+        /*
         conexaoSQLite.conectar();
         InsertNasTables tabelaAtividade = new InsertNasTables(conexaoSQLite);
         tabelaAtividade.InserirnaTabelaAtividade(atividade1);
         tabelaAtividade.InserirnaTabelaAtividade(atividade2);
+        */
         
         //invocando expedientes
         Expediente expediente1 = new Expediente();
@@ -157,14 +162,23 @@ public class Main {
         categoria5.setNome("Outro");
        
         // INSERINDO CATEGORIAS
-        InsertNasTables tabelaCategoria = new InsertNasTables(conexaoSQLite);
+        categoria1.adicionarCategoria(categoria1);
+        categoria2.adicionarCategoria(categoria2);
+        categoria3.adicionarCategoria(categoria3);
+        categoria4.adicionarCategoria(categoria4);
+        categoria5.adicionarCategoria(categoria5);
+        categoria6.adicionarCategoria(categoria6);
+        
+        /*InsertNasTables tabelaCategoria = new InsertNasTables(conexaoSQLite);
         tabelaCategoria.InserirnaTabelaCategoria(categoria1);
         tabelaCategoria.InserirnaTabelaCategoria(categoria2);
         tabelaCategoria.InserirnaTabelaCategoria(categoria3);
         tabelaCategoria.InserirnaTabelaCategoria(categoria4);
         tabelaCategoria.InserirnaTabelaCategoria(categoria5);
         tabelaCategoria.InserirnaTabelaCategoria(categoria6);
-       
+        */
+        
+
         // vamos consulta-los - Ira exibir todos os usuarios,atividades e categorias
         categoria1.bucarCategoria();
         pessoa1.bucarUsuario();
