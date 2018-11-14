@@ -10,7 +10,13 @@ package dailylog;
  * @author PAULOR RICARDO GAMEPLAYS E JARDIELMA QUEIROZ DE LIMA
  */
 public class Perfil {
-
+    private int id;
+    private String tipo;
+    private String horarioPadraoInicial;
+    private String horarioPadraoFinal;
+    protected int tamanhoFonte;
+    protected boolean autoContraste;
+   
     public int getId() {
         return id;
     }
@@ -58,10 +64,5 @@ public class Perfil {
     public void setAutoContraste(boolean autoContraste) {
         this.autoContraste = autoContraste;
     }
-    private int id;
-    private String tipo;
-    private String horarioPadraoInicial;
-    private String horarioPadraoFinal;
-    protected int tamanhoFonte;
-    protected boolean autoContraste;
+   
 }
