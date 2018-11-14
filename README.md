@@ -4,9 +4,9 @@
 
 ### 1. COMPONENTES<br>
 **Integrantes do grupo:**<br>
-- Ana Carolina Cebin Pereira:<a href="url"> carolcebin@gmail.com </a>
-- Jardielma Queiroz de Lima:<a href="url"> jardielmaqueiroz@hotmail.com </a>
-- Paulo Ricardo Viana Ferreira:<a href="url"> paulo_ricardosf@outlook.com <br></a>
+-  Ana Carolina Cebin Pereira:<a href="url"> carolcebin@gmail.com </a>
+-  Jardielma Queiroz de Lima:<a href="url"> jardielmaqueiroz@hotmail.com </a>
+-  Paulo Ricardo Viana Ferreira:<a href="url"> paulo_ricardosf@outlook.com <br></a>
 
 ### 2. JUSTIFICATIVA DO SISTEMA<br>
 <P align="justify">&nbsp&nbsp O sistema tem como propósito principal fazer o controle do tempo gasto com realização de atividades durante o expediente de trabalho. Além disso, o mesmo será utilizado como mediador para tomada de decisão estratégicas referentes à organização de atividades no trabalho, uma vez que essa ferramenta terá a capacidade de medir o tempo que está sendo gasto com cada atividade.
