@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BancoDeDados;
+package bancoDeDados;
 
 import dailylog.Atividade;
 import dailylog.Categoria;
@@ -20,12 +20,15 @@ import java.util.logging.Logger;
  *
  * @author paulo
  */
-public class UpdatenasTabels 
-{
+public class UpdatenasTabels {
+    
     private final ConexaoSQLite conexaoSQLite;
     
-    public UpdatenasTabels(ConexaoSQLite pConexaoSQLite) 
-    {
+    /**
+     *
+     * @param pConexaoSQLite
+     */
+    public UpdatenasTabels(ConexaoSQLite pConexaoSQLite) {
         this.conexaoSQLite = pConexaoSQLite;
     }
     
@@ -88,7 +91,7 @@ public class UpdatenasTabels
         
     }
     
-    public void UpdateTabelaAtividade(int idDesejado) 
+    public void updateTabelaAtividade(int idDesejado) 
     {
         ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
         conexaoSQLite.conectar(); //conectando 

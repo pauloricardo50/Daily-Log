@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BancoDeDados;
+package bancoDeDados;
 
-import BancoDeDados.ConexaoSQLite;
 import java.sql.SQLException;
 import java.sql.Statement;
 

@@ -5,9 +5,9 @@
  */
 package dailylog;
 
-import BancoDeDados.ConexaoSQLite;
-import BancoDeDados.InsertNasTables;
-import BancoDeDados.SelectNasTables;
+import bancoDeDados.ConexaoSQLite;
+import bancoDeDados.InsertNasTables;
+import bancoDeDados.SelectNasTables;
 import java.sql.Date;
 import java.sql.Time;
 import java.text.ParseException;
@@ -94,7 +94,6 @@ public class Atividade
     // METODOS
     
     public boolean adicionarAtividade(Atividade atividade){
-        boolean result = false;
         ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
         conexaoSQLite.conectar(); //conectando
         

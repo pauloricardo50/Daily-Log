@@ -5,15 +5,14 @@
  */
 package dailylog;
 
-import BancoDeDados.ConexaoSQLite;
+import bancoDeDados.ConexaoSQLite;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import BancoDeDados.CriarBancoSQLiteeTales;
-import BancoDeDados.DeleteNasTables;
-import BancoDeDados.InsertNasTables;
-import BancoDeDados.SelectNasTables;
-import BancoDeDados.UpdatenasTabels;
+import bancoDeDados.CriarBancoSQLiteeTales;
+import bancoDeDados.DeleteNasTables;
+import bancoDeDados.InsertNasTables;
+import bancoDeDados.SelectNasTables;
+import bancoDeDados.UpdatenasTabels;
 import dailylog.Usuario;
 import dailylog.Atividade;
 import dailylog.Expediente;
@@ -197,7 +196,7 @@ public class Main {
         deletandoporid.excluirAtividade(1); // ira excluir a categoria pelo id de numero 1*/
         
         UpdatenasTabels atualizadotabelasid = new UpdatenasTabels(conexaoSQLite);
-        atualizadotabelasid.UpdateTabelaAtividade(2);
+        atualizadotabelasid.updateTabelaAtividade(2);
         atualizadotabelasid.atualizandoUsuporID(3);
         atualizadotabelasid.updateTabelaCategoria(51);
         atualizadotabelasid.updateTabelaExpediente(2);

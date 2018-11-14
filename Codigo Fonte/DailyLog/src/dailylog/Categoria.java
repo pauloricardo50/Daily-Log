@@ -5,10 +5,10 @@
  */
 package dailylog;
 
-import BancoDeDados.ConexaoSQLite;
-import BancoDeDados.DeleteNasTables;
-import BancoDeDados.InsertNasTables;
-import BancoDeDados.SelectNasTables;
+import bancoDeDados.ConexaoSQLite;
+import bancoDeDados.DeleteNasTables;
+import bancoDeDados.InsertNasTables;
+import bancoDeDados.SelectNasTables;
 
 /**
  *
