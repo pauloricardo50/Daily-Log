@@ -2,8 +2,6 @@
 
 <P align="justify">&nbsp&nbsp Trabalho desenvolvido para a disciplina de Programação Orientada a Objetos do curso Bacharelado em Sistemas de Informação(IFES - Campus Serra) no semestre 2018/2.</p>
 
-# Sumário
-
 ### 1. COMPONENTES<br>
 **Integrantes do grupo:**<br>
 - Ana Carolina Cebin Pereira: <a href="url"> carolcebin@gmail.com </a>
