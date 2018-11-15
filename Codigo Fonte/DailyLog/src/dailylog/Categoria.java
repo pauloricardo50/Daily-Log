@@ -41,7 +41,6 @@ public class Categoria
     }
 
     public boolean adicionarCategoria(Categoria categoria){
-        boolean result = false;
         ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
         conexaoSQLite.conectar(); //conectando
         
