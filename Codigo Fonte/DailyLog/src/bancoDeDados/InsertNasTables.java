@@ -28,7 +28,7 @@ public class InsertNasTables
     }
     
         
-    public void InserirnaTabelaUsuario(Usuario pessoa1) 
+    public void inserirnaTabelaUsuario(Usuario pessoa1) 
     {
         ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
         conexaoSQLite.conectar(); //conectando 

@@ -13,13 +13,7 @@ import bancoDeDados.DeleteNasTables;
 import bancoDeDados.InsertNasTables;
 import bancoDeDados.SelectNasTables;
 import bancoDeDados.UpdatenasTabels;
-import dailylog.Usuario;
-import dailylog.Atividade;
-import dailylog.Expediente;
-import dailylog.Categoria;
 import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 /**
  *
  * @author PAULOR RICARDO GAMEPLAYS E JARDIELMA QUEIROZ DE LIMA
@@ -80,9 +74,9 @@ public class Main {
         // objetos criados, hora de inserir
         conexaoSQLite.conectar();
         InsertNasTables tabelaUsuario = new InsertNasTables(conexaoSQLite);
-        tabelaUsuario.InserirnaTabelaUsuario(pessoa1);
-        tabelaUsuario.InserirnaTabelaUsuario(pessoa2);
-        tabelaUsuario.InserirnaTabelaUsuario(pessoa3);
+        tabelaUsuario.inserirnaTabelaUsuario(pessoa1);
+        tabelaUsuario.inserirnaTabelaUsuario(pessoa2);
+        tabelaUsuario.inserirnaTabelaUsuario(pessoa3);
         
         
         //INVOCADO ATIVIDADES

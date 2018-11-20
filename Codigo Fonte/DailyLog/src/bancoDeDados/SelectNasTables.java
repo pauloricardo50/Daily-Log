@@ -4,21 +4,10 @@
  * and open the template in the editor.
  */
 package bancoDeDados;
-import bancoDeDados.ConexaoSQLite;
-import java.sql.SQLException;
-import java.sql.Statement;
-import bancoDeDados.ConexaoSQLite;
-import dailylog.Atividade;
-import dailylog.Categoria;
-import dailylog.Expediente;
-import dailylog.Main;
-import dailylog.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 /**
  *
  * @author PAULOR RICARDO GAMEPLAYS E JARDIELMA QUEIROZ DE LIMA
