@@ -5,8 +5,8 @@
  */
 package dailylog;
 
-import bancoDeDados.ConexaoSQLite;
-import bancoDeDados.SelectNasTables;
+import banco.ConexaoSQLite;
+import banco.SelectNasTables;
 
 /**
  *

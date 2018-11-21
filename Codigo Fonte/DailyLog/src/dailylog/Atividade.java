@@ -5,9 +5,9 @@
  */
 package dailylog;
 
-import bancoDeDados.ConexaoSQLite;
-import bancoDeDados.InsertNasTables;
-import bancoDeDados.SelectNasTables;
+import banco.ConexaoSQLite;
+import banco.InsertNasTables;
+import banco.SelectNasTables;
 import java.sql.Date;
 import java.sql.Time;
 import java.text.ParseException;

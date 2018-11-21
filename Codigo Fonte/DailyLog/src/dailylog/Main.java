@@ -5,14 +5,14 @@
  */
 package dailylog;
 
-import bancoDeDados.ConexaoSQLite;
+import banco.ConexaoSQLite;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import bancoDeDados.CriarBancoSQLiteeTales;
-import bancoDeDados.DeleteNasTables;
-import bancoDeDados.InsertNasTables;
-import bancoDeDados.SelectNasTables;
-import bancoDeDados.UpdatenasTabels;
+import banco.CriarBancoSQLiteeTales;
+import banco.DeleteNasTables;
+import banco.InsertNasTables;
+import banco.SelectNasTables;
+import banco.UpdatenasTabels;
 import java.text.ParseException;
 /**
  *
