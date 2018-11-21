@@ -4,7 +4,6 @@
 
 ### 1. COMPONENTES<br>
 **Integrantes do grupo:**<br>
--  Ana Carolina Cebin Pereira:<a href="url"> carolcebin@gmail.com </a>
 -  Jardielma Queiroz de Lima:<a href="url"> jardielmaqueiroz@hotmail.com </a>
 -  Paulo Ricardo Viana Ferreira:<a href="url"> paulo_ricardosf@outlook.com <br></a>
 
