@@ -3,17 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/dailylog/Main.java</file>
-            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/bancoDeDados/SelectNasTables.java</file>
-            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/dailylog/Usuario.java</file>
-            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/bancoDeDados/CriarBancoSQLiteeTales.java</file>
-            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/bancoDeDados/UpdatenasTabels.java</file>
-            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/dailylog/Atividade.java</file>
-            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/dailylog/Expediente.java</file>
-            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/bancoDeDados/DeleteNasTables.java</file>
-            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/bancoDeDados/ConexaoSQLite.java</file>
-            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/bancoDeDados/InsertNasTables.java</file>
-            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/dailylog/Categoria.java</file>
+            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/banco/SelectNasTables.java</file>
+            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/persistencia/AtividadeBD.java</file>
+            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/banco/InsertNasTables.java</file>
+            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/banco/CriarBancoSQLiteeTales.java</file>
+            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/banco/DeleteNasTables.java</file>
+            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/banco/UpdatenasTabels.java</file>
         </group>
     </open-files>
 </project-private>

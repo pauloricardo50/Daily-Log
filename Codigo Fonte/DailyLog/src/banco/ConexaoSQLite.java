@@ -47,8 +47,9 @@ public class ConexaoSQLite
     public boolean desconectar() {
 
         try {
-            if (this.conexao.isClosed() == false) {
+            if (this.conexao.isClosed()) {
                 this.conexao.close();
+            } else {
             }
 
         } catch (SQLException e) {
