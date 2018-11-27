@@ -28,7 +28,7 @@ public class CriarBancoSQLiteeTales
 
         String sql = "CREATE TABLE IF NOT EXISTS tbl_usuario"
                 + "("
-                + "id integer PRIMARY KEY,"
+                + "id integer AUTO_INCREMENT PRIMARY KEY,"
                 + "idade int NOT NULL,"
                 + "horarioPadraoInicial text NOT NULL,"
                 + "horarioPadraoFinal text NOT NULL,"

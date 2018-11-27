@@ -11,7 +11,10 @@ package dailylog;
  */
 public class ParticipacaoAtividade {
     private int id;
-    private String titulo;
+    /**
+  * Javadoc
+  * Descrição da Participação do usuário na atividade
+  */
     private String descricao;
     private String horarioInicial;
     private String horarioFinal;
@@ -25,13 +28,6 @@ public class ParticipacaoAtividade {
         this.id = id;
     }
 
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
 
     public String getDescricao() {
         return descricao;

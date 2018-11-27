@@ -5,10 +5,12 @@
  */
 package persistencia;
 
+import dailylog.ParticipacaoAtividade;
+
 /**
  *
  * @author 20151BSI0100
  */
 public class ParticipacaoAtividadeBD {
-    
+   
 }
