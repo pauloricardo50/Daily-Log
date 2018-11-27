@@ -91,7 +91,6 @@ public class UpdatenasTabels {
     {
         ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
         conexaoSQLite.conectar(); //conectando 
-        ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;
         
         //estamos assumindo que a tabela usuario ja esta criada.
