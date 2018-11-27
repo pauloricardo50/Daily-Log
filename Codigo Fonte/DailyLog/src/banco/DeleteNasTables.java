@@ -13,7 +13,7 @@ import java.sql.SQLException;
  */
 public class DeleteNasTables 
 {
-    private final ConexaoSQLite conexaoSQLite;
+    private ConexaoSQLite conexaoSQLite;
     public DeleteNasTables(ConexaoSQLite pConexaoSQLite) 
     {
         this.conexaoSQLite = pConexaoSQLite;

@@ -5,11 +5,7 @@
  */
 package banco;
 
-import dailylog.Atividade;
-import dailylog.Categoria;
-import dailylog.Expediente;
 import dailylog.Main;
-import dailylog.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

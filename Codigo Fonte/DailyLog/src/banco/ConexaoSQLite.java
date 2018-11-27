@@ -49,7 +49,6 @@ public class ConexaoSQLite
         try {
             if (this.conexao.isClosed()) {
                 this.conexao.close();
-            } else {
             }
 
         } catch (SQLException e) {
