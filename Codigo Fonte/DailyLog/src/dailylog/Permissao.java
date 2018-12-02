@@ -5,9 +5,11 @@
  */
 package dailylog;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author PAULOR RICARDO GAMEPLAYS E JARDIELMA QUEIROZ DE LIMA
+ * @author Jardielma e Paulo Ricardo
  */
 public class Permissao {
     private int id;
@@ -28,4 +30,64 @@ public class Permissao {
     public void setName(String name) {
         this.name = name;
     }
+    
+    
+    
+    public Permissao buscarPermissao(){
+//        Usuario retorno;
+//        try{
+//            //busca o Usuario
+//            retorno = UsuarioBD.buscar(this.id);
+//            this.nome = retorno.nome;
+//            this.perfil= retorno.perfil;
+//        }catch(Exception e ){
+//            System.out.println(e);
+//        }
+//        return this;
+        return null;
+    }
+    
+    public void salvarPermissao(){
+//        Usuario retorno;
+//        try{
+//            //busca o Usuario
+//            retorno = UsuarioBD.buscar(this.id);
+//            this.nome = retorno.nome;
+//            this.perfil= retorno.perfil;
+//        }catch(Exception e ){
+//            System.out.println(e);
+//        }
+    }
+    
+    public void deletarPermissao(){
+//        Usuario retorno;
+//        try{
+//            //busca o Usuario
+//            retorno = UsuarioBD.buscar(this.id);
+//            this.nome = retorno.nome;
+//            this.perfil= retorno.perfil;
+//        }catch(Exception e ){
+//            System.out.println(e);
+//        }
+    }
+    
+    /**
+     *
+     * @return
+     */
+    public ArrayList<Permissao> listaPermissao(){
+//        Permissao retorno;
+//        ArrayList<Permissao> lista = null;
+//        try{
+//            //busca o Usuario
+//            retorno = UsuarioBD.buscar(this.id);
+//            return lista;
+//        }catch(Exception e ){
+//            System.out.println(e);
+//        }
+        return null;
+    }
+    
+    
+    
 }

@@ -5,17 +5,16 @@
  */
 package dailylog;
 
-import banco.ConexaoSQLite;
-import banco.InsertNasTables;
-import banco.SelectNasTables;
+import banco.Conexao;
 import java.sql.Date;
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 /**
  *
- * @author PAULOR RICARDO GAMEPLAYS E JARDIELMA QUEIROZ DE LIMA
+ * @author Jardielma e Paulo Ricardo
  */
 public class Atividade 
 {
@@ -91,23 +90,83 @@ public class Atividade
         this.idSubCategoria = idSubCategoria;
     }
     
+    
+    
+    public Atividade buscarAtividade(){
+//        Usuario retorno;
+//        try{
+//            //busca o Usuario
+//            retorno = UsuarioBD.buscar(this.id);
+//            this.nome = retorno.nome;
+//            this.perfil= retorno.perfil;
+//        }catch(Exception e ){
+//            System.out.println(e);
+//        }
+//        return this;
+        return null;
+    }
+    
+    public void salvarAtividade(){
+//        Usuario retorno;
+//        try{
+//            //busca o Usuario
+//            retorno = UsuarioBD.buscar(this.id);
+//            this.nome = retorno.nome;
+//            this.perfil= retorno.perfil;
+//        }catch(Exception e ){
+//            System.out.println(e);
+//        }
+    }
+    
+    public void deletarAtividade(){
+//        Usuario retorno;
+//        try{
+//            //busca o Usuario
+//            retorno = UsuarioBD.buscar(this.id);
+//            this.nome = retorno.nome;
+//            this.perfil= retorno.perfil;
+//        }catch(Exception e ){
+//            System.out.println(e);
+//        }
+    }
+    
+    /**
+     *
+     * @return
+     */
+    public ArrayList<Atividade> listaAtividade(){
+//        Permissao retorno;
+//        ArrayList<Permissao> lista = null;
+//        try{
+//            //busca o Usuario
+//            retorno = UsuarioBD.buscar(this.id);
+//            return lista;
+//        }catch(Exception e ){
+//            System.out.println(e);
+//        }
+        return null;
+    }
+    
+    
+    
+    
     // METODOS
-    
-    public boolean adicionarAtividade(Atividade atividade){
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
-        conexaoSQLite.conectar(); //conectando
-        
-        InsertNasTables tabelaAtividade = new InsertNasTables(conexaoSQLite);
-        return(tabelaAtividade.InserirnaTabelaAtividade(atividade));
-    }
-    
-    public void bucarAtividade(){
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
-        conexaoSQLite.conectar(); //conectando
-        
-        SelectNasTables consulta = new SelectNasTables(conexaoSQLite);
-        consulta.exibirAtividades();
-    }
+//    
+//    public boolean adicionarAtividade(Atividade atividade){
+//        Conexao conexaoSQLite = new Conexao(); // criando conexao
+//        conexaoSQLite.conectar(); //conectando
+//        
+//        InsertNasTables tabelaAtividade = new InsertNasTables(conexaoSQLite);
+//        return(tabelaAtividade.InserirnaTabelaAtividade(atividade));
+//    }
+//    
+//    public void bucarAtividade(){
+//        Conexao conexaoSQLite = new Conexao(); // criando conexao
+//        conexaoSQLite.conectar(); //conectando
+//        
+//        SelectNasTables consulta = new SelectNasTables(conexaoSQLite);
+//        consulta.exibirAtividades();
+//    }
     /*
     public Atividade(int id, String titulo, String descricao, String horarioInicial, String horarioFinal, int idCategoria, int idSubCategoria) {
         this.id = id;

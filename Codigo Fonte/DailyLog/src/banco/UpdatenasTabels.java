@@ -18,19 +18,19 @@ import java.util.logging.Logger;
  */
 public class UpdatenasTabels {
     
-    private final ConexaoSQLite conexaoSQLite;
+    private final Conexao conexaoSQLite;
     
     /**
      *
      * @param pConexaoSQLite
      */
-    public UpdatenasTabels(ConexaoSQLite pConexaoSQLite) {
+    public UpdatenasTabels(Conexao pConexaoSQLite) {
         this.conexaoSQLite = pConexaoSQLite;
     }
     
     public void atualizandoUsuporID(int idDesejado) 
     {
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
+        Conexao conexaoSQLite = new Conexao(); // criando conexao
         conexaoSQLite.conectar(); //conectando 
         ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;
@@ -89,7 +89,7 @@ public class UpdatenasTabels {
     
     public void updateTabelaAtividade(int idDesejado) 
     {
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
+        Conexao conexaoSQLite = new Conexao(); // criando conexao
         conexaoSQLite.conectar(); //conectando 
         PreparedStatement preparedStatement = null;
         
@@ -145,7 +145,7 @@ public class UpdatenasTabels {
     
     public void updateTabelaCategoria(int idDesejado) 
     {
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
+        Conexao conexaoSQLite = new Conexao(); // criando conexao
         conexaoSQLite.conectar(); //conectando 
         ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;
@@ -193,7 +193,7 @@ public class UpdatenasTabels {
     
     public void updateTabelaExpediente(int idDesejado) 
     {
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
+        Conexao conexaoSQLite = new Conexao(); // criando conexao
         conexaoSQLite.conectar(); //conectando 
         ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;

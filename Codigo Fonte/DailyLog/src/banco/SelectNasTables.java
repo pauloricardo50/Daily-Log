@@ -13,14 +13,14 @@ import java.sql.Statement;
  * @author PAULOR RICARDO GAMEPLAYS E JARDIELMA QUEIROZ DE LIMA
  */
 public class SelectNasTables {
-    private final ConexaoSQLite conexaoSQLite;
-    public SelectNasTables(ConexaoSQLite pConexaoSQLite){
+    private final Conexao conexaoSQLite;
+    public SelectNasTables(Conexao pConexaoSQLite){
         this.conexaoSQLite = pConexaoSQLite;
     }
     
     //exibir dados dos usuario
     public void exibirUsuario(){
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
+        Conexao conexaoSQLite = new Conexao(); // criando conexao
         conexaoSQLite.conectar(); //conectando 
         ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;
@@ -58,7 +58,7 @@ public class SelectNasTables {
      }
     
     public void exibirCategorias(){
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
+        Conexao conexaoSQLite = new Conexao(); // criando conexao
         conexaoSQLite.conectar(); //conectando 
         ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;
@@ -94,7 +94,7 @@ public class SelectNasTables {
      }
         
     public void exibirAtividades(){
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
+        Conexao conexaoSQLite = new Conexao(); // criando conexao
         conexaoSQLite.conectar(); //conectando 
         ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;
@@ -132,7 +132,7 @@ public class SelectNasTables {
         
     }
     public void exibirExpediente(){
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
+        Conexao conexaoSQLite = new Conexao(); // criando conexao
         conexaoSQLite.conectar(); //conectando 
         ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;

@@ -5,12 +5,14 @@
  */
 package dailylog;
 
-import banco.ConexaoSQLite;
+import banco.Conexao;
 import banco.SelectNasTables;
+import java.util.ArrayList;
+import persistencia.ExpedienteBD;
 
 /**
  *
- * @author PAULOR RICARDO GAMEPLAYS E JARDIELMA QUEIROZ DE LIMA
+ * @author Jardielma e Paulo Ricardo
  */
 public class Expediente 
 {
@@ -18,7 +20,9 @@ public class Expediente
     private String data;
     private String horarioInicial;
     private String horarioFinal;
-
+    ExpedienteBD persistencia = new ExpedienteBD();
+    private String flag_ativo;
+    
     public int getId() {
         return id;
     }
@@ -51,81 +55,99 @@ public class Expediente
     public void setHorarioFinal(String horarioFinal) {
         this.horarioFinal = horarioFinal;
     }
+    
+        public String getFlag_ativo() {
+        return flag_ativo;
+    }
 
-    public void bucarExpediente(){
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
-        conexaoSQLite.conectar(); //conectando
+    public void setFlag_ativo(String flag_ativo) {
+        this.flag_ativo = flag_ativo;
+    }
+
+    /**
+     * Busca o usuario pelo id do objeto
+     * Caso encontre, retorna o usuário encontrado e seta as váriaveis do objeto no objeto atual
+     * Caso não encontre, retorna null.
+     * @return
+     */
+    public Expediente buscar(){
+        Expediente retorno;
+        persistencia = new ExpedienteBD();
+        try{
+            //busca o Usuario
+            retorno = persistencia.buscar(this.id);
+            //verifica se encontrou registro
+            if(retorno == null){
+                //retorna objeto como null caso não encontra
+                return null;
+            }
+            this.data = retorno.data;
+            this.horarioInicial = retorno.horarioInicial;
+            this.horarioFinal = retorno.horarioFinal;
+            
+        }catch(Exception e ){
+            System.out.println(e);
+        }
+        return this;
+    }
+    
+    
+    public String salvar(int idUsuario){
+        persistencia = new ExpedienteBD();
+        Expediente retorno;
         
-        SelectNasTables consulta = new SelectNasTables(conexaoSQLite);
-        consulta.exibirExpediente();
-    }
-    
-    /*
-    
-    public Expediente(String data, OffsetTime horarioInicial, OffsetTime horarioFinal) {
-        this.data = data;
-        this.horarioInicial = horarioInicial;
-        this.horarioFinal = horarioFinal;
-    }
-
-    public String getData() {
-        return this.data;
-    }
-    /*
-    /**Percorre as ativiades do dia, e verifica se o intervalo de tempo inserido(HorarioInicial e horarioFIna) NÃO esta sem disponivel(True). */
-    /*public boolean vericaConflitoHorario(String horario1, String horario2){
-        //Converte As duas Strings pra OffSetTime//
-        OffsetTime horarioInicial = OffsetTime.parse(horario1 + ":00+00:00");
-        OffsetTime horarioFinal = OffsetTime.parse(horario2 + ":00+00:00");
-        ///Percorre as atividades//
-        for(Atividade atividade: atividadesDoDia){
-            //Explicacoes das verificacoes:
-             * 1 Caso: Verifica se horario Inicial esta no meio de uma atividade
-             * 2 Caso: Verifica se o horario Final esta no meio de uma atividade
-             * 3 Caso: Verifica se existe uma atividade entre o horario Inicial e o horario final
-             * Caso algum desses casos ocorra, existira um conflito de atividades(Return true).
-             //
-            if((horarioInicial.isAfter(atividade.getHorarioInicial()) && horarioInicial.isBefore(atividade.getHorarioFinal()) ) || (horarioFinal.isAfter(atividade.getHorarioInicial()) && horarioFinal.isBefore(atividade.getHorarioFinal())) || (horarioInicial.isBefore(atividade.getHorarioInicial()) && horarioFinal.isAfter(atividade.getHorarioFinal()))){
-                return true;
+        try{
+            if(this.getData().length() == 0){
+                return "Não possui data";
             }
-
-        }
-
-        return false;
-    }
-    
-    /**Pecorre as atividades do dia exibindo elas*/
-    /*
-    public void listarAtividades(){
-        for(Atividade atividade: atividadesDoDia){
-            atividade.exibirAtividade();
-        }
-    }
-
-    /**Verifica se existe ja existe alguma atividade no dia*/
-    /*
-    public boolean existeAtiviadesCadastradas(){
-        if (this.atividadesDoDia.isEmpty()){
-            return false;
-        }
-        return true;
-    }
-
-    public void adicionaAtividade(Atividade atividade){
-        this.atividadesDoDia.add(atividade);
-    }
-
-    /*
-    public void alteraInicioExpediente(String novoHorario){
-        OffsetTime horario = OffsetTime.parse(horario2 + ":00+00:00");
-        for (Atividade atividade: atividadesDoDia ) {
-            if(atividade.getHorarioInicial().isAfter(horario)){
-                System.out.println("Não é possivel alterar o horario, pois ja existe atividades nesse horario");
-                break;
+            if(this.getHorarioFinal().length() == 0){
+                return "Não possui hora";
             }
+            if(this.getHorarioInicial().length() == 0){
+                return "Não possui hora";
+            }
+            if(idUsuario == 0){
+                return "Não possui usuario";
+            }
+            
+            //salva o usuario
+            retorno = persistencia.salvar(this, idUsuario);
+            //Atualiza o id do usuario, tendo em vista que o usuario criado não tinha
+            this.id = retorno.getId();
         }
-    }*/
+        catch(Exception e ){
+            System.out.println(e);
+        }
+        return "Expediente Salvo com sucesso";
+    }
     
+    public String deletar(){
+//        persistencia = new UsuarioBD();
+//        this.setFlag_ativo("D");
+//        try{
+//            //busca o Usuario
+//            persistencia.salvar(this);
+//        }catch(Exception e ){
+//            System.out.println(e);
+//        }
+//            return "Usuário excluido com sucesso";
+return "";
+    }
+    
+    /**
+     *
+     * @return
+     */
+    public ArrayList<Expediente> listar(){
+        try{
+            persistencia = new ExpedienteBD();
+            //busca o Usuario
+            return persistencia.listar();
+        }catch(Exception e ){
+            System.out.println(e);
+        }
+        return null;
+    }
     
     
     

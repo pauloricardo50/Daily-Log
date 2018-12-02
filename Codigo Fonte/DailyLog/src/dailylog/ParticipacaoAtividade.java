@@ -5,9 +5,11 @@
  */
 package dailylog;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author PAULOR RICARDO GAMEPLAYS E JARDIELMA QUEIROZ DE LIMA
+ * @author Jardielma e Paulo Ricardo
  */
 public class ParticipacaoAtividade {
     private int id;
@@ -59,6 +61,64 @@ public class ParticipacaoAtividade {
 
     public void setAtividade(Atividade atividade) {
         this.atividade = atividade;
+    }
+    
+    
+    
+    
+    public ParticipacaoAtividade buscarParticipacaoAtividade(){
+//        Usuario retorno;
+//        try{
+//            //busca o Usuario
+//            retorno = UsuarioBD.buscar(this.id);
+//            this.nome = retorno.nome;
+//            this.perfil= retorno.perfil;
+//        }catch(Exception e ){
+//            System.out.println(e);
+//        }
+//        return this;
+        return null;
+    }
+    
+    public void salvarParticipacaoAtividade(){
+//        Usuario retorno;
+//        try{
+//            //busca o Usuario
+//            retorno = UsuarioBD.buscar(this.id);
+//            this.nome = retorno.nome;
+//            this.perfil= retorno.perfil;
+//        }catch(Exception e ){
+//            System.out.println(e);
+//        }
+    }
+    
+    public void deletarParticipacaoAtividade(){
+//        Usuario retorno;
+//        try{
+//            //busca o Usuario
+//            retorno = UsuarioBD.buscar(this.id);
+//            this.nome = retorno.nome;
+//            this.perfil= retorno.perfil;
+//        }catch(Exception e ){
+//            System.out.println(e);
+//        }
+    }
+    
+    /**
+     *
+     * @return
+     */
+    public ArrayList<ParticipacaoAtividade> listaParticipacaoAtividade(){
+//        Permissao retorno;
+//        ArrayList<Permissao> lista = null;
+//        try{
+//            //busca o Usuario
+//            retorno = UsuarioBD.buscar(this.id);
+//            return lista;
+//        }catch(Exception e ){
+//            System.out.println(e);
+//        }
+        return null;
     }
  
 }

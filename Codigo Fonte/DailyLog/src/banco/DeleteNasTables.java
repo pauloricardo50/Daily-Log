@@ -13,8 +13,8 @@ import java.sql.SQLException;
  */
 public class DeleteNasTables 
 {
-    private ConexaoSQLite conexaoSQLite;
-    public DeleteNasTables(ConexaoSQLite pConexaoSQLite) 
+    private Conexao conexaoSQLite;
+    public DeleteNasTables(Conexao pConexaoSQLite) 
     {
         this.conexaoSQLite = pConexaoSQLite;
     }
@@ -26,7 +26,7 @@ public class DeleteNasTables
     //EXCLUIR USUARIO POR ID
     public void excluirUsuario(int idDeletado)
     {
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
+        Conexao conexaoSQLite = new Conexao(); // criando conexao
         conexaoSQLite.conectar(); //conectando 
         ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;
@@ -63,7 +63,7 @@ public class DeleteNasTables
     // EXCLUIR ATIVIDADE POR ID 
     public void excluirAtividade (int idDeletado)
     {
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
+        Conexao conexaoSQLite = new Conexao(); // criando conexao
         conexaoSQLite.conectar(); //conectando 
         ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;
@@ -99,7 +99,7 @@ public class DeleteNasTables
     // EXCLUIR EXPEDIENTE POR ID 
     public void excluirExpediente (int idDeletado)
     {
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
+        Conexao conexaoSQLite = new Conexao(); // criando conexao
         conexaoSQLite.conectar(); //conectando 
         ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;
@@ -136,7 +136,7 @@ public class DeleteNasTables
     // EXCLUIR CATEGORIA POR ID 
     public void excluirCategoria (int idDeletado)
     {
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
+        Conexao conexaoSQLite = new Conexao(); // criando conexao
         conexaoSQLite.conectar(); //conectando 
         ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;

@@ -5,17 +5,13 @@
  */
 package dailylog;
 
-import banco.ConexaoSQLite;
-import banco.SelectNasTables;
-import java.sql.Date;
-import java.sql.Time;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import persistencia.UsuarioBD;
 
 
 /**
  *
- * @author PAULOR RICARDO GAMEPLAYS E JARDIELMA QUEIROZ DE LIMA
+ * @author Jardielma e Paulo Ricardo
  */
 public class Usuario 
 {
@@ -23,15 +19,15 @@ public class Usuario
     
     private int id;
     private int idade;
-    private Time horarioPadraoInicial;
-    private Time horarioPadraoFinal;
+    private String flag_ativo;
     protected String nome;
     protected String senha;
-    protected int tamanhoFonte;
-    protected boolean autoContraste;
+    private Perfil perfil;
+    private UsuarioBD persistencia;
+    
     
     /* Getters e Setters */
-    
+
     public int getId() {
         return id;
     }
@@ -46,28 +42,6 @@ public class Usuario
 
     public void setIdade(int idade) {
         this.idade = idade;
-    }
-
-    public Time getHorarioPadraoInicial() {
-        return horarioPadraoInicial;
-    }
-
-    public void setHorarioPadraoInicial(String horarioPadraoInicial) throws ParseException {
-        SimpleDateFormat formatador = new SimpleDateFormat("HH:mm");
-        Date data = (Date) formatador.parse(horarioPadraoInicial);
-        Time time = new Time(data.getTime());
-        this.horarioPadraoInicial = time;
-    }
-
-    public Time getHorarioPadraoFinal() {
-        return horarioPadraoFinal;
-    }
-
-    public void setHorarioPadraoFinal(String horarioPadraoFinal) throws ParseException {
-        SimpleDateFormat formatador = new SimpleDateFormat("HH:mm");
-        Date data = (Date) formatador.parse(horarioPadraoFinal);
-        Time time = new Time(data.getTime());
-        this.horarioPadraoFinal = time;
     }
 
     public String getNome() {
@@ -85,30 +59,106 @@ public class Usuario
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
-    public int getTamanhoFonte() {
-        return tamanhoFonte;
-    }
-
-    public void setTamanhoFonte(int tamanhoFonte) {
-        this.tamanhoFonte = tamanhoFonte;
-    }
-
-    public boolean isAutoContraste() {
-        return autoContraste;
-    }
-
-    public void setAutoContraste(boolean autoContraste) {
-        this.autoContraste = autoContraste;
-    }
-
     
-    public void bucarUsuario(){
-        ConexaoSQLite conexaoSQLite = new ConexaoSQLite(); // criando conexao
-        conexaoSQLite.conectar(); //conectando
+    public String getFlag_ativo() {
+        return flag_ativo;
+    }
+
+    public void setFlag_ativo(String flag_ativo) {
+        this.flag_ativo = flag_ativo;
+    }
+    
+    public Perfil getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
+    }
+
+
+    /**
+     * Busca o usuario pelo id do objeto
+     * Caso encontre, retorna o usuário encontrado e seta as váriaveis do objeto no objeto atual
+     * Caso não encontre, retorna null.
+     * @return
+     */
+    public Usuario buscar(){
+        Usuario retorno;
+        persistencia = new UsuarioBD();
+        try{
+            //busca o Usuario
+            retorno = persistencia.buscar(this.id);
+            //verifica se encontrou registro
+            if(retorno == null){
+                //retorna objeto como null caso não encontra
+                return null;
+            }
+            this.nome = retorno.nome;
+            this.perfil= retorno.perfil;
+        }catch(Exception e ){
+            System.out.println(e);
+        }
+        return this;
+    }
+    
+    /**
+     * Salva o usuario
+     * Método utilizado para salvar e atualizar
+     * Atualiza o id(0) do objeto atual com o id gerado pelo banco
+     * @return
+     */
+    public String salvar(){
+        persistencia = new UsuarioBD();
+        Usuario retorno;
         
-        SelectNasTables consulta = new SelectNasTables(conexaoSQLite);
-        consulta.exibirUsuario();
+        try{
+            if(this.getNome().length() == 0){
+                return "Usuario sem nome";
+            }
+            if(this.getSenha().length() < 3){
+                return "Usuario sem senha ou com senha muito curta";
+            }
+            if(this.getPerfil() == null){
+                return "Usuario sem Perfil";
+            }
+            
+            //salva o usuario
+            retorno = persistencia.salvar(this);
+            //Atualiza o id do usuario, tendo em vista que o usuario criado não tinha
+            this.id = retorno.getId();
+        }
+        catch(Exception e ){
+            System.out.println(e);
+        }
+        return "Usuário Salvo com sucesso";
+    }
+    
+    public String deletar(){
+        persistencia = new UsuarioBD();
+        this.setFlag_ativo("D");
+        try{
+            //busca o Usuario
+            persistencia.salvar(this);
+        }catch(Exception e ){
+            System.out.println(e);
+        }
+            return "Usuário excluido com sucesso";
+    }
+    
+    /**
+     *
+     * @return
+     */
+    public ArrayList<Usuario> listar(){
+        try{
+            persistencia = new UsuarioBD();
+            //busca o Usuario
+            return persistencia.listar();
+        }catch(Exception e ){
+            System.out.println(e);
+        }
+        return null;
     }
    /* 
     
