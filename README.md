@@ -1,6 +1,7 @@
 # _Daily-Log_
 
-<P align="justify">&nbsp&nbsp Trabalho desenvolvido para a disciplina de Programação Orientada a Objetos do curso Bacharelado em Sistemas de Informação(IFES - Campus Serra) no semestre 2018/2.</p>
+<P align="justify">&nbsp&nbsp Trabalho desenvolvido para a disciplina de Programação Orientada a Objetos do curso Bacharelado em Sistemas de Informação(IFES - Campus Serra) no semestre 2018/2. </p>
+
 
 ### 1. COMPONENTES<br>
 **Integrantes do grupo:**<br>
@@ -8,7 +9,7 @@
 -  Paulo Ricardo Viana Ferreira:<a href="url"> paulo_ricardosf@outlook.com <br></a>
 
 ### 2. JUSTIFICATIVA DO SISTEMA<br>
-<P align="justify">&nbsp&nbsp O sistema tem como propósito principal fazer o controle do tempo gasto com realização de atividades durante o expediente de trabalho. Além disso, o mesmo será utilizado como mediador para tomada de decisões estratégicas referentes à organização de atividades no trabalho, uma vez que essa ferramenta terá a capacidade de medir o tempo que está sendo gasto com cada atividade.</p>
+<P align="justify">&nbsp&nbsp O sistema tem como propósito principal fazer o controle do tempo gasto com realização de atividades durante o expediente de trabalho. Além disso, o mesmo será utilizado como mediador para tomada de decisões estratégicas referentes à organização de atividades no trabalho, uma vez que essa ferramenta terá a capacidade de medir o tempo que está sendo gasto com cada atividade. Segue o ![documento de requisitos](https://trello.com/b/HZuN7nHJ/dailylog2) do sistema para mais informaçôes. </p>
 
 ### 3.MINI-MUNDO<br>
 <P align="justify">&nbsp&nbsp A principal funcionalidade do sistema é controlar as atividades que os gestores desenvolvem no decorrer do expediente de trabalho, ações necessárias ou eventos significativos que não foram capturados no dia-a-dia e mostrar para eles dados estatísticos sobre as categorias de atividades que estão demandando maior parte do seu tempo. Categoria de atividade é uma classificação para identificar as características da atividade, já as subcategorias são as especificidades de cada categoria de atividade. Uma atividade possui titulo, descrição, duração, categoria, subcategoria, data e horário em que foi iniciada e concluída. As atividades devem ser iniciadas e finalizadas durante o horário de início e fim do expediente. Caso uma atividade seja iniciada e não seja concluída até o horário de fim do expediente a mesma será considerada como concluída. Vários usuários podem participar de uma atividade, no entanto cada usuário fica responsável pela sua participação na atividade.</p>
@@ -51,9 +52,14 @@
 ### 11. DIAGRAMA DE CLASSES UML<br>
  ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Diagrama%20de%20Classe%20-%20Daily%20Log.jpg?raw=true)
 
-### 12. MODELO CONCEITUAL <br>
+### 12. DIAGRAMA DE CASO DE USO <br>
+ ![Alt Text]()
+
+### 13. MODELO CONCEITUAL <br>
  ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Modelo%20Conceitual%20DailyLog.png)
-### 13. MODELO LÓGICO <br>
+
+### 14. MODELO LÓGICO <br>
  ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Modelo%20Entidade%20Relacionamento%20Daily%20Log%20.png)
-### 13. MODELO Físico <br>
+
+### 15. MODELO FÍSICO <br>
  -  [Link Para Acessar o banco de dados.](https://trello.com/b/HZuN7nHJ/dailylog2)
