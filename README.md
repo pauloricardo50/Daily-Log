@@ -55,3 +55,5 @@
  ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Modelo%20Conceitual%20DailyLog.png)
 ### 13. MODELO LÓGICO <br>
  ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Modelo%20Entidade%20Relacionamento%20Daily%20Log%20.png)
+### 13. MODELO Físico <br>
+ -  [Link Para Acessar o banco de dados.](https://trello.com/b/HZuN7nHJ/dailylog2)
