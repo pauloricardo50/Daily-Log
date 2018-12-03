@@ -52,7 +52,7 @@
  ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Diagrama%20de%20Classe%20-%20Daily%20Log.jpg?raw=true)
 
 ### 12. DIAGRAMA DE CASO DE USO <br>
- ![Alt Text]()
+ ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Diagrama%20de%20Caso%20de%20Uso.png?raw=true)
 
 ### 13. MODELO CONCEITUAL <br>
  ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Modelo%20Conceitual%20DailyLog.png)
