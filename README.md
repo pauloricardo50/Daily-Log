@@ -52,7 +52,7 @@
  ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Diagrama%20de%20Classe%20-%20Daily%20Log.jpg?raw=true)
 
 ### 12. DIAGRAMA DE CASO DE USO <br>
- ![Alt Text]()
+ ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Diagrama%20de%20Caso%20de%20Uso.png?raw=true)
 
 ### 13. MODELO CONCEITUAL <br>
  ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Modelo%20Conceitual%20DailyLog.png)
@@ -61,4 +61,4 @@
  ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Modelo%20Entidade%20Relacionamento%20Daily%20Log%20.png)
 
 ### 15. MODELO FÍSICO <br>
- ![Alt Text](https://trello.com/b/HZuN7nHJ/dailylog2)
+ - [Link para acessar o modelo físico](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Banco%20de%20Dados/dailylog.sql)
