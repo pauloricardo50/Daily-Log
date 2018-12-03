@@ -61,4 +61,4 @@
  ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Modelo%20Entidade%20Relacionamento%20Daily%20Log%20.png)
 
 ### 15. MODELO FÍSICO <br>
- ![Alt Text](https://trello.com/b/HZuN7nHJ/dailylog2)
+ - [Link para acessar o modelo físico](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Banco%20de%20Dados/dailylog.sql)
