@@ -6,7 +6,6 @@
 package dailylog;
 
 import banco.Conexao;
-import banco.SelectNasTables;
 import java.util.ArrayList;
 import persistencia.ExpedienteBD;
 
