@@ -31,8 +31,7 @@
  
 ### 6. TECNOLOGIAS UTILIZADAS<br>
 -  **Java:** Implementação do código fonte;
--  **MySQL:** Implementação de Bando de Dados;
--  **Biblioteca Sqlite:** Implementação do Banco de Dados
+-  **MySQL Workbench:** Implementação do Banco de Dados;
 -  **Balsamiq:** Protótipós;
 
 ### 7. DIÁRIO DE BORDO<br>
@@ -62,4 +61,4 @@
  ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Modelo%20Entidade%20Relacionamento%20Daily%20Log%20.png)
 
 ### 15. MODELO FÍSICO <br>
- -  [Link Para Acessar o banco de dados.](https://trello.com/b/HZuN7nHJ/dailylog2)
+ ![Alt Text](https://trello.com/b/HZuN7nHJ/dailylog2)
