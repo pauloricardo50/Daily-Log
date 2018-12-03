@@ -1,4 +1,4 @@
-# _Daily-Log_
+# _Daily Log_
 
 <P align="justify">&nbsp&nbsp Trabalho desenvolvido para a disciplina de Programação Orientada a Objetos do curso Bacharelado em Sistemas de Informação(IFES - Campus Serra) no semestre 2018/2. </p>
 
