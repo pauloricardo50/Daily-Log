@@ -1,4 +1,3 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/41e45148e33a43269375fa9225deab53)](https://www.codacy.com/app/JardielmaQueiroz/Daily-Log_2?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JardielmaQueiroz/Daily-Log&amp;utm_campaign=Badge_Grade)
 # _Daily Log_
 
 <P align="justify">&nbsp&nbsp Trabalho desenvolvido para a disciplina de Programação Orientada a Objetos do curso Bacharelado em Sistemas de Informação(IFES - Campus Serra) no semestre 2018/2. </p>
