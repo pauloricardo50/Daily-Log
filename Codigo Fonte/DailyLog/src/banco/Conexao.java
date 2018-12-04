@@ -10,29 +10,32 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
-
-
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
- * @author PRFERREIRA e JQLIMA
+ * @author Jardielma e Paulo Ricardo
  */
+
+
+/**
+ * Classe para conectar ao banco de dados mysql
+*/  
 public class Conexao 
 {
-    
     private static Connection conexao;
 
-    public static Connection getConexao() {
+    /**
+     * Metodo utilizado para retornar a conexão com o banco de dados mysql
+     * @return 
+     */  
+    public static Connection getConexao() 
+    {
         return Conexao.conexao;
     }
         
     /**
-     * Classe utilizada para conectar ao banco de dados mysql
+     * Metodo utilizada para conectar ao banco de dados mysql
      * @param mysql
      * @throws java.lang.ClassNotFoundException
      */     
@@ -47,11 +50,14 @@ public class Conexao
         catch(SQLException e) {
             System.out.println(e);
             throw new RuntimeException(e);
-        }
-        
+        }    
     }
     
-    //Classe utilizada para desconectar ao banco de dados mysql - Testada OK
+    /**
+     * Metodo utilizada para desconectar ao banco de dados mysql
+     * @param mysql
+     * @return 
+     */   
     public static boolean desconectar(boolean mysql) {
         //Preparando para desconectar!
         try {
@@ -67,8 +73,12 @@ public class Conexao
         //desconectou!
         return true;
     }
-
-    //Classe utilizada para conectar ao banco de dados mysql - Testada OK
+    
+    /**
+     * Metodo utilizada para executar as consultas no banco de dados mysql
+     * @param sql
+     * @return 
+     */   
     public static ResultSet executeQuerySql(String sql) 
     {
         //preparando para executar sql
@@ -86,7 +96,11 @@ public class Conexao
         
     }
     
-    //Classe utilizada para conectar ao banco de dados mysql - Testada OK
+    /**
+     * Metodo utilizada para executar as comandos que não retornam dados
+     * @param sql
+     * @return 
+     */   
     public static int executeUpdateSql(String sql) 
     {
         //preparando para executar sql
@@ -101,6 +115,5 @@ public class Conexao
             System.out.println(e);
             throw new RuntimeException(e);
         }
-        
     }
 }
