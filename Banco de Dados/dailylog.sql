@@ -33,7 +33,6 @@ INSERT INTO `tbl_permissao` (`id_permisao`, `descricao`) VALUES
 
 CREATE TABLE IF NOT EXISTS `tbl_perfil` (
   `id_perfil` int(11) NOT NULL AUTO_INCREMENT,
-  `id_permisao` int(11) NOT NULL,
   `descricao` varchar(20) NOT NULL,
   `horarioPadraoInicial` time NOT NULL,
   `horarioPadraoFinal` time NOT NULL,
