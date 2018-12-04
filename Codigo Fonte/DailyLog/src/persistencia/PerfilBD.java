@@ -7,6 +7,7 @@ package persistencia;
 
 import banco.Conexao;
 import dailylog.Perfil;
+import dailylog.Permissao;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -37,6 +38,7 @@ public class PerfilBD {
            rs = Conexao.executeQuerySql(sql);
            while(rs.next()){
                 //Recupera valores
+                perfil.setId(idperfil);
                 perfil.setDescricao(rs.getString("descricao"));
                 perfil.setHorarioPadraoInicial(rs.getString("horarioPadraoInicial"));
                 perfil.setHorarioPadraoFinal(rs.getString("horarioPadraoFinal"));
@@ -54,7 +56,6 @@ public class PerfilBD {
     //Classe utilizada para salva 1 usuário
     public Perfil salvar(Perfil perfil){
         String sql;
-        
         //Caso o perfil já exista ele possuí ID
         if(perfil.getId() > 0 ){
             //atualiza o perfil
@@ -79,7 +80,7 @@ public class PerfilBD {
                Conexao.conectar(true);
            }
            perfil.setId(Conexao.executeUpdateSql(sql));
-           System.out.println(perfil.getId());
+           salvarPermissoes(perfil);
         }
         catch(Exception e) {
             System.out.println(e);
@@ -118,7 +119,6 @@ public class PerfilBD {
                 perfil.setHorarioPadraoFinal(rs.getString("horarioPadraoFinal"));
                 perfil.setTamanhoFonte(rs.getInt("tamanhoFonte"));
                 perfil.setAutoContraste(rs.getBoolean("autoContraste"));
-                System.out.println(perfil.getDescricao());
                  listaRetorno.add(perfil);
             }
            return listaRetorno;
@@ -127,5 +127,25 @@ public class PerfilBD {
             System.out.println(e);
         }
         return null;
+    }
+    
+    public void salvarPermissoes(Perfil perfil){
+        String sql;
+        try{
+        for(Permissao permissao : perfil.getPemissoes()) {
+            sql="";
+            //sql deletar
+            sql="DELETE FROM `daylog`.`tbl_permisaoperfil` WHERE (`id_perfil` = '"+perfil.getId()+"' and `id_permisao` = '"+permissao.getId()+"');";
+            Conexao.executeUpdateSql(sql);
+            //sql de adicionar
+            sql="";
+            sql = "INSERT INTO `daylog`.`tbl_permisaoperfil` (`id_permisao`, `id_perfil`) VALUES ('"+permissao.getId()+"', '"+perfil.getId()+"')";
+            Conexao.executeUpdateSql(sql);
+        
+        }
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
     }
 }

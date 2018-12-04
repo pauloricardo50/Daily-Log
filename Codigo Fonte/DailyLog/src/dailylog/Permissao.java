@@ -6,6 +6,7 @@
 package dailylog;
 
 import java.util.ArrayList;
+import persistencia.PermissaoBD;
 
 /**
  *
@@ -13,7 +14,8 @@ import java.util.ArrayList;
  */
 public class Permissao {
     private int id;
-    private String name;
+    private String descricao;
+    private PermissaoBD persistencia;
 
     public int getId() {
         return id;
@@ -23,68 +25,73 @@ public class Permissao {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
     
     
     
-    public Permissao buscarPermissao(){
-//        Usuario retorno;
-//        try{
-//            //busca o Usuario
-//            retorno = UsuarioBD.buscar(this.id);
-//            this.nome = retorno.nome;
-//            this.perfil= retorno.perfil;
-//        }catch(Exception e ){
-//            System.out.println(e);
-//        }
-//        return this;
-        return null;
+    public Permissao buscar(){
+        
+        Permissao retorno = new Permissao();
+        persistencia = new PermissaoBD();
+        try{
+            //busca o Usuario
+            retorno = persistencia.buscar(this.id);
+            //verifica se encontrou registro
+            if(retorno == null){
+                //retorna objeto como null caso não encontra
+                return null;
+            }
+            this.descricao = retorno.descricao;
+        }catch(Exception e ){
+            System.out.println(e);
+        }
+        return this;
+        
     }
     
-    public void salvarPermissao(){
-//        Usuario retorno;
-//        try{
-//            //busca o Usuario
-//            retorno = UsuarioBD.buscar(this.id);
-//            this.nome = retorno.nome;
-//            this.perfil= retorno.perfil;
-//        }catch(Exception e ){
-//            System.out.println(e);
-//        }
+    public String salvar(){
+//            
+        persistencia = new PermissaoBD();
+        Permissao permissaoRetorno = new Permissao();
+        try{
+            //salva o perfil do usuario
+            if(this.getDescricao().length() == 0){
+                return "Descrição Não preenchida";
+            }
+            //salva o perfil
+            permissaoRetorno = persistencia.salvar(this);
+            //Atualiza o id do usuario, tendo em vista que o usuario criado não tinha
+            this.id = permissaoRetorno.getId();
+            
+        }catch(Exception e ){
+            System.out.println(e);
+        }
+         return "Perfil Salvo com sucesso";
     }
     
-    public void deletarPermissao(){
-//        Usuario retorno;
-//        try{
-//            //busca o Usuario
-//            retorno = UsuarioBD.buscar(this.id);
-//            this.nome = retorno.nome;
-//            this.perfil= retorno.perfil;
-//        }catch(Exception e ){
-//            System.out.println(e);
-//        }
+    public void deletar(){
+        //Função não implementada
     }
     
     /**
      *
      * @return
      */
-    public ArrayList<Permissao> listaPermissao(){
-//        Permissao retorno;
-//        ArrayList<Permissao> lista = null;
-//        try{
-//            //busca o Usuario
-//            retorno = UsuarioBD.buscar(this.id);
-//            return lista;
-//        }catch(Exception e ){
-//            System.out.println(e);
-//        }
+    public ArrayList<Permissao> listar(){
+        persistencia = new PermissaoBD();
+        try{
+            //salva o perfil do usuario
+            return persistencia.listar();
+            
+        }catch(Exception e ){
+            System.out.println(e);
+        }
         return null;
     }
     

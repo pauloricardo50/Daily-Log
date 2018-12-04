@@ -6,11 +6,14 @@
 package persistencia;
 
 import dailylog.ParticipacaoAtividade;
+import dailylog.Perfil;
 
 /**
  *
  * @author 20151BSI0100
  */
 public class ParticipacaoAtividadeBD {
+
+    
    
 }

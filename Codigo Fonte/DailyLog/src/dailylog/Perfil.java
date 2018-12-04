@@ -20,6 +20,7 @@ public class Perfil {
     private int tamanhoFonte;
     private boolean autoContraste;
     private PerfilBD persistencia;
+    private ArrayList<Permissao> permissoes;
    
     /* Getters e Setters */
 
@@ -69,6 +70,13 @@ public class Perfil {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+    public ArrayList<Permissao> getPemissoes() {
+        return permissoes;
+    }
+
+    public void setPermissoes(ArrayList<Permissao> permissao) {
+        this.permissoes = permissao;
     }
    
     public Perfil buscar(){
@@ -122,7 +130,6 @@ public class Perfil {
             perfilRetorno = persistencia.salvar(this);
             //Atualiza o id do usuario, tendo em vista que o usuario criado não tinha
             this.id = perfilRetorno.getId();
-            persistencia.buscar(this.id);
             
         }catch(Exception e ){
             System.out.println(e);

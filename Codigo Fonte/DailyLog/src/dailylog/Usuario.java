@@ -19,7 +19,7 @@ public class Usuario
     
     private int id;
     private int idade;
-    private String flag_ativo;
+    private String flagAtivo;
     protected String nome;
     protected String senha;
     private Perfil perfil;
@@ -60,12 +60,12 @@ public class Usuario
         this.senha = senha;
     }
     
-    public String getFlag_ativo() {
-        return flag_ativo;
+    public String getFlagAtivo() {
+        return flagAtivo;
     }
 
-    public void setFlag_ativo(String flag_ativo) {
-        this.flag_ativo = flag_ativo;
+    public void setFlagAtivo(String flag_ativo) {
+        this.flagAtivo = flag_ativo;
     }
     
     public Perfil getPerfil() {
@@ -122,7 +122,7 @@ public class Usuario
             if(this.getPerfil() == null){
                 return "Usuario sem Perfil";
             }
-            
+            System.out.println("perfil id - "+this.getPerfil().getId());
             //salva o usuario
             retorno = persistencia.salvar(this);
             //Atualiza o id do usuario, tendo em vista que o usuario criado não tinha
@@ -136,7 +136,7 @@ public class Usuario
     
     public String deletar(){
         persistencia = new UsuarioBD();
-        this.setFlag_ativo("D");
+        this.setFlagAtivo("D");
         try{
             //busca o Usuario
             persistencia.salvar(this);
@@ -160,80 +160,5 @@ public class Usuario
         }
         return null;
     }
-   /* 
-    
-    public void adicionarAtiviade(String data, int id, String titulo, String descricao, String horarioInicio, String horarioFim, int idCategoria, int idSubCategoria){
-        if(!existeExpediente(data)){
-            adicionarExpediente(data);
-        }
-        for (Expediente expediente: expedientes) {
-            if(data.equals(expediente.getData())){
-                if (!expediente.existeAtiviadesCadastradas()){
-                    Atividade atividade = new Atividade(id , titulo, descricao, horarioInicio, horarioFim, 01, 03);
-                    expediente.adicionaAtividade(atividade);
-                }else{
-                    if(!expediente.vericaConflitoHorario(horarioInicio, horarioFim)) {
-                        Atividade atividade = new Atividade(id, titulo, descricao, horarioInicio, horarioFim, 01, 03);
-                        expediente.adicionaAtividade(atividade);
-                    } else{
-                        System.out.println("Atividade nao pode ser adicionada devido a conflitos");
-                    }
-                }
-            }
-        }
-    }
-    
-    public void excluirAtividade(){
-        //Pergunta a data
-        //Procura o expediente
-        //Lista as ativiades
-        //Seleciona a atividade
-        //Retira do array de ativiades dentro do expediente
-        
-    }
-    
-    public void editarAtividade(){
-        //Pergunta a data
-        //procura o expedinte
-        //Lista as ativiades
-        //Pegunta qual a ativiade vai ser alterada
-        //Pergunta a informação que vai ser alterada
-        //E altera a infomação
-        
-    }
-    
-    public void listarAtiviade(String data){
-        for( Expediente expediente : expedientes) {
-            if (data.equals(expediente.getData())) {
-                expediente.listarAtividades();
-            }
-        }
-    }
-    
-    public void consultarRelatorio(){
-        
    
-    }
-
-    private void adicionarExpediente(String data){
-        Expediente novoExpediente = new Expediente(data, this.horarioPadraoInicial, this.horarioPadraoFinal);
-        this.expedientes.add(novoExpediente);
-        
-    }
-
-    //Verifica se o Expediente ja esta cadastrado//
-    private boolean existeExpediente(String data){
-        for( Expediente expediente : expedientes){
-            if(data.equals(expediente.getData())){
-                return true;
-            } 
-        }
-        return false;
-    }
-    
-    
-    */
-    
-    
-    
 }
