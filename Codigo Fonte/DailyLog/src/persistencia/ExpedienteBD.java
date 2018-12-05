@@ -7,6 +7,7 @@ package persistencia;
 
 import banco.Conexao;
 import dailylog.Expediente;
+import dailylog.Usuario;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -23,7 +24,8 @@ public class ExpedienteBD {
     public Expediente buscar(int idExpediente){
         //Preparando váriaveis e Sql
         expediente = new Expediente();
-        String sql = "select data,id_usuario,horarioInicio,horarioFim "
+        Usuario user;
+        String sql = "select data,id_usuario,horarioInicio,horarioFim,flag_ativo "
                 + "from tbl_expediente "
                 + "where flag_ativo = 'A' and id_expediente = "+idExpediente;
         try {
@@ -32,15 +34,17 @@ public class ExpedienteBD {
                Conexao.conectar(true);
            }
            rs = Conexao.executeQuerySql(sql);
-//           if(rs.first()== false){
-//            //Caso o usuário não existe retorna null
-//            return null;
-//           }
            while(rs.next()){
                 //Recupera valor referente ao nome
-                 expediente.setData(rs.getString("data"));
-                 expediente.setHorarioInicial(rs.getString("horarioInicial"));
-                 expediente.setHorarioFinal(rs.getString("horarioFinal"));
+                 expediente = new Expediente();
+                   expediente.setData(rs.getDate("data").toString());
+                   expediente.setHorarioFinal(rs.getString("horarioFim"));
+                   expediente.setHorarioInicial(rs.getString("horarioInicio"));
+                   expediente.setFlagAtivo(rs.getString("flag_ativo"));
+                   user = new Usuario();
+                   user.setId(rs.getInt("id_usuario"));
+                   user.buscar();
+                   expediente.setUsuario(user);
                  
             }
         }
@@ -52,24 +56,28 @@ public class ExpedienteBD {
     }
     
     //Classe utilizada para salva 1 usuário
-    public Expediente salvar(Expediente expediente,int idusuario){
+    public Expediente salvar(Expediente expediente){
         String sql;
         //Caso o usuário já exista ele possuí ID
         if(expediente.getId() > 0 ){
             //atualiza o usuario
-            sql = "UPDATE `daylog`.`tbl_expediente` SET `id_usuario` = '"+idusuario+"', `horarioInicio` = '"+expediente.getHorarioInicial()+"', `horarioFim` = '"+expediente.getHorarioFinal()+"', `data` = '"+expediente.getData()+"', `flag_ativo` = '"+expediente.getFlag_ativo()+"' WHERE (`id_expediente` = '"+expediente.getId()+"');";
+            //sql = "UPDATE `daylog`.`tbl_expediente` SET `id_usuario` = '"+expediente.getUsuario().getId()+"', `horarioInicio` = '"+expediente.getHorarioInicial()+"', `horarioFim` = '"+expediente.getHorarioFinal()+"', `data` = '"+expediente.getData()+"', `flag_ativo` = '"+expediente.getFlagAtivo()+"' WHERE (`id_expediente` = '"+expediente.getId()+"');";
+            sql = "UPDATE `daylog`.`tbl_expediente` SET `id_usuario` = '"+expediente.getUsuario().getId()+"', `horarioInicio` = '"+expediente.getHorarioInicial()+"', `horarioFim` = '"+expediente.getHorarioFinal()+"', `flag_ativo` = '"+expediente.getFlagAtivo()+"', `data` = '"+expediente.getData()+"' WHERE (`id_expediente` = '"+expediente.getId()+"')";
         }else{
             //caso não seja atualização ele cria o usuário
             //Preparando váriaveis e Sql
-            sql = "INSERT INTO `daylog`.`tbl_expediente` (`id_usuario`, `horarioInicio`, `horarioFim`, `data`, `flag_ativo`) VALUES ('"+idusuario+"', '"+expediente.getHorarioInicial()+"', '"+expediente.getHorarioFinal()+"', '"+expediente.getData()+"', 'A')";
+            sql = "INSERT INTO `daylog`.`tbl_expediente` (`id_usuario`, `horarioInicio`, `horarioFim`, `data`, `flag_ativo`) VALUES ('"+expediente.getUsuario().getId()+"', '"+expediente.getHorarioInicial()+"', '"+expediente.getHorarioFinal()+"', '"+expediente.getData()+"', 'A')";
         }
         try {
            //verifica se está conectado, caso não esteja conecta
            if(Conexao.getConexao().isClosed()){
                Conexao.conectar(true);
            }
-           expediente.setId(Conexao.executeUpdateSql(sql));
-           System.out.println(expediente.getId());
+           if(expediente.getId()==0){
+            expediente.setId(Conexao.executeUpdateSql(sql));
+           }else{
+               Conexao.executeUpdateSql(sql);
+           }
         }
         catch(Exception e) {
             System.out.println(e);
@@ -82,7 +90,8 @@ public class ExpedienteBD {
         ArrayList<Expediente> listaRetorno = new ArrayList<>();
         //Preparando váriaveis e Sql
         expediente = new Expediente();
-        String sql = "select id_usuario,id_perfil,nome,senha from tbl_usuario where flag_ativo='A'";
+        Usuario user = new Usuario();
+        String sql = "select id_usuario,horarioInicio,horarioFim,data,flag_ativo,id_expediente from tbl_expediente where flag_ativo='A' order by id_usuario";
         Expediente expediente = new Expediente();
         try {
            //verifica se está conectado, caso não esteja conecta
@@ -91,21 +100,54 @@ public class ExpedienteBD {
            }
            
            rs = Conexao.executeQuerySql(sql);
-//           if(rs.first()== false){
-//            //Caso o usuário não existe retorna null
-//            return null;
-//           }
            while(rs.next()){
                expediente = new Expediente();
-                //Recupera valor referente ao nome
-//                user.setId(rs.getInt("id_usuario"));
-//                 user.setNome(rs.getString("nome"));
-//                 user.setSenha(rs.getString("senha"));
-//                 //Recupera valor referente ao idperfil
-//                 perfil.setId(rs.getInt("id_perfil"));
-//                 //busca o perfil
-//                 user.setPerfil(perfil.buscar());
-//                 listaRetorno.add(user);
+               expediente.setData(rs.getDate("data").toString());
+               expediente.setHorarioFinal(rs.getString("horarioFim"));
+               expediente.setHorarioInicial(rs.getString("horarioInicio"));
+               expediente.setId(rs.getInt("id_expediente"));
+               expediente.setFlagAtivo(rs.getString("flag_ativo"));
+               user = new Usuario();
+               user.setId(rs.getInt("id_usuario"));
+               user.buscar();
+               expediente.setUsuario(user);
+               listaRetorno.add(expediente);
+            }
+           return listaRetorno;
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+    
+    //Classe utilizada para buscar 1 usuário
+    public ArrayList<Expediente> listar(int idUsuario){
+        ArrayList<Expediente> listaRetorno = new ArrayList<>();
+        //Preparando váriaveis e Sql
+        expediente = new Expediente();
+        Usuario user = new Usuario();
+        String sql = "select id_usuario,horarioInicio,horarioFim,data,flag_ativo,id_expediente from tbl_expediente where flag_ativo='A' and id_usuario = '"+idUsuario+"' order by id_usuario";
+        Expediente expediente = new Expediente();
+        try {
+           //verifica se está conectado, caso não esteja conecta
+           if(Conexao.getConexao().isClosed()){
+               Conexao.conectar(true);
+           }
+           
+           rs = Conexao.executeQuerySql(sql);
+           while(rs.next()){
+               expediente = new Expediente();
+               expediente.setData(rs.getDate("data").toString());
+               expediente.setHorarioFinal(rs.getString("horarioFim"));
+               expediente.setHorarioInicial(rs.getString("horarioInicio"));
+               expediente.setId(rs.getInt("id_expediente"));
+               expediente.setFlagAtivo(rs.getString("flag_ativo"));
+               user = new Usuario();
+               user.setId(rs.getInt("id_usuario"));
+               user.buscar();
+               expediente.setUsuario(user);
+               listaRetorno.add(expediente);
             }
            return listaRetorno;
         }

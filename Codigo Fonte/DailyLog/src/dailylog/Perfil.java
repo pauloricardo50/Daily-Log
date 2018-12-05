@@ -7,6 +7,7 @@ package dailylog;
 
 import java.util.ArrayList;
 import persistencia.PerfilBD;
+import persistencia.PermissaoBD;
 
 /**
  *
@@ -83,7 +84,7 @@ public class Perfil {
         
         persistencia = new PerfilBD();
         Perfil perfilRetorno = new Perfil();
-        
+        PermissaoBD permissaoBD = new PermissaoBD();
         try{
             //busca e retorna o perfil do usuario
             perfilRetorno =  persistencia.buscar(this.id);
@@ -94,7 +95,7 @@ public class Perfil {
             this.horarioPadraoFinal = perfilRetorno.getHorarioPadraoFinal();
             this.tamanhoFonte = perfilRetorno.getTamanhoFonte();
             this.autoContraste = perfilRetorno.getAutoContraste();
-            
+            this.permissoes = permissaoBD.listar(this.id);
         }catch(Exception e ){ 
             System.out.println(e);
         }
@@ -110,7 +111,7 @@ public class Perfil {
         
         persistencia = new PerfilBD();
         Perfil perfilRetorno;
-        
+        PermissaoBD permissaoBD = new PermissaoBD();
         try{
             //salva o perfil do usuario
             if(this.getDescricao().length() == 0){
@@ -128,6 +129,7 @@ public class Perfil {
 
             //salva o perfil
             perfilRetorno = persistencia.salvar(this);
+            
             //Atualiza o id do usuario, tendo em vista que o usuario criado não tinha
             this.id = perfilRetorno.getId();
             

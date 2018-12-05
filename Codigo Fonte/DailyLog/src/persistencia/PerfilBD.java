@@ -56,6 +56,13 @@ public class PerfilBD {
     //Classe utilizada para salva 1 usuário
     public Perfil salvar(Perfil perfil){
         String sql;
+        int autocontraste;
+        if(perfil.getAutoContraste()==true){
+            autocontraste = 1;
+        }else{
+            autocontraste = 0;
+        }
+        
         //Caso o perfil já exista ele possuí ID
         if(perfil.getId() > 0 ){
             //atualiza o perfil
@@ -63,7 +70,7 @@ public class PerfilBD {
                     + " `horarioPadraoInicial` = '"+perfil.getHorarioPadraoInicial()+"',"
                     + " `horarioPadraoFinal` = '"+perfil.getHorarioPadraoFinal()+"',"
                     + " `tamanhoFonte` = '"+perfil.getTamanhoFonte()+"',"
-                    + " `autoContraste` = '"+perfil.getAutoContraste()+"'"
+                    + " `autoContraste` = '"+autocontraste+"'"
                     + " WHERE (`id_perfil` = '"+perfil.getId()+"');";
         }else{
             //caso não seja atualização ele cria o perfil
@@ -72,14 +79,18 @@ public class PerfilBD {
                     + " `horarioPadraoFinal`,"
                     + " `tamanhoFonte`, `autoContraste`)"
                     + " VALUES ('"+perfil.getDescricao()+"','"+perfil.getHorarioPadraoInicial()+"',"
-                    + "'"+perfil.getHorarioPadraoFinal()+"','12','1')";
+                    + "'"+perfil.getHorarioPadraoFinal()+"','"+perfil.getTamanhoFonte()+"','"+autocontraste+"')";
         }
         try {
            //verifica se está conectado, caso não esteja conecta
            if(Conexao.getConexao().isClosed()){
                Conexao.conectar(true);
            }
-           perfil.setId(Conexao.executeUpdateSql(sql));
+           if(perfil.getId()==0){
+            perfil.setId(Conexao.executeUpdateSql(sql));
+           }else{
+               Conexao.executeUpdateSql(sql);
+           }
            salvarPermissoes(perfil);
         }
         catch(Exception e) {
@@ -132,16 +143,17 @@ public class PerfilBD {
     public void salvarPermissoes(Perfil perfil){
         String sql;
         try{
-        for(Permissao permissao : perfil.getPemissoes()) {
             sql="";
             //sql deletar
-            sql="DELETE FROM `daylog`.`tbl_permisaoperfil` WHERE (`id_perfil` = '"+perfil.getId()+"' and `id_permisao` = '"+permissao.getId()+"');";
+            sql="DELETE FROM `daylog`.`tbl_permisaoperfil` WHERE (`id_perfil` = '"+perfil.getId()+"');";
             Conexao.executeUpdateSql(sql);
+            
+        for(Permissao permissao : perfil.getPemissoes()) {
+            
             //sql de adicionar
             sql="";
             sql = "INSERT INTO `daylog`.`tbl_permisaoperfil` (`id_permisao`, `id_perfil`) VALUES ('"+permissao.getId()+"', '"+perfil.getId()+"')";
             Conexao.executeUpdateSql(sql);
-        
         }
         }
         catch(Exception e) {

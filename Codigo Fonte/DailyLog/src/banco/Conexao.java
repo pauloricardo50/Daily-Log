@@ -5,6 +5,7 @@
  */
 package banco;
 
+import com.mysql.jdbc.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -107,8 +108,13 @@ public class Conexao
         try {
             PreparedStatement ps = Conexao.conexao.prepareStatement(sql);
             //Executa a instrução
-            int resultado = ps.executeUpdate(sql);
+            ps.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
             //sql executado
+            ResultSet rs = ps.getGeneratedKeys();
+            int resultado = 0;
+            if(rs.next()){
+                resultado = rs.getInt(1);
+            }
             return resultado;
         }
         catch(SQLException e) {

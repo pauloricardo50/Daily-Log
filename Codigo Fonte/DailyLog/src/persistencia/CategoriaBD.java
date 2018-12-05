@@ -30,10 +30,6 @@ public class CategoriaBD {
                Conexao.conectar(true);
            }
            rs = Conexao.executeQuerySql(sql);
-//           if(rs.first()== false){
-//            //Caso a categoria não existe retorna null
-//            return null;
-//           }
            while(rs.next()){
                 //Recupera valor referente ao nome
                  categoria.setDescricao(rs.getString("descricao"));
@@ -52,7 +48,7 @@ public class CategoriaBD {
         //Caso o usuário já exista ele possuí ID
         if(categoria.getId() > 0 ){
             //atualiza o usuario
-            sql = "UPDATE `daylog`.`tbl_categoria` SET `descricao` = '"+categoria.getDescricao()+" 32' WHERE (`id_categoria` = '"+categoria.getId()+"')";
+            sql = "UPDATE `daylog`.`tbl_categoria` SET `descricao` = '"+categoria.getDescricao()+"' WHERE (`id_categoria` = '"+categoria.getId()+"')";
         }else{
             //caso não seja atualização ele cria o usuário
             //Preparando váriaveis e Sql
@@ -63,8 +59,12 @@ public class CategoriaBD {
            if(Conexao.getConexao().isClosed()){
                Conexao.conectar(true);
            }
-           categoria.setId(Conexao.executeUpdateSql(sql));
-           System.out.println(categoria.getId());
+           
+           if(categoria.getId()==0){
+            categoria.setId(Conexao.executeUpdateSql(sql));
+           }else{
+               Conexao.executeUpdateSql(sql);
+           }
         }
         catch(Exception e) {
             System.out.println(e);
@@ -85,10 +85,6 @@ public class CategoriaBD {
            }
            
            rs = Conexao.executeQuerySql(sql);
-//           if(rs.first()== false){
-//            //Caso o usuário não existe retorna null
-//            return null;
-//           }
            while(rs.next()){
                categoria = new Categoria();
                 //Recupera valor referente ao nome

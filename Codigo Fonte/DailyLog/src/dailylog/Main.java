@@ -48,6 +48,8 @@ public class Main
             System.out.println("4 - Categoria");
             System.out.println("5 - Expediente");
             System.out.println("6 - Permissao");
+            System.out.println("7 - Sub-categoria");
+            
             System.out.println("9 - Sair");
             
             //Pega os dados passado pelo usuário (nextInt) porque espera um int;
@@ -67,13 +69,16 @@ public class Main
                     System.out.println("Opção 1");
                     break;
                 case 4:
-                    System.out.println("Opção 1");
+                    menuCategoria();
                     break;
                 case 5:
-                    System.out.println("Opção 1");
+                    menuExpediente();
                     break;
                 case 6:
                     menuPermissao();
+                    break;
+                case 7:
+                    menuSubCategoria();
                     break;
                 case 9:
                     System.out.println("Saiu");
@@ -108,6 +113,7 @@ public class Main
             System.out.println("2 - Buscar Pelo ID");
             System.out.println("3 - Listar");
             System.out.println("4 - Excluir pelo ID");
+            System.out.println("5 - Listar Expedientes");
             System.out.println("9 - Sair");
             
             //Pega os dados passado pelo usuário (nextInt) porque espera um int;
@@ -143,22 +149,13 @@ public class Main
                     break;
                 case 2:
                     //Busca o usuário pelo id:
-                    user = new Usuario();
-                    System.out.println("Informe id do usuário a ser buscado:");
-                    dados = new Scanner(System.in);
-                    user.setId(dados.nextInt());
                     
-                    //Busca usuário:
-                    user.buscar();
-                    System.out.println(user.getId()+" - " +user.getNome());
+                    menuBuscarUsuario("Informe id do usuário a ser buscado:");
                     
                     break;
                 case 3:
                     //Lista todos usuários cadastrados no banco
-                    user = new Usuario();
-                    listaUser = user.listar();
-                    
-                    imprimeListaUsuarios(listaUser);
+                    menuImprimeListaUsuario();
                     
                     break;
                 case 4:
@@ -182,6 +179,16 @@ public class Main
                     
                     System.out.println("Usuário Deletado com sucesso!");
                     
+                    break;
+                case 5:
+                    menuImprimeListaUsuario();
+                    System.out.println("Informe o id do usuario");
+                     user = new Usuario();
+                     dados = new Scanner(System.in);
+                    user.setId(dados.nextInt());
+                    user.buscar();
+                    Expediente expediente = new Expediente();
+                    imprimeListaExpediente( expediente.listar(user));
                     break;
                 case 9:
                     //Caso ele não queira fazer mais nada no SI ele sai.
@@ -313,7 +320,7 @@ public class Main
             System.out.println("1 - Criar Perfil");
             System.out.println("2 - Buscar Pelo ID");
             System.out.println("3 - Listar");
-            System.out.println("4 - Excluir pelo ID");
+            System.out.println("4 - Alterar Perfil");
             System.out.println("9 - Sair");
             
             dados = new Scanner(System.in);
@@ -323,74 +330,211 @@ public class Main
             //Prepara o switch para tratar os dados passado e executa a operação requisitada;
             switch (controleSwitch){
                 case 1:
-                    //Criar perfil
-                    perfil = new Perfil();
-                    
-                    //captura as informações do perfil:
-                    System.out.println("Informe descricao:");
-                    dados = new Scanner(System.in);
-                    perfil.setDescricao(dados.next());
-                    System.out.println("Informe Horario Padrao Inicial: HH:MM:SS");
-                    dados = new Scanner(System.in);
-                    perfil.setHorarioPadraoInicial(dados.next());
-                    System.out.println("Informe Horario Padrao Final: HH:MM:SS");
-                    dados = new Scanner(System.in);
-                    perfil.setHorarioPadraoFinal(dados.next());
-                    System.out.println("Informe Tamanho Fonte:");
-                    dados = new Scanner(System.in);
-                    perfil.setTamanhoFonte(dados.nextInt());
-                    System.out.println("Informe SIM para ativar autoContraste:");
-                    dados = new Scanner(System.in);
-                    
-                    autoContraste = dados.next();
-                    if(autoContraste.equals("SIM")){
-                        perfil.setAutoContraste(true);
-                    }else{
-                        perfil.setAutoContraste(false);
-                    }
-                    
-                    /**
-                     * Leva para o submenu de permissões para ele selecionar as opções
-                     * e retorna o array list de permissões
-                     */
-                    permissao = new Permissao();
-                    perfil.setPermissoes(menuSelecionarPermissoes());
-                    
-                    //Imprime as permissões atribuidas para o perfil
-                    //imprimeListaPermissao(perfil.getPemissoes());
-                    
-                    perfil.salvar();
+                    menuCriarPerfil(0);
                     
                     break;
                 case 2:
-                    //Busca permissão pelo perfil:
-                    System.out.println("Informe o ID a ser buscado:");
-                    dados = new Scanner(System.in);
-                    
-                    perfil = new Perfil();
-                    perfil.setId(dados.nextInt());
-                    
-                    perfil.buscar();
-                    
-                    System.out.println(perfil.getId()+" - " +perfil.getDescricao()+
-                    " - Horário Ini.: "+perfil.getHorarioPadraoFinal()+" - Horário Fin.: "+perfil.getHorarioPadraoFinal()+
-                    " - Tam. fonte: "+perfil.getTamanhoFonte()+" - Auto Contrastre: "+perfil.getAutoContraste());
+                    menuBuscarPerfil();
                     
                     break;
                 case 3:
                     //Lista todos os perfils cadastrados no BD
-                    perfil = new Perfil();
-                    
-                    imprimeListaPerfilDetalhada(perfil.listar());
+                    menuImprimeListaPerfil();
                     
                     break;
                 case 4:
-                    //Não implementada pq não vai ser permitido excluir o perfil
+                    menuImprimeListaPerfil();
+                            
+                    perfil = menuBuscarPerfil();
+                    
+                    menuCriarPerfil(perfil.getId());
+                    
                     break;
                 case 9:
                     System.out.println("Saiu");
                     controleSwitch=-1;
                     
+                    break;
+                default:
+                    System.out.println("Opção Inválida");
+            }
+        }
+    }
+    
+    
+     /**
+     * Metodo responsável por tratar as operações referentes as permissões de usuário;
+     */
+    public static void menuCategoria() {
+        //Declaração de variáveis:
+        Categoria categoria;
+        ArrayList<Categoria> lista;
+        Scanner dados;
+        int controleSwitch = 0;
+        
+        /**
+         * Loop para fazer aparecer o munu do permissao;
+         */
+        while(controleSwitch >=0){
+            //Imprime o nenu de categoria:
+            System.out.println("\n Menu Categoria:\n ");
+            System.out.println("Informe a opção desejada:");
+            System.out.println("1 - Criar");
+            System.out.println("2 - Buscar Pelo ID");
+            System.out.println("3 - Listar");
+            System.out.println("4 - Alterar");
+            //System.out.println("4 - Excluir pelo ID");
+            
+            /**Função não disponivel porque é uma regra
+            *de negócio do sistema não deletar as permissões 
+            * Porem está implementada;
+            */
+            
+            System.out.println("9 - Sair");
+            
+            dados = new Scanner(System.in);
+            controleSwitch = dados.nextInt();
+            
+            //Prepara o switch para tratar os dados passado e executa a operação requisitada;
+            switch (controleSwitch){
+                case 1:
+                    menuCriarCategoria(0);
+                    break;
+                case 2:
+                    menuBuscarCategoria("Informe id da categoria a ser buscado:");
+                    break;
+                case 3:
+                    menuImprimeListaCategoria();
+                    break;
+                case 4:
+                    menuImprimeListaCategoria();
+                    categoria = menuBuscarCategoria("Informe id da categoria a ser alterado:");
+                    menuCriarCategoria(categoria.getId());
+                    break;
+                case 9:
+                    System.out.println("Saiu");
+                    controleSwitch=-1;
+                    break;
+                default:
+                    System.out.println("Opção Inválida");
+            }
+        }
+    }
+    
+     /**
+     * Metodo responsável por tratar as operações referentes as permissões de usuário;
+     */
+    public static void menuSubCategoria() {
+        //Declaração de variáveis:
+        SubCategoria subCategoria;
+        ArrayList<SubCategoria> lista;
+        Scanner dados;
+        int controleSwitch = 0;
+        
+        /**
+         * Loop para fazer aparecer o munu do permissao;
+         */
+        while(controleSwitch >=0){
+            //Imprime o nenu de categoria:
+            System.out.println("\n Menu Sub-Categoria:\n ");
+            System.out.println("Informe a opção desejada:");
+            System.out.println("1 - Criar");
+            System.out.println("2 - Buscar Pelo ID");
+            System.out.println("3 - Listar");
+            System.out.println("4 - Alterar");
+            //System.out.println("4 - Excluir pelo ID");
+            
+            /**Função não disponivel porque é uma regra
+            *de negócio do sistema não deletar as permissões 
+            * Porem está implementada;
+            */
+            
+            System.out.println("9 - Sair");
+            
+            dados = new Scanner(System.in);
+            controleSwitch = dados.nextInt();
+            
+            //Prepara o switch para tratar os dados passado e executa a operação requisitada;
+            switch (controleSwitch){
+                case 1:
+                    menuCriarSubCategoria(0);
+                    break;
+                case 2:
+                    menuBuscarSubCategoria("Informe id da subcategoria a ser buscado:");
+                    break;
+                case 3:
+                    menuImprimeListaSubCategoria();
+                    break;
+                case 4:
+                    menuImprimeListaSubCategoria();
+                    subCategoria = new SubCategoria();
+                    subCategoria = menuBuscarSubCategoria("Informe id da Subcategoria a ser alterado:");
+                    menuCriarSubCategoria(subCategoria.getId());
+                    break;
+                case 9:
+                    System.out.println("Saiu");
+                    controleSwitch=-1;
+                    break;
+                default:
+                    System.out.println("Opção Inválida");
+            }
+        }
+    }
+    
+      /**
+     * Metodo responsável por tratar as operações referentes as permissões de usuário;
+     */
+    public static void menuExpediente() {
+        //Declaração de variáveis:
+        Expediente expediente;
+        ArrayList<Expediente> lista;
+        Scanner dados;
+        int controleSwitch = 0;
+        
+        /**
+         * Loop para fazer aparecer o munu do permissao;
+         */
+        while(controleSwitch >=0){
+            //Imprime o nenu de categoria:
+            System.out.println("\n Menu Expediente:\n ");
+            System.out.println("Informe a opção desejada:");
+            System.out.println("1 - Criar");
+            System.out.println("2 - Buscar Pelo ID");
+            System.out.println("3 - Listar");
+            System.out.println("4 - Alterar");
+            //System.out.println("4 - Excluir pelo ID");
+            
+            /**Função não disponivel porque é uma regra
+            *de negócio do sistema não deletar as permissões 
+            * Porem está implementada;
+            */
+            
+            System.out.println("9 - Sair");
+            
+            dados = new Scanner(System.in);
+            controleSwitch = dados.nextInt();
+            
+            //Prepara o switch para tratar os dados passado e executa a operação requisitada;
+            switch (controleSwitch){
+                case 1:
+                    menuCriarExpediente(0);
+                    break;
+                case 2:
+                    menuBuscarExpediente("Informe id do Expediente a ser buscado:");
+                    break;
+                case 3:
+                    menuImprimeListaExpediente();
+                    break;
+                case 4:
+                    menuImprimeListaExpediente();
+                    expediente = new Expediente();
+                    expediente = menuBuscarExpediente("Informe id do Expediente a ser alterado:");
+                    expediente.setFlagAtivo("A");
+                    menuCriarExpediente(expediente.getId());
+                    break;
+                case 9:
+                    System.out.println("Saiu");
+                    controleSwitch=-1;
                     break;
                 default:
                     System.out.println("Opção Inválida");
@@ -407,6 +551,15 @@ public class Main
             System.out.println(perfil.getId()+" - " +perfil.getDescricao());
         });
     }
+    /**
+     * Metodo responsável por imprimir lista de perfil;
+     * @param lista
+     */
+    public static void imprimeListaUsuario(ArrayList<Usuario> lista){
+        lista.forEach((usuario) -> {
+            System.out.println(usuario.getId()+" - " +usuario.getNome());
+        });
+    }
     
     /**
      * Metodo responsável por imprimir lista de perfil com todos os atributos;
@@ -415,7 +568,7 @@ public class Main
     public static void imprimeListaPerfilDetalhada(ArrayList<Perfil> lista){
         lista.forEach((perfil) -> {
             System.out.println(perfil.getId()+" - " +perfil.getDescricao()+
-                    " - Horário Ini.: "+perfil.getHorarioPadraoFinal()+" - Horário Fin.: "+perfil.getHorarioPadraoFinal()+
+                    " - Horário Ini.: "+perfil.getHorarioPadraoInicial()+" - Horário Fin.: "+perfil.getHorarioPadraoFinal()+
                     " - Tam. fonte: "+perfil.getTamanhoFonte()+" - Auto Contrastre: "+perfil.getAutoContraste());
         });
     }
@@ -437,6 +590,33 @@ public class Main
     public static void imprimeListaPermissao(ArrayList<Permissao> lista){
         lista.forEach((permissao) -> {
             System.out.println(permissao.getId()+" - " +permissao.getDescricao());
+        });
+    }
+    
+    /**
+     * Metodo responsável por imprimir lista de categoria;
+     * @param lista
+     */
+    public static void imprimeListaCategoria(ArrayList<Categoria> lista){
+        lista.forEach((categoria) -> {
+            System.out.println(categoria.getId()+" - " +categoria.getDescricao());
+        });
+    }
+    /**
+     * Metodo responsável por imprimir lista de categoria;
+     * @param lista
+     */
+    public static void imprimeListaSubCategoria(ArrayList<SubCategoria> lista){
+        lista.forEach((subcategoria) -> {
+            System.out.println("categoria: "+ subcategoria.getCategoria().getDescricao()+" - ID: "+subcategoria.getId()+" - Desc.:" +subcategoria.getDescricao());
+        });
+    }
+    
+    public static void imprimeListaExpediente(ArrayList<Expediente> lista){
+        lista.forEach((expediente) -> {
+            System.out.println("Usuario: "+ expediente.getUsuario().getNome()+" - ID: "+expediente.getId()+" - "
+                    + "Hora Ini.:" +expediente.getHorarioInicial()+" - Hora Fin.:"+
+                    expediente.getHorarioFinal()+" - Data: "+ expediente.getData());
         });
     }
     
@@ -476,6 +656,227 @@ public class Main
         }
         return listaRetorno;
     }
+    
+    
+    public static void menuImprimeListaPerfil(){
+        Perfil perfil = new Perfil();
+                    
+        imprimeListaPerfilDetalhada(perfil.listar());
+    }
+    
+    public static Perfil menuBuscarPerfil(){
+        //Busca permissão pelo perfil:
+        System.out.println("Informe o ID a ser buscado:");
+        Scanner dados = new Scanner(System.in);
+                    
+        Perfil perfil = new Perfil();
+        perfil.setId(dados.nextInt());
+                    
+        perfil.buscar();
+                    
+        System.out.println(perfil.getId()+" - " +perfil.getDescricao()+
+        " - Horário Ini.: "+perfil.getHorarioPadraoFinal()+" - Horário Fin.: "+perfil.getHorarioPadraoFinal()+
+        " - Tam. fonte: "+perfil.getTamanhoFonte()+" - Auto Contrastre: "+perfil.getAutoContraste());
+
+        //Verifica se deseja imprimir lista de permissões do perfil
+        System.out.println("Deseja imprimir as permissões desse perfil: SIM ou NAO");
+        dados = new Scanner(System.in);
+        if(dados.next().equals("SIM")){
+            imprimeListaPermissao(perfil.getPemissoes());
+        }
+        return perfil;
+    }
+    
+    public static void menuCriarPerfil(int id){
+        //Criar perfil
+        Perfil perfil = new Perfil();
+        if(id>0){
+            perfil.setId(id);
+        }
+
+        //captura as informações do perfil:
+        System.out.println("Informe descricao:");
+        Scanner dados = new Scanner(System.in);
+        perfil.setDescricao(dados.next());
+        System.out.println("Informe Horario Padrao Inicial: HH:MM:SS");
+        dados = new Scanner(System.in);
+        perfil.setHorarioPadraoInicial(dados.next());
+        System.out.println("Informe Horario Padrao Final: HH:MM:SS");
+        dados = new Scanner(System.in);
+        perfil.setHorarioPadraoFinal(dados.next());
+        System.out.println("Informe Tamanho Fonte:");
+        dados = new Scanner(System.in);
+        perfil.setTamanhoFonte(dados.nextInt());
+        System.out.println("Informe SIM para ativar autoContraste:");
+        dados = new Scanner(System.in);
+
+        String autoContraste = dados.next();
+        if(autoContraste.equals("SIM")){
+            perfil.setAutoContraste(true);
+        }else{
+            perfil.setAutoContraste(false);
+        }
+
+        /**
+         * Leva para o submenu de permissões para ele selecionar as opções
+         * e retorna o array list de permissões
+         */
+        Permissao permissao = new Permissao();
+        perfil.setPermissoes(menuSelecionarPermissoes());
+
+        //Imprime as permissões atribuidas para o perfil
+        imprimeListaPermissao(perfil.getPemissoes());       
+        
+        perfil.salvar();
+    
+    }
+    
+     public static void menuImprimeListaCategoria(){
+        Categoria categoria = new Categoria();
+                    
+        imprimeListaCategoria(categoria.listar());
+    }
+     public static void menuImprimeListaUsuario(){
+        Usuario user = new Usuario();
+                    
+        imprimeListaUsuario(user.listar());
+    }
+    
+    public static Categoria menuBuscarCategoria(String mensagem){
+        //Busca uma permissão pelo id:
+        System.out.println(mensagem);
+        Scanner dados = new Scanner(System.in);
+
+        Categoria categoria = new Categoria();
+        categoria.setId(dados.nextInt());
+
+        categoria.buscar();
+
+        System.out.println(categoria.getId()+" - " +categoria.getDescricao());
+        return categoria;
+    }
+    
+    public static void menuCriarCategoria(int id){
+        //Cria uma nova permissão
+        Categoria categoria = new Categoria();
+        if(id >0){
+            categoria.setId(id);
+        }
+        System.out.println("Informe o nome da nova Categoria:");
+        Scanner dados = new Scanner(System.in);
+        categoria.setDescricao(dados.next());
+
+        categoria.salvar();
+        System.out.println("Categoria Salva com sucesso!");
+    }
+    
+    public static void menuImprimeListaSubCategoria(){
+        SubCategoria subcategoria = new SubCategoria();
+                    
+        imprimeListaSubCategoria(subcategoria.listar());
+    }
+    
+    public static void menuImprimeListaExpediente(){
+        Expediente expediente = new Expediente();
+                    
+        imprimeListaExpediente(expediente.listar());
+    }
+    
+    public static SubCategoria menuBuscarSubCategoria(String mensagem){
+        //Busca uma permissão pelo id:
+        System.out.println(mensagem);
+        Scanner dados = new Scanner(System.in);
+
+        SubCategoria subcategoria = new SubCategoria();
+        subcategoria.setId(dados.nextInt());
+
+        subcategoria.buscar();
+
+        System.out.println("categoria: "+ subcategoria.getCategoria().getDescricao()+" - ID: "+subcategoria.getId()+" - Desc.:" +subcategoria.getDescricao());
+        return subcategoria;
+    }
+    
+    public static void menuCriarSubCategoria(int id){
+        //Cria uma nova permissão
+        SubCategoria subcategoria = new SubCategoria();
+        if(id >0){
+            subcategoria.setId(id);
+        }
+        System.out.println("Informe o nome da nova Sub-Categoria:");
+        Scanner dados = new Scanner(System.in);
+        subcategoria.setDescricao(dados.next());
+        menuImprimeListaCategoria();
+        System.out.println("Informe Categoria pai da sub-categoria:");
+        dados = new Scanner(System.in);
+        subcategoria.setCategoria(new Categoria());
+        subcategoria.getCategoria().setId(dados.nextInt());
+        subcategoria.getCategoria().buscar();
+        subcategoria.salvar();
+        System.out.println("Categoria Salva com sucesso!");
+    }
+    
+    public static Expediente menuBuscarExpediente(String mensagem){
+        //Busca uma permissão pelo id:
+        System.out.println(mensagem);
+        Scanner dados = new Scanner(System.in);
+
+        Expediente expediente = new Expediente();
+        expediente.setId(dados.nextInt());
+
+        expediente.buscar();
+
+        System.out.println("Usuario: "+ expediente.getUsuario().getNome()+" - ID: "+expediente.getId()+" - "
+                    + "Hora Ini.:" +expediente.getHorarioInicial()+" - Hora Fin.:"+
+                    expediente.getHorarioFinal()+" - Data: "+ expediente.getData());
+        return expediente;
+    }
+    
+    public static void menuCriarExpediente(int id){
+        //Cria uma nova permissão
+        Expediente expediente = new Expediente();
+        if(id >0){
+            expediente.setId(id);
+        }
+        System.out.println("Informe a data do novo Expediente: AAAA/MM/DD");
+        Scanner dados = new Scanner(System.in);
+        expediente.setData(dados.next());
+        
+        Usuario user = new Usuario();
+        menuImprimeListaUsuario();
+        System.out.println("Informe Usuario:");
+        dados = new Scanner(System.in);
+        
+        user.setId(dados.nextInt());
+        user.buscar();
+        expediente.setUsuario(user);
+        
+        System.out.println("Informe o Horario INicio do novo Expediente: HH:MM:SS");
+         dados = new Scanner(System.in);
+        expediente.setHorarioInicial(dados.next());
+        
+        System.out.println("Informe o Horario Final do novo Expediente: HH:MM:SS");
+         dados = new Scanner(System.in);
+        expediente.setHorarioFinal(dados.next());
+        
+        expediente.salvar(0);
+        
+        System.out.println("Categoria Salva com sucesso!");
+    }
+    
+    public static Usuario menuBuscarUsuario(String mensagem){
+        //Busca uma permissão pelo id:
+        System.out.println(mensagem);
+        Scanner dados = new Scanner(System.in);
+
+        Usuario user = new Usuario();
+        user.setId(dados.nextInt());
+
+        user.buscar();
+
+        System.out.println(user.getId()+" - "+user.getNome());
+        return user;
+    }
+    
 }
 
     

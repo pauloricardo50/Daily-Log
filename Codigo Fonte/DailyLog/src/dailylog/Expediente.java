@@ -20,7 +20,8 @@ public class Expediente
     private String horarioInicial;
     private String horarioFinal;
     ExpedienteBD persistencia = new ExpedienteBD();
-    private String flag_ativo;
+    private String flagAtivo;
+    private Usuario usuario;
     
     public int getId() {
         return id;
@@ -55,12 +56,20 @@ public class Expediente
         this.horarioFinal = horarioFinal;
     }
     
-        public String getFlag_ativo() {
-        return flag_ativo;
+    public String getFlagAtivo() {
+        return flagAtivo;
     }
 
-    public void setFlag_ativo(String flag_ativo) {
-        this.flag_ativo = flag_ativo;
+    public void setFlagAtivo(String flagAtivo) {
+        this.flagAtivo = flagAtivo;
+    }
+    
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     /**
@@ -83,6 +92,8 @@ public class Expediente
             this.data = retorno.data;
             this.horarioInicial = retorno.horarioInicial;
             this.horarioFinal = retorno.horarioFinal;
+            this.usuario = retorno.usuario;
+            this.flagAtivo = retorno.flagAtivo;
             
         }catch(Exception e ){
             System.out.println(e);
@@ -91,7 +102,7 @@ public class Expediente
     }
     
     
-    public String salvar(int idUsuario){
+    public String salvar(int id){
         persistencia = new ExpedienteBD();
         Expediente retorno;
         
@@ -105,12 +116,12 @@ public class Expediente
             if(this.getHorarioInicial().length() == 0){
                 return "Não possui hora";
             }
-            if(idUsuario == 0){
+            if(this.getUsuario().getId() == 0){
                 return "Não possui usuario";
             }
-            
+            this.flagAtivo = "A";
             //salva o usuario
-            retorno = persistencia.salvar(this, idUsuario);
+            retorno = persistencia.salvar(this);
             //Atualiza o id do usuario, tendo em vista que o usuario criado não tinha
             this.id = retorno.getId();
         }
@@ -142,6 +153,21 @@ return "";
             persistencia = new ExpedienteBD();
             //busca o Usuario
             return persistencia.listar();
+        }catch(Exception e ){
+            System.out.println(e);
+        }
+        return null;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    public ArrayList<Expediente> listar(Usuario user){
+        try{
+            persistencia = new ExpedienteBD();
+            //busca o Usuario
+            return persistencia.listar(user.getId());
         }catch(Exception e ){
             System.out.println(e);
         }
