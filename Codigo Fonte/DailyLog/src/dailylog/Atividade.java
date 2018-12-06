@@ -11,6 +11,7 @@ import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import persistencia.AtividadeBD;
 
 /**
  *
@@ -21,10 +22,14 @@ public class Atividade
     private int id;
     private String titulo;
     private String descricao;
-    private Time horarioInicial;
-    private Time horarioFinal;
+    private String horarioInicial;
+    private String horarioFinal;
     private int idCategoria;
     private int idSubCategoria;
+    private int idExpediente;
+    private int idUsuario;
+    private String data;
+    private AtividadeBD persistencia;
 
     // GETTERS E SETTERS PARA O BD
     
@@ -52,26 +57,20 @@ public class Atividade
         this.descricao = descricao;
     }
 
-    public Time getHorarioInicial() {
+    public String getHorarioInicial() {
         return horarioInicial;
     }
 
-    public void setHorarioInicial(String horarioInicial) throws ParseException {
-        SimpleDateFormat formatador = new SimpleDateFormat("HH:mm");
-        Date data = (Date) formatador.parse(horarioInicial);
-        Time time = new Time(data.getTime());
-        this.horarioInicial = time;
+    public void setHorarioInicial(String horarioInicial) {
+        this.horarioInicial = horarioInicial;
     }
 
-    public Time getHorarioFinal() {
+    public String getHorarioFinal() {
         return horarioFinal;
     }
 
-    public void setHorarioFinal(String horarioFinal) throws ParseException {
-        SimpleDateFormat formatador = new SimpleDateFormat("HH:mm");
-        Date data = (Date) formatador.parse(horarioFinal);
-        Time time = new Time(data.getTime());
-        this.horarioFinal = time;
+    public void setHorarioFinal(String horarioFinal){
+        this.horarioFinal = horarioFinal;
     }
 
     public int getIdCategoria() {
@@ -90,6 +89,29 @@ public class Atividade
         this.idSubCategoria = idSubCategoria;
     }
     
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+    
+     public int getIdExpediente() {
+        return idExpediente;
+    }
+
+    public void setIdExpediente(int idExpediente) {
+        this.idExpediente = idExpediente;
+    }
+    
+     public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
     
     
     public Atividade buscarAtividade(){
@@ -106,16 +128,18 @@ public class Atividade
         return null;
     }
     
-    public void salvarAtividade(){
-//        Usuario retorno;
-//        try{
-//            //busca o Usuario
-//            retorno = UsuarioBD.buscar(this.id);
-//            this.nome = retorno.nome;
-//            this.perfil= retorno.perfil;
-//        }catch(Exception e ){
-//            System.out.println(e);
-//        }
+    public String salvar(Usuario user, Expediente expediente, SubCategoria subcategoria){
+         persistencia = new AtividadeBD();
+        Atividade retorno;
+        try{
+            retorno = persistencia.salvar(this,user.getId(),expediente.getId(),subcategoria.getId());
+            //Atualiza o id do usuario, tendo em vista que o usuario criado não tinha
+            this.id = retorno.getId();
+        }
+        catch(Exception e ){
+            System.out.println(e);
+        }
+        return "Atividade Salvo com sucesso";
     }
     
     public void deletarAtividade(){
@@ -134,16 +158,16 @@ public class Atividade
      *
      * @return
      */
-    public ArrayList<Atividade> listaAtividade(){
-//        Permissao retorno;
-//        ArrayList<Permissao> lista = null;
-//        try{
-//            //busca o Usuario
-//            retorno = UsuarioBD.buscar(this.id);
-//            return lista;
-//        }catch(Exception e ){
-//            System.out.println(e);
-//        }
+    public ArrayList<Atividade> listar(Usuario user){
+        ArrayList<Atividade> lista = null;
+        persistencia = new AtividadeBD();
+        try{
+            //busca o Usuario
+            lista = persistencia.listar(user.getId());
+            return lista;
+        }catch(Exception e ){
+            System.out.println(e);
+        }
         return null;
     }
     

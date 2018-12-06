@@ -9,6 +9,7 @@ import banco.Conexao;
 import dailylog.Expediente;
 import dailylog.Usuario;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -62,11 +63,20 @@ public class ExpedienteBD {
         if(expediente.getId() > 0 ){
             //atualiza o usuario
             //sql = "UPDATE `daylog`.`tbl_expediente` SET `id_usuario` = '"+expediente.getUsuario().getId()+"', `horarioInicio` = '"+expediente.getHorarioInicial()+"', `horarioFim` = '"+expediente.getHorarioFinal()+"', `data` = '"+expediente.getData()+"', `flag_ativo` = '"+expediente.getFlagAtivo()+"' WHERE (`id_expediente` = '"+expediente.getId()+"');";
-            sql = "UPDATE `daylog`.`tbl_expediente` SET `id_usuario` = '"+expediente.getUsuario().getId()+"', `horarioInicio` = '"+expediente.getHorarioInicial()+"', `horarioFim` = '"+expediente.getHorarioFinal()+"', `flag_ativo` = '"+expediente.getFlagAtivo()+"', `data` = '"+expediente.getData()+"' WHERE (`id_expediente` = '"+expediente.getId()+"')";
+            sql = "UPDATE `daylog`.`tbl_expediente` SET `id_usuario`"
+                    + " = '"+expediente.getUsuario().getId()+"', `horarioInicio`"
+                    + " = '"+expediente.getHorarioInicial()+"', `horarioFim` = "
+                    + "'"+expediente.getHorarioFinal()+"', `flag_ativo` = "
+                    + "'"+expediente.getFlagAtivo()+"', `data` = '"+expediente.getData()+"'"
+                    + " WHERE (`id_expediente` = '"+expediente.getId()+"')";
         }else{
             //caso não seja atualização ele cria o usuário
             //Preparando váriaveis e Sql
-            sql = "INSERT INTO `daylog`.`tbl_expediente` (`id_usuario`, `horarioInicio`, `horarioFim`, `data`, `flag_ativo`) VALUES ('"+expediente.getUsuario().getId()+"', '"+expediente.getHorarioInicial()+"', '"+expediente.getHorarioFinal()+"', '"+expediente.getData()+"', 'A')";
+            sql = "INSERT INTO `daylog`.`tbl_expediente` "
+                    + "(`id_usuario`, `horarioInicio`, `horarioFim`,"
+                    + " `data`, `flag_ativo`) VALUES ('"+expediente.getUsuario().getId()+"',"
+                    + " '"+expediente.getHorarioInicial()+"', '"+expediente.getHorarioFinal()+"', "
+                    + "'"+expediente.getData()+"', 'A')";
         }
         try {
            //verifica se está conectado, caso não esteja conecta
@@ -79,7 +89,7 @@ public class ExpedienteBD {
                Conexao.executeUpdateSql(sql);
            }
         }
-        catch(Exception e) {
+        catch(ClassNotFoundException | SQLException e) {
             System.out.println(e);
         }
         return expediente;   
@@ -91,7 +101,9 @@ public class ExpedienteBD {
         //Preparando váriaveis e Sql
         expediente = new Expediente();
         Usuario user = new Usuario();
-        String sql = "select id_usuario,horarioInicio,horarioFim,data,flag_ativo,id_expediente from tbl_expediente where flag_ativo='A' order by id_usuario";
+        String sql = "select id_usuario,horarioInicio,horarioFim,data,"
+                + "flag_ativo,id_expediente from tbl_expediente where "
+                + "flag_ativo='A' order by id_usuario";
         Expediente expediente = new Expediente();
         try {
            //verifica se está conectado, caso não esteja conecta
@@ -127,7 +139,10 @@ public class ExpedienteBD {
         //Preparando váriaveis e Sql
         expediente = new Expediente();
         Usuario user = new Usuario();
-        String sql = "select id_usuario,horarioInicio,horarioFim,data,flag_ativo,id_expediente from tbl_expediente where flag_ativo='A' and id_usuario = '"+idUsuario+"' order by id_usuario";
+        String sql = "select id_usuario,horarioInicio,horarioFim,data,flag_ativo,"
+                + "id_expediente from tbl_expediente where flag_ativo='A' "
+                + "and id_usuario = '"+idUsuario+"' order by id_usuario";
+        
         Expediente expediente = new Expediente();
         try {
            //verifica se está conectado, caso não esteja conecta
@@ -151,7 +166,7 @@ public class ExpedienteBD {
             }
            return listaRetorno;
         }
-        catch(Exception e) {
+        catch(ClassNotFoundException | SQLException e) {
             System.out.println(e);
         }
         return null;

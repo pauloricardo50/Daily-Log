@@ -114,6 +114,11 @@ public class Main
             System.out.println("3 - Listar");
             System.out.println("4 - Excluir pelo ID");
             System.out.println("5 - Listar Expedientes");
+            System.out.println("6 - Adicionar Atividade");
+            System.out.println("7 - Listar Atividade");
+            System.out.println("8 - Excluir Atividade");
+            
+            
             System.out.println("9 - Sair");
             
             //Pega os dados passado pelo usuário (nextInt) porque espera um int;
@@ -123,28 +128,7 @@ public class Main
             //Prepara o switch para tratar os dados passado e executa a operação requisitada;
             switch (controleSwitch){
                 case 1:
-                    //Caso desejar criar um novo usuário, o sistema pede todas informações do usuário;
-                    user = new Usuario();
-                    System.out.println("Informe o nome do novo usuário:");
-                    dados = new Scanner(System.in);
-                    user.setNome(dados.next());
-                    System.out.println("Informe a senha do novo usuário:");
-                    dados = new Scanner(System.in);
-                    user.setSenha(dados.next());
-                    
-                    //Imprime os perfils cadastrado no sistema para que o usuário escolha um:
-                    perfil = new Perfil();
-                    lista = perfil.listar();
-                    imprimeListaPerfil(lista);
-                    
-                    System.out.println("Informe o perfil do novo usuário:");
-                    dados = new Scanner(System.in);
-                    perfil.setId(dados.nextInt());
-                    perfil.buscar();
-                    
-                    //Salva usuário:
-                    user.setPerfil(perfil);
-                    user.salvar();
+                    menuCriarUsuario(0);
                     
                     break;
                 case 2:
@@ -159,36 +143,31 @@ public class Main
                     
                     break;
                 case 4:
-                    /**
-                     * Exclui o usuário pelo ID, porem ele não exclui o registro do BD,
-                     * apenas faz uma autualização no registro e atribui ao usuário uma flag
-                     * que ele está desativado, para que então possamos ter o histórico;
-                     */
-                    user = new Usuario();
-                    listaUser = user.listar();
-                    
-                    imprimeListaUsuarios(listaUser);
-                    
-                    System.out.println("Informe id do usuário a ser excluído:");
-                    dados = new Scanner(System.in);
-                    user.setId(dados.nextInt());
-                    
-                    //Busca o usuário e "deleta"
-                    user.buscar();
-                    user.deletar();
-                    
-                    System.out.println("Usuário Deletado com sucesso!");
+                    menuExcluirUsuario();
                     
                     break;
                 case 5:
                     menuImprimeListaUsuario();
                     System.out.println("Informe o id do usuario");
-                     user = new Usuario();
-                     dados = new Scanner(System.in);
+                    user = new Usuario();
+                    dados = new Scanner(System.in);
                     user.setId(dados.nextInt());
                     user.buscar();
+                    
                     Expediente expediente = new Expediente();
+                    //Verificar se o usuário tem expediente
                     imprimeListaExpediente( expediente.listar(user));
+                    
+                    break;
+                case 6:
+                    menuCriarAtividade(0);
+                    
+                    break;
+                case 7:
+                    user = menuBuscarUsuario("Informe o ID do Usuario:");     
+                    menuImprimeListaAtividade(user);
+                    break;
+                case 8:
                     break;
                 case 9:
                     //Caso ele não queira fazer mais nada no SI ele sai.
@@ -574,6 +553,27 @@ public class Main
     }
     
     /**
+     * Metodo responsável por imprimir lista de perfil com todos os atributos;
+     * @param lista
+     */
+    public static void imprimeListaAtividade(ArrayList<Atividade> lista){
+        Expediente expediente = new Expediente();
+        SubCategoria subcategoria = new SubCategoria();
+        for(Atividade atividade: lista){
+            expediente = new Expediente();
+            expediente.setId(atividade.getIdExpediente());
+            expediente.buscar();
+            subcategoria = new SubCategoria();
+            subcategoria.setId(atividade.getIdSubCategoria());
+            subcategoria.buscar();
+            System.out.println("id: "+atividade.getId()+" - Titulo: "+ atividade.getTitulo()+
+                    " - Des.: "+ atividade.getDescricao() + " - Horario Ini.: " +atividade.getHorarioInicial()+
+                            " - Horario Final: "+ atividade.getHorarioFinal() + " - data: " + atividade.getData()+
+                    " - subcategoria: "+ subcategoria.getDescricao()+" - categoria: "+subcategoria.getCategoria().getDescricao());
+        }
+    }
+    
+    /**
      * Metodo responsável por imprimir lista de usuário;
      * @param lista
      */
@@ -657,13 +657,19 @@ public class Main
         return listaRetorno;
     }
     
-    
+     /**
+     * Metodo responsável por imprimir o perfil detalhado de usuário; 
+     */
     public static void menuImprimeListaPerfil(){
         Perfil perfil = new Perfil();
                     
         imprimeListaPerfilDetalhada(perfil.listar());
     }
     
+     /**
+     * Metodo responsável por buscar as permissões que o perfil do usuário possui;
+     * @return 
+     */
     public static Perfil menuBuscarPerfil(){
         //Busca permissão pelo perfil:
         System.out.println("Informe o ID a ser buscado:");
@@ -690,6 +696,12 @@ public class Main
     public static void menuCriarPerfil(int id){
         //Criar perfil
         Perfil perfil = new Perfil();
+        
+        /** Verifica se o id é maior que zero pois se for
+         * identificamos que o usuário quer modificar o perfil
+         * já existente.
+         */
+        
         if(id>0){
             perfil.setId(id);
         }
@@ -709,7 +721,8 @@ public class Main
         perfil.setTamanhoFonte(dados.nextInt());
         System.out.println("Informe SIM para ativar autoContraste:");
         dados = new Scanner(System.in);
-
+        
+        //Faz o tratamento do que o usuário responde
         String autoContraste = dados.next();
         if(autoContraste.equals("SIM")){
             perfil.setAutoContraste(true);
@@ -728,23 +741,83 @@ public class Main
         imprimeListaPermissao(perfil.getPemissoes());       
         
         perfil.salvar();
-    
     }
     
+    
+    
+    public static void menuCriarUsuario(int id){
+       //Caso desejar criar um novo usuário, o sistema pede todas informações do usuário;
+                    Usuario user = new Usuario();
+                    System.out.println("Informe o nome do novo usuário:");
+                    Scanner dados = new Scanner(System.in);
+                    user.setNome(dados.next());
+                    System.out.println("Informe a senha do novo usuário:");
+                    dados = new Scanner(System.in);
+                    user.setSenha(dados.next());
+                    
+                    //Imprime os perfils cadastrado no sistema para que o usuário escolha um:
+                    Perfil perfil = new Perfil();
+                    ArrayList<Perfil> lista = perfil.listar();
+                    imprimeListaPerfil(lista);
+                    
+                    System.out.println("Informe o perfil do novo usuário:");
+                    dados = new Scanner(System.in);
+                    perfil.setId(dados.nextInt());
+                    perfil.buscar();
+                    
+                    //Salva usuário:
+                    user.setPerfil(perfil);
+                    user.salvar();
+    }
+    
+    public static void menuExcluirUsuario(){
+       /**
+                     * Exclui o usuário pelo ID, porem ele não exclui o registro do BD,
+                     * apenas faz uma autualização no registro e atribui ao usuário uma flag
+                     * que ele está desativado, para que então possamos ter o histórico;
+                     */
+                    Usuario user = new Usuario();
+                    ArrayList<Usuario>listaUser = user.listar();
+                    
+                    imprimeListaUsuarios(listaUser);
+                    
+                    System.out.println("Informe id do usuário a ser excluído:");
+                    Scanner dados = new Scanner(System.in);
+                    user.setId(dados.nextInt());
+                    
+                    //Busca o usuário e "deleta"
+                    user.buscar();
+                    user.deletar();
+                    
+                    System.out.println("Usuário Deletado com sucesso!");
+    }
+    
+     /**
+     * Metodo responsável por imprimir a lista de Gategorias; 
+     */
      public static void menuImprimeListaCategoria(){
         Categoria categoria = new Categoria();
                     
         imprimeListaCategoria(categoria.listar());
     }
-     public static void menuImprimeListaUsuario(){
+     
+     /**
+     * Metodo responsável imprimir a lista de usuário; 
+     */
+    public static void menuImprimeListaUsuario(){
         Usuario user = new Usuario();
                     
         imprimeListaUsuario(user.listar());
     }
     
-    public static Categoria menuBuscarCategoria(String mensagem){
+     /**
+     * Metodo responsável por buscar as Categorias; 
+     * @param id
+     * @return 
+     */
+    public static Categoria menuBuscarCategoria(String id){
         //Busca uma permissão pelo id:
-        System.out.println(mensagem);
+        System.out.println(id);
         Scanner dados = new Scanner(System.in);
 
         Categoria categoria = new Categoria();
@@ -756,35 +829,63 @@ public class Main
         return categoria;
     }
     
+     /**
+     * Metodo responsável por criar uma nova categoria; 
+     * @param id
+     */
     public static void menuCriarCategoria(int id){
-        //Cria uma nova permissão
+        //Cria uma nova categoria
         Categoria categoria = new Categoria();
+        
+        /**
+        * condicional utilizada para verificar se vai ser atualizada uma categoria
+        * ou se vai ser adicionada uma nova categoria
+        */
         if(id >0){
             categoria.setId(id);
         }
+        
+        //Coleta os dados da categoria:
         System.out.println("Informe o nome da nova Categoria:");
         Scanner dados = new Scanner(System.in);
         categoria.setDescricao(dados.next());
 
+        //Salva a categoria
         categoria.salvar();
         System.out.println("Categoria Salva com sucesso!");
     }
     
+    /**
+     * Metodo responsável por imprimir as categoria cadastradas; 
+     */
     public static void menuImprimeListaSubCategoria(){
         SubCategoria subcategoria = new SubCategoria();
                     
         imprimeListaSubCategoria(subcategoria.listar());
     }
     
+    /**
+     * Metodo responsável por imprimir a lista de expediente do usuário; 
+     */
     public static void menuImprimeListaExpediente(){
         Expediente expediente = new Expediente();
                     
         imprimeListaExpediente(expediente.listar());
     }
+    public static void menuImprimeListaExpediente(Usuario user){
+        Expediente expediente = new Expediente();
+        
+        imprimeListaExpediente(expediente.listar(user));
+    }
     
-    public static SubCategoria menuBuscarSubCategoria(String mensagem){
-        //Busca uma permissão pelo id:
-        System.out.println(mensagem);
+    /**
+     * Metodo responsável por criar uma nova categoria; 
+     * @param id
+     * @return 
+     */
+    public static SubCategoria menuBuscarSubCategoria(String id){
+        //Busca uma Subcategoria pelo id:
+        System.out.println(id);
         Scanner dados = new Scanner(System.in);
 
         SubCategoria subcategoria = new SubCategoria();
@@ -796,25 +897,48 @@ public class Main
         return subcategoria;
     }
     
+    /**
+     * Metodo responsável por criar uma nova Subcategoria; 
+     * @param id
+     */
     public static void menuCriarSubCategoria(int id){
-        //Cria uma nova permissão
+        //Cria uma nova subcategoria
         SubCategoria subcategoria = new SubCategoria();
+        
+        /**
+        * condicional utilizada para verificar se a categoria já existe
+        * e caso exista ela será atualizada e caso não ela será criada 
+        */
         if(id >0){
             subcategoria.setId(id);
         }
+        
+        //Captura os dado da subcategoria
         System.out.println("Informe o nome da nova Sub-Categoria:");
         Scanner dados = new Scanner(System.in);
         subcategoria.setDescricao(dados.next());
         menuImprimeListaCategoria();
+        
+        /** Como um subcategoria pertence a uma categoria
+         *  listamos todas as categorias cadastradas no sistema 
+         *  para que o usuário escolha a categoria para qual está cadastrando
+         *  uma nova subcategoria.
+         */
         System.out.println("Informe Categoria pai da sub-categoria:");
         dados = new Scanner(System.in);
         subcategoria.setCategoria(new Categoria());
         subcategoria.getCategoria().setId(dados.nextInt());
         subcategoria.getCategoria().buscar();
+        
         subcategoria.salvar();
         System.out.println("Categoria Salva com sucesso!");
     }
     
+    /**
+     * Metodo responsável por buscar uma novo dia de expediente; 
+     * @param id
+     * @return 
+     */
     public static Expediente menuBuscarExpediente(String mensagem){
         //Busca uma permissão pelo id:
         System.out.println(mensagem);
@@ -822,25 +946,33 @@ public class Main
 
         Expediente expediente = new Expediente();
         expediente.setId(dados.nextInt());
-
-        expediente.buscar();
-
+            expediente.buscar();
+        
         System.out.println("Usuario: "+ expediente.getUsuario().getNome()+" - ID: "+expediente.getId()+" - "
                     + "Hora Ini.:" +expediente.getHorarioInicial()+" - Hora Fin.:"+
                     expediente.getHorarioFinal()+" - Data: "+ expediente.getData());
+        
         return expediente;
     }
     
+    /**
+     * Metodo responsável por criar uma novo dia de expediente; 
+     * @param id 
+     */
     public static void menuCriarExpediente(int id){
-        //Cria uma nova permissão
+        //Cria uma novo expediente
         Expediente expediente = new Expediente();
+        
+        //Verifica se o expediente já existe
         if(id >0){
             expediente.setId(id);
         }
+        
         System.out.println("Informe a data do novo Expediente: AAAA/MM/DD");
         Scanner dados = new Scanner(System.in);
         expediente.setData(dados.next());
         
+        //Lista todos os usuário para que o expediente seja atribuido a ele
         Usuario user = new Usuario();
         menuImprimeListaUsuario();
         System.out.println("Informe Usuario:");
@@ -848,23 +980,29 @@ public class Main
         
         user.setId(dados.nextInt());
         user.buscar();
+        
         expediente.setUsuario(user);
         
         System.out.println("Informe o Horario INicio do novo Expediente: HH:MM:SS");
-         dados = new Scanner(System.in);
+        dados = new Scanner(System.in);
         expediente.setHorarioInicial(dados.next());
         
         System.out.println("Informe o Horario Final do novo Expediente: HH:MM:SS");
-         dados = new Scanner(System.in);
+        dados = new Scanner(System.in);
         expediente.setHorarioFinal(dados.next());
         
         expediente.salvar(0);
         
-        System.out.println("Categoria Salva com sucesso!");
+        System.out.println("Expediente Salvo com sucesso!");
     }
     
+    /**
+     * Metodo responsável por buscar uma novo dia de expediente; 
+     * @param mensagem
+     * @return 
+     */
     public static Usuario menuBuscarUsuario(String mensagem){
-        //Busca uma permissão pelo id:
+       
         System.out.println(mensagem);
         Scanner dados = new Scanner(System.in);
 
@@ -877,6 +1015,41 @@ public class Main
         return user;
     }
     
+    
+    public static void menuCriarAtividade(int id){
+       //Caso desejar criar um novo usuário, o sistema pede todas informações do usuário;
+        Usuario user = menuBuscarUsuario("Informe o ID do Usuario:");
+        String texto;
+        SubCategoria subcategoria = new SubCategoria();
+        menuImprimeListaSubCategoria();
+        subcategoria = menuBuscarSubCategoria("Informe o ID da subCategoria");
+        menuImprimeListaExpediente(user);
+        Expediente expediente = menuBuscarExpediente("Informe o ID do expediente");
+        Atividade atividade = new Atividade();
+        System.out.println("Informe o titulo da atividade:");
+        Scanner dados = new Scanner(System.in);
+        atividade.setTitulo(dados.next());
+        System.out.println("Informe a descricao da atividade:");
+        dados = new Scanner(System.in);
+        atividade.setDescricao(dados.next());
+            System.out.println("Informe a Hora inicio da atividade: HH:MM:SS");
+            dados = new Scanner(System.in);
+            atividade.setHorarioInicial(dados.next());
+            System.out.println("Informe a Hora final da atividade: HH:MM:SS");
+            dados = new Scanner(System.in);
+            atividade.setHorarioFinal(dados.next());
+        
+        System.out.println("Informe a data da atividade: AAAA/MM/DD");
+        dados = new Scanner(System.in);
+        atividade.setData(dados.next());
+        atividade.salvar(user,expediente,subcategoria);
+    }
+    
+    public static void menuImprimeListaAtividade(Usuario user){
+        Atividade atividade = new Atividade();
+        
+        imprimeListaAtividade(atividade.listar(user));
+    }
 }
 
     
