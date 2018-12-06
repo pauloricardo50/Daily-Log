@@ -1,6 +1,6 @@
 
 --
--- Banco de Dados: `daylog`
+-- Banco de Dados: `daylog
 --
 
 --
