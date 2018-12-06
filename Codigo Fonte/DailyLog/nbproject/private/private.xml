@@ -5,8 +5,10 @@
         <group>
             <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/dailylog/Main.java</file>
             <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/dailylog/Usuario.java</file>
+            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/persistencia/PermissaoBD.java</file>
+            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/persistencia/AtividadeBD.java</file>
+            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/dailylog/Atividade.java</file>
             <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/persistencia/UsuarioBD.java</file>
-            <file>file:/C:/Users/jardielma/Documents/NetBeansProjects/dailylog/src/banco/Conexao.java</file>
         </group>
     </open-files>
 </project-private>

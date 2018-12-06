@@ -47,6 +47,21 @@ public class AtividadeBD
         return atividade;   
     }
    
+   public void deletar(int idAtividade){
+        String sql = "";
+        sql = "delete from tbl_atividade where id_atividade = "+idAtividade;
+        try {
+           //verifica se está conectado, caso não esteja conecta
+           if(Conexao.getConexao().isClosed()){
+               Conexao.conectar(true);
+           }
+           Conexao.executeUpdateSql(sql);
+        }
+        catch(ClassNotFoundException | SQLException e) {
+            System.out.println(e);
+        }  
+    }
+   
    //Lista as permissões de acordo com o perfil informado
     public ArrayList<Atividade> listar(int idUsuario){
      ArrayList<Atividade> listaRetorno = new ArrayList<>();

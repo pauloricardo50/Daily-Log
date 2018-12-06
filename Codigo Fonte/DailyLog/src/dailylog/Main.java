@@ -168,6 +168,9 @@ public class Main
                     menuImprimeListaAtividade(user);
                     break;
                 case 8:
+                    user = menuBuscarUsuario("Informe o ID do Usuario:"); 
+                    menuImprimeListaAtividade(user);
+                    menuExcluirAtividade();
                     break;
                 case 9:
                     //Caso ele não queira fazer mais nada no SI ele sai.
@@ -1050,6 +1053,29 @@ public class Main
         
         imprimeListaAtividade(atividade.listar(user));
     }
+    
+    /**
+     * Metodo responsável por buscar uma novo dia de expediente; 
+     * @param mensagem
+     * @return 
+     */
+    public static void menuExcluirAtividade(){
+       
+        System.out.println("Informe ID da atividade para excluir: -1 para cancelar");
+        Scanner dados = new Scanner(System.in);
+        int idAtividade= dados.nextInt();
+        if(idAtividade == -1)
+        {
+            return;
+        }
+        Atividade atividade = new Atividade();
+        atividade.setId(idAtividade);
+
+        atividade.deletar();
+
+        System.out.println("Atividade deletada com sucesso!");
+    }
+    
 }
 
     
