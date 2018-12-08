@@ -5,11 +5,6 @@
  */
 package dailylog;
 
-import banco.Conexao;
-import java.sql.Date;
-import java.sql.Time;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import persistencia.AtividadeBD;
 
@@ -30,6 +25,7 @@ public class Atividade
     private int idUsuario;
     private String data;
     private AtividadeBD persistencia;
+
 
     // GETTERS E SETTERS PARA O BD
     
@@ -114,19 +110,6 @@ public class Atividade
     }
     
     
-    public Atividade buscarAtividade(){
-//        Usuario retorno;
-//        try{
-//            //busca o Usuario
-//            retorno = UsuarioBD.buscar(this.id);
-//            this.nome = retorno.nome;
-//            this.perfil= retorno.perfil;
-//        }catch(Exception e ){
-//            System.out.println(e);
-//        }
-//        return this;
-        return null;
-    }
     
     public String salvar(Usuario user, Expediente expediente, SubCategoria subcategoria){
          persistencia = new AtividadeBD();
@@ -154,9 +137,10 @@ public class Atividade
     
     /**
      *
+     * @param user
      * @return
      */
-    public ArrayList<Atividade> listar(Usuario user){
+    public ArrayList<Atividade>listar(Usuario user){
         ArrayList<Atividade> lista = null;
         persistencia = new AtividadeBD();
         try{
@@ -168,6 +152,4 @@ public class Atividade
         }
         return null;
     }
-    
-    
 }

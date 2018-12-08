@@ -939,7 +939,7 @@ public class Main
     
     /**
      * Metodo responsável por buscar uma novo dia de expediente; 
-     * @param id
+     * @param mensagem
      * @return 
      */
     public static Expediente menuBuscarExpediente(String mensagem){

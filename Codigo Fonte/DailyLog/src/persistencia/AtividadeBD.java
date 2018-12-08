@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author 20151BSI0100
+ * @author Jardielma e Paulo Ricardo
  */
 public class AtividadeBD 
 {
