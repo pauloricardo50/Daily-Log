@@ -1,12 +1,15 @@
-# _Daily Log_
+# _Daily Log 1.1.0_
 
-<P align="justify">&nbsp&nbsp Trabalho desenvolvido para a disciplina de Programação Orientada a Objetos do curso Bacharelado em Sistemas de Informação (IFES - Campus Serra) no semestre 2018/2. </p>
+<P align="justify">&nbsp&nbsp Continuação do projeto Daily Log, que surgio por meio da disciplina de Programação Orientada a Objetos do curso Bacharelado em Sistemas de Informação (IFES - Campus Serra) no semestre 2018/2. Nessa nova versão do projeto iremos implementar padrões de projeto e também analisar o sistema do ponto de vista de projeto de sistema.</p>
 
 
 ### 1. COMPONENTES<br>
 **Integrantes do grupo:**<br>
 -  Jardielma Queiroz de Lima:<a href="url"> jardielmaqueiroz@hotmail.com </a>
 -  Paulo Ricardo Viana Ferreira:<a href="url"> paulo_ricardosf@outlook.com <br></a>
+-  Hugo Ramalho:<a href="url"> ramalho.hg@gmail.com <br></a>
+-  Lucas Eduardo S'antana Gianordoli: <a href="url"> gianordolilucas@gmail.com  <br></a>
+
 
 ### 2. JUSTIFICATIVA DO SISTEMA<br>
 <P align="justify">&nbsp&nbsp O sistema tem como propósito principal fazer o controle do tempo gasto com realização de atividades durante o expediente de trabalho. Além disso, o mesmo será utilizado como mediador para tomada de decisões estratégicas referentes à organização de atividades no trabalho, uma vez que essa ferramenta terá a capacidade de medir o tempo que está sendo gasto com cada atividade. Segue o <a href="https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Documentos/Documento%20de%20Especifica%C3%A7%C3%A3o%20de%20Requisitos.pdf"> documento de requisitos</a> do sistema para mais informaçôes. </p>
@@ -23,8 +26,8 @@
 <P align="justify">&nbsp&nbspO cadastro de usuários assim como informações referentes a ele serão feitas por meio do sistema externo da STI, os registros de eventos do sistema devem ser armazenados, o sistema deverá se comportar adequadamente, independente da plataforma que será utilizada para acesso – Browser, Smartphone ou Tablet e deve possuir opções de acessibilidade, tais como, alteração no tamanho da fonte, alto contraste e uma interface intuitiva com símbolos em todos os botões.</p>
 
 ### 4.PROJECT MODEL CANVAS (PMC)<br>
- ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/.PROJECT%20MODEL%20CANVAS%20(PMC).jpg)
--  [Link Para Acessar o documento no Drive.](https://drive.google.com/open?id=1BRnduh3Mi0v3PKa6mQV48JVdOMDXuDwR)
+ ![Alt Text](https://github.com/pauloricardo50/Daily-Log-1.1/blob/master/Imagens/PROJECT%20MODEL%20CANVAS%20(PMC).PNG)
+-  [Link Para Acessar o documento no Drive.](https://docs.google.com/document/d/1LCl8LuVsgQ8qMymWssgEbuBA2PrL6HwTJfxHi1nR5sU/edit?usp=sharing)
 
 ### 5.MAPA MENTAL<br>
  ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Mapa%20Mental%20do%20Sistema.PNG?raw=true)
@@ -35,13 +38,10 @@
 -  **Balsamiq:** Protótipós;
 
 ### 7. DIÁRIO DE BORDO<br>
--  [Link Para Acessar o documento no Drive.](https://drive.google.com/open?id=1P6XwhbS9ZVZyNuUQGXmAFkPPXhGp1INxyhvCrwF9Y6E)
+-  [Link Para Acessar o documento no Drive.](https://docs.google.com/document/d/1InH9X7oqH3iYVlX3xz8kX7wTIYcAmi3jNy94Y1scZEo/edit?usp=sharing)
 
 ### 8. QUADRO KANBAN<br>
--  [Link Para Acessar o quadro no Trello.](https://trello.com/b/HZuN7nHJ/dailylog2)
-
-### 9. JavaDoc<br>
--  [Link Para Acessar o JavDoc.]()
+-  [Trello.](https://trello.com/b/HZuN7nHJ/dailylog2)
 
 ### 10.PROTÓTIPOS DO SISTEMA(MOCKUPS)<br>
 -  [MOCKUP - PERFIL USUARIO](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Documentos/Prot-tipos/Daily%20Log%20-%20Perfil%20Usuario%20Comum%20.pdf)
