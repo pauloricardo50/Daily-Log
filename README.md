@@ -12,7 +12,7 @@
 
 
 ### 2. JUSTIFICATIVA DO SISTEMA<br>
-<P align="justify">&nbsp&nbsp O sistema tem como propósito principal fazer o controle do tempo gasto com realização de atividades durante o expediente de trabalho. Além disso, o mesmo será utilizado como mediador para tomada de decisões estratégicas referentes à organização de atividades no trabalho, uma vez que essa ferramenta terá a capacidade de medir o tempo que está sendo gasto com cada atividade. Segue o <a href="https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Documentos/Documento%20de%20Especifica%C3%A7%C3%A3o%20de%20Requisitos.pdf"> documento de requisitos</a> do sistema para mais informaçôes. </p>
+<P align="justify">&nbsp&nbsp O sistema tem como propósito principal fazer o controle do tempo gasto com realização de atividades durante o expediente de trabalho. Além disso, o mesmo será utilizado como mediador para tomada de decisões estratégicas referentes à organização de atividades no trabalho, uma vez que essa ferramenta terá a capacidade de medir o tempo que está sendo gasto com cada atividade.</p>
 
 ### 3.MINI-MUNDO<br>
 <P align="justify">&nbsp&nbsp A principal funcionalidade do sistema é controlar as atividades que os gestores desenvolvem no decorrer do expediente de trabalho, ações necessárias ou eventos significativos que não foram capturados no dia-a-dia e mostrar para eles dados estatísticos sobre as categorias de atividades que estão demandando maior parte do seu tempo. Categoria de atividade é uma classificação para identificar as características da atividade, já as subcategorias são as especificidades de cada categoria de atividade. Uma atividade possui titulo, descrição, duração, categoria, subcategoria, data e horário em que foi iniciada e concluída. As atividades devem ser iniciadas e finalizadas durante o horário de início e fim do expediente. Caso uma atividade seja iniciada e não seja concluída até o horário de fim do expediente a mesma será considerada como concluída. Vários usuários podem participar de uma atividade, no entanto cada usuário fica responsável pela sua participação na atividade.</p>
@@ -23,7 +23,10 @@
 
 <P align="justify">&nbsp&nbsp As pessoas que utilizarem o sistema, poderão consultar dados estatísticos em forma de gráfico e também relatórios semanais, trimestrais e por período específico sobre a relação de tempo que foi gasto com cada categoria de atividade e a porcentagem de  categoria de atividade em relação a carga horária de trabalho definida (semanal, mensal e por período), além de poder visualizar por categoria de atividade a subcategoria que demanda mais tempo. Apenas as pessoas que possuírem perfil de usuário comum e usuário administrador, poderão executar as funcionalidades citadas. Além disso, pessoas que possuírem perfil de administrador poderão visualizar relatórios de outras pessoas que também utilizam o sistema, destacando que essas pessoas deverão trabalhar no mesmo setor ou possuírem algum vínculo entre se.</p>
 
-<P align="justify">&nbsp&nbspO cadastro de usuários assim como informações referentes a ele serão feitas por meio do sistema externo da STI, os registros de eventos do sistema devem ser armazenados, o sistema deverá se comportar adequadamente, independente da plataforma que será utilizada para acesso – Browser, Smartphone ou Tablet e deve possuir opções de acessibilidade, tais como, alteração no tamanho da fonte, alto contraste e uma interface intuitiva com símbolos em todos os botões.</p>
+<P align="justify">&nbsp&nbsp O cadastro de usuários assim como informações referentes a ele serão feitas por meio do sistema externo da STI, exceto quando a pessoa que participou da atividade não faça parte do grupo de funcionário do TJES. Para essas exceções será necessário salvar nome completo da pessoa, telefone e empresa que representa, ressaltando que o sistema deve ser capaz de sugerir ao usuário o nome da empresa para seleção quando possível.</p>
+
+<P align="justify">&nbsp&nbsp Os registros de eventos do sistema devem ser armazenados, o sistema deverá se comportar adequadamente, independente da plataforma que será utilizada para acesso – Browser, Smartphone ou Tablet e deve possuir opções de acessibilidade, tais como, alteração no tamanho da fonte, alto contraste e uma interface intuitiva com símbolos em todos os botões.</p>
+
 
 ### 4.PROJECT MODEL CANVAS (PMC)<br>
  ![Alt Text](https://github.com/pauloricardo50/Daily-Log-1.1/blob/master/Imagens/PROJECT%20MODEL%20CANVAS%20(PMC).PNG)
@@ -52,7 +55,7 @@
  ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Diagrama%20de%20Classe%20-%20Daily%20Log.jpg?raw=true)
 
 ### 12. DIAGRAMA DE CASO DE USO <br>
- ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Diagrama%20de%20Caso%20de%20Uso.png?raw=true)
+ ![Alt Text](https://github.com/pauloricardo50/Daily-Log-1.1/blob/master/Imagens/Diagrama%20de%20Caso%20de%20Uso%20-%20Daily%20Log.jpg)
 
 ### 13. MODELO CONCEITUAL <br>
  ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Modelo%20Conceitual%20DailyLog.png)
