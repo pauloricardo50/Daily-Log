@@ -44,9 +44,9 @@
 -  [Trello.](https://trello.com/b/HZuN7nHJ/dailylog2)
 
 ### 10.PROTÓTIPOS DO SISTEMA(MOCKUPS)<br>
--  [MOCKUP - PERFIL USUARIO](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Documentos/Prot-tipos/Daily%20Log%20-%20Perfil%20Usuario%20Comum%20.pdf)
--  [MOCKUP - PERFIL DE CADASTRO](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Documentos/Prot-tipos/Daily%20Log%20%20-%20Perfil%20de%20Cadastro.pdf)
--  [MOCKUP - PERFIL ADMINISTRADOR](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Documentos/Prot-tipos/Daily%20Log%20-%20Perfil%20Adiministrador.pdf)
+-  [MOCKUP - PERFIL USUARIO](https://github.com/pauloricardo50/Daily-Log-1.1/blob/master/Documentos/Prot%C3%B3tipos/Daily%20Log%20%20-%20Perfil%20de%20Cadastro.pdf)
+-  [MOCKUP - PERFIL DE CADASTRO](https://github.com/pauloricardo50/Daily-Log-1.1/blob/master/Documentos/Prot%C3%B3tipos/Daily%20Log%20-%20Perfil%20Adiministrador.pdf)
+-  [MOCKUP - PERFIL ADMINISTRADOR](https://github.com/pauloricardo50/Daily-Log-1.1/blob/master/Documentos/Prot%C3%B3tipos/Daily%20Log%20-%20Perfil%20Usuario%20Comum%20.pdf)
 
 ### 11. DIAGRAMA DE CLASSES UML<br>
  ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Diagrama%20de%20Classe%20-%20Daily%20Log.jpg?raw=true)
