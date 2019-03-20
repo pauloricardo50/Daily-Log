@@ -1,6 +1,6 @@
 # _Daily Log 1.1.0_
 
-<P align="justify">&nbsp&nbsp Continuação do projeto Daily Log, que surgio por meio da disciplina de Programação Orientada a Objetos do curso Bacharelado em Sistemas de Informação (IFES - Campus Serra) no semestre 2018/2. Nessa nova versão do projeto iremos implementar padrões de projeto e também analisar o sistema do ponto de vista de projeto de sistema.</p>
+<P align="justify">&nbsp&nbsp Continuação do projeto Daily Log, que surgio por meio da disciplina de Programação Orientada a Objetos do curso Bacharelado em Sistemas de Informação (IFES - Campus Serra) no semestre 2019/1. Nessa nova versão do projeto iremos implementar padrões de projeto e também analisar o sistema do ponto de vista de projeto de sistema.</p>
 
 
 ### 1. COMPONENTES<br>
