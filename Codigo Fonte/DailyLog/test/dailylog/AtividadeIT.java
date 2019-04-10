@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author jardielma
+ * @author jardielma 
  */
 public class AtividadeIT {
     
@@ -90,27 +90,5 @@ public class AtividadeIT {
             Conexao.desconectar(true);
         }
     }
-
-    /**
-     * Test of deletar method, of class Atividade.
-     * @param atividade
-     */
-    //@Test
-    /*public void testDeletar(Atividade atividade) {
-        System.out.println("deletar");
-        Atividade instance = new Atividade();
-        instance.deletar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of listar method, of class Atividade.
-     * @param atividade
-     */
-    /*@Test
-    public void testListar(Atividade atividade) {
-        
-    }*/
     
 }

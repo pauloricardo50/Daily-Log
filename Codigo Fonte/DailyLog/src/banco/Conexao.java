@@ -30,7 +30,7 @@ public class Conexao
      * Metodo utilizado para retornar a conexão com o banco de dados mysql
      * @return 
      */  
-    public static Connection getConexao() 
+    public static synchronized Connection getConexao() 
     {
         return Conexao.conexao;
     }

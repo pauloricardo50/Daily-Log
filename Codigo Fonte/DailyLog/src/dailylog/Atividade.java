@@ -110,7 +110,6 @@ public class Atividade
     }
     
     
-    
     public String salvar(Usuario user, Expediente expediente, SubCategoria subcategoria){
          persistencia = new AtividadeBD();
         Atividade retorno;

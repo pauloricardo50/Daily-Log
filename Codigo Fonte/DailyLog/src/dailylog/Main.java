@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Jardielma e Paulo Ricardo Viana
+ * @author Jardielma e Paulo Ricardo
  */
 
 
