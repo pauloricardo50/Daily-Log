@@ -29,9 +29,7 @@ public class UsuarioBD {
         Perfil perfil = new Perfil();
         try {
            //verifica se está conectado, caso não esteja conecta
-           if(Conexao.getConexao().isClosed()){
-               Conexao.conectar(true);
-           }
+           Conexao.conectar();
            rs = Conexao.executeQuerySql(sql);
 //           if(rs.first()== false){
 //            //Caso o usuário não existe retorna null
@@ -74,12 +72,10 @@ public class UsuarioBD {
         try {
             System.out.println(sql);
            //verifica se está conectado, caso não esteja conecta
-           if(Conexao.getConexao().isClosed()){
-               Conexao.conectar(true);
-           }
+            Conexao.conectar();
            user.setId(Conexao.executeUpdateSql(sql));
         }
-        catch(ClassNotFoundException | SQLException e) {
+        catch(ClassNotFoundException e) {
             System.out.println(e);
         }
         return user;   
@@ -99,9 +95,7 @@ public class UsuarioBD {
         
         try {
            //verifica se está conectado, caso não esteja conecta
-           if(Conexao.getConexao().isClosed()){
-               Conexao.conectar(true);
-           }
+           Conexao.conectar();
            
            rs = Conexao.executeQuerySql(sql);
           

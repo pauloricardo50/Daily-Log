@@ -33,9 +33,7 @@ public class PermissaoBD {
         }
         try {
            //verifica se está conectado, caso não esteja conecta
-           if(Conexao.getConexao().isClosed()){
-               Conexao.conectar(true);
-           }
+           Conexao.conectar();
            if(permissao.getId()==0){
             permissao.setId(Conexao.executeUpdateSql(sql));
            }else{
@@ -56,9 +54,7 @@ public class PermissaoBD {
         
         try {
            //verifica se está conectado, caso não esteja conecta
-           if(Conexao.getConexao().isClosed()){
-               Conexao.conectar(true);
-           }
+          Conexao.conectar();
            rs = Conexao.executeQuerySql(sql);
            while(rs.next()){
                 //Recupera valor referente ao nome
@@ -83,9 +79,7 @@ public class PermissaoBD {
                 + " from daylog.tbl_permissao";
         try {
            //verifica se está conectado, caso não esteja conecta
-           if(Conexao.getConexao().isClosed()){
-               Conexao.conectar(true);
-           }
+           Conexao.conectar();
            rs = Conexao.executeQuerySql(sql);
            while(rs.next()){
                 permissao = new Permissao();
@@ -113,9 +107,7 @@ public class PermissaoBD {
                 + "where permPerfil.id_perfil = "+idPerfil;
         try {
            //verifica se está conectado, caso não esteja conecta
-           if(Conexao.getConexao().isClosed()){
-               Conexao.conectar(true);
-           }
+           Conexao.conectar();
            rs = Conexao.executeQuerySql(sql);
            while(rs.next()){
                 permissao = new Permissao();

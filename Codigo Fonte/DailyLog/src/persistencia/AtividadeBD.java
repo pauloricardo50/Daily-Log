@@ -36,12 +36,13 @@ public class AtividadeBD
         }
         try {
            //verifica se está conectado, caso não esteja conecta
-           if(Conexao.getConexao().isClosed()){
-               Conexao.conectar(true);
-           }
+           //if(Conexao.conectar().isClosed()){
+              // Conexao.conectar(true);
+           //}
+           Conexao.conectar();
            atividade.setId(Conexao.executeUpdateSql(sql));
         }
-        catch(ClassNotFoundException | SQLException e) {
+        catch(ClassNotFoundException e) {
             System.out.println(e);
         }
         return atividade;   
@@ -52,12 +53,13 @@ public class AtividadeBD
         sql = "delete from tbl_atividade where id_atividade = "+idAtividade;
         try {
            //verifica se está conectado, caso não esteja conecta
-           if(Conexao.getConexao().isClosed()){
-               Conexao.conectar(true);
-           }
+           //if(Conexao.getConexao().isClosed()){
+               //Conexao.conectar(true);
+           //}
+           Conexao.conectar();
            Conexao.executeUpdateSql(sql);
         }
-        catch(ClassNotFoundException | SQLException e) {
+        catch(ClassNotFoundException e) {
             System.out.println(e);
         }  
     }
@@ -70,9 +72,7 @@ public class AtividadeBD
         String sql = "select * from tbl_atividade where id_usuario  = "+idUsuario;
         try {
            //verifica se está conectado, caso não esteja conecta
-           if(Conexao.getConexao().isClosed()){
-               Conexao.conectar(true);
-           }
+           Conexao.conectar();
            ResultSet rs = Conexao.executeQuerySql(sql);
            while(rs.next()){
                 atividade = new Atividade();

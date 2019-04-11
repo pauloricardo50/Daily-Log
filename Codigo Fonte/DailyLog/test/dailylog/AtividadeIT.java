@@ -46,7 +46,7 @@ public class AtividadeIT {
     @Test
     public void testSalvar(){
         try{
-            Conexao.conectar(true);
+            Conexao.conectar();
             
             Atividade atividade = new Atividade();
             Usuario user = new Usuario();

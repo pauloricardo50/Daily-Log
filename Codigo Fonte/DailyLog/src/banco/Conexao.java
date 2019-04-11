@@ -30,9 +30,24 @@ public class Conexao
      * Metodo utilizado para retornar a conexão com o banco de dados mysql
      * @return 
      */  
-    public static synchronized Connection getConexao() 
+    private static synchronized Connection getConexao() throws ClassNotFoundException 
     {
-        return Conexao.conexao;
+         //Conectando ao banco
+        try {
+           if (conexao == null){
+                Class.forName("com.mysql.jdbc.Driver");
+                conexao =  DriverManager.getConnection("jdbc:mysql://127.0.0.1:3388/daylog","root","");
+                //Conectado.
+           }
+           else{
+               return conexao;
+           }
+        }
+        catch(SQLException e) {
+            System.out.println(e);
+            throw new RuntimeException(e);
+        }    
+        return conexao;
     }
         
     /**
@@ -40,18 +55,9 @@ public class Conexao
      * @param mysql
      * @throws java.lang.ClassNotFoundException
      */     
-    public static void conectar(boolean mysql) throws ClassNotFoundException 
+    public static void conectar() throws ClassNotFoundException  
     {
-        //Conectando ao banco
-        try {
-           Class.forName("com.mysql.jdbc.Driver");
-           Conexao.conexao =  DriverManager.getConnection("jdbc:mysql://127.0.0.1:3388/daylog","root","");
-           //Conectado.
-        }
-        catch(SQLException e) {
-            System.out.println(e);
-            throw new RuntimeException(e);
-        }    
+        getConexao();
     }
     
     /**

@@ -25,7 +25,7 @@ public class Main
     {
         //Tenta se conectar com o BD
         try{
-            Conexao.conectar(true); //conectando 
+            Conexao.conectar(); //conectando 
         }
         catch(ClassNotFoundException e){
             System.out.println(e);

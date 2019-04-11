@@ -26,9 +26,7 @@ public class CategoriaBD {
         
         try {
            //verifica se está conectado, caso não esteja conecta
-           if(Conexao.getConexao().isClosed()){
-               Conexao.conectar(true);
-           }
+           Conexao.conectar();
            rs = Conexao.executeQuerySql(sql);
            while(rs.next()){
                 //Recupera valor referente ao nome
@@ -56,9 +54,7 @@ public class CategoriaBD {
         }
         try {
            //verifica se está conectado, caso não esteja conecta
-           if(Conexao.getConexao().isClosed()){
-               Conexao.conectar(true);
-           }
+           Conexao.conectar();
            
            if(categoria.getId()==0){
             categoria.setId(Conexao.executeUpdateSql(sql));
@@ -80,9 +76,7 @@ public class CategoriaBD {
         String sql = "select id_categoria,descricao from tbl_categoria";
         try {
            //verifica se está conectado, caso não esteja conecta
-           if(Conexao.getConexao().isClosed()){
-               Conexao.conectar(true);
-           }
+           Conexao.conectar();
            
            rs = Conexao.executeQuerySql(sql);
            while(rs.next()){

@@ -31,9 +31,7 @@ public class ExpedienteBD {
                 + "where flag_ativo = 'A' and id_expediente = "+idExpediente;
         try {
            //verifica se está conectado, caso não esteja conecta
-           if(Conexao.getConexao().isClosed()){
-               Conexao.conectar(true);
-           }
+          Conexao.conectar();
            rs = Conexao.executeQuerySql(sql);
            while(rs.next()){
                 //Recupera valor referente ao nome
@@ -80,16 +78,14 @@ public class ExpedienteBD {
         }
         try {
            //verifica se está conectado, caso não esteja conecta
-           if(Conexao.getConexao().isClosed()){
-               Conexao.conectar(true);
-           }
+           Conexao.conectar();
            if(expediente.getId()==0){
             expediente.setId(Conexao.executeUpdateSql(sql));
            }else{
                Conexao.executeUpdateSql(sql);
            }
         }
-        catch(ClassNotFoundException | SQLException e) {
+        catch(ClassNotFoundException e) {
             System.out.println(e);
         }
         return expediente;   
@@ -107,9 +103,7 @@ public class ExpedienteBD {
         Expediente expediente = new Expediente();
         try {
            //verifica se está conectado, caso não esteja conecta
-           if(Conexao.getConexao().isClosed()){
-               Conexao.conectar(true);
-           }
+           Conexao.conectar();
            
            rs = Conexao.executeQuerySql(sql);
            while(rs.next()){
@@ -146,9 +140,7 @@ public class ExpedienteBD {
         Expediente expediente = new Expediente();
         try {
            //verifica se está conectado, caso não esteja conecta
-           if(Conexao.getConexao().isClosed()){
-               Conexao.conectar(true);
-           }
+           Conexao.conectar();
            
            rs = Conexao.executeQuerySql(sql);
            while(rs.next()){

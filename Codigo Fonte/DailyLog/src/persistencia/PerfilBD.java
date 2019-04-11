@@ -32,9 +32,7 @@ public class PerfilBD {
                             "from tbl_perfil where id_perfil = "+idperfil;
         try {
            //verifica se está conectado, caso não esteja conecta
-           if(Conexao.getConexao().isClosed()){
-               Conexao.conectar(true);
-           }
+           Conexao.conectar();
            rs = Conexao.executeQuerySql(sql);
            while(rs.next()){
                 //Recupera valores
@@ -83,9 +81,7 @@ public class PerfilBD {
         }
         try {
            //verifica se está conectado, caso não esteja conecta
-           if(Conexao.getConexao().isClosed()){
-               Conexao.conectar(true);
-           }
+          Conexao.conectar();
            if(perfil.getId()==0){
             perfil.setId(Conexao.executeUpdateSql(sql));
            }else{
@@ -113,9 +109,7 @@ public class PerfilBD {
                 + "from tbl_perfil";
         try {
            //verifica se está conectado, caso não esteja conecta
-           if(Conexao.getConexao().isClosed()){
-               Conexao.conectar(true);
-           }
+           Conexao.conectar();
            rs = Conexao.executeQuerySql(sql);
 //           if(rs.equals(sql.)){
 //            //Caso o usuário não existe retorna null
