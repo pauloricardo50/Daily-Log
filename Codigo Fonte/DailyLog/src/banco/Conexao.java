@@ -24,13 +24,16 @@ import java.sql.SQLException;
 */  
 public class Conexao 
 {
+    //Estancia o objeto
     private static Connection conexao;
 
     /**
      * Metodo utilizado para retornar a conexão com o banco de dados mysql
      * @return 
      */  
-    private static synchronized Connection getConexao() throws ClassNotFoundException 
+    // função que retorna sempre a mesma instância do objeto
+    
+    public static synchronized Connection getConexao() throws ClassNotFoundException 
     {
          //Conectando ao banco
         try {
@@ -49,12 +52,13 @@ public class Conexao
         }    
         return conexao;
     }
-        
+ 
     /**
      * Metodo utilizada para conectar ao banco de dados mysql
      * @param mysql
      * @throws java.lang.ClassNotFoundException
-     */     
+     */   
+    
     public static void conectar() throws ClassNotFoundException  
     {
         getConexao();
