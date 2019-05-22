@@ -6,6 +6,7 @@
 package dailylog;
 
 import java.util.ArrayList;
+import persistencia.ParticipacaoAtividadeBD;
 
 /**
  *
@@ -13,15 +14,23 @@ import java.util.ArrayList;
  */
 public class ParticipacaoAtividade {
     private int id;
+    
     /**
-  * Javadoc
-  * Descrição da Participação do usuário na atividade
-  */
+    * Javadoc
+    * Descrição da Participação do usuário na atividade
+    */
+    private String titulo;
     private String descricao;
     private String horarioInicial;
     private String horarioFinal;
-    private Atividade atividade;
+    private String dataInicial;
+    private String dataFinal;
+    private int idAtividade;
+    private int idUsuario;
+    private ParticipacaoAtividadeBD persistencia;
 
+    
+    
     public int getId() {
         return id;
     }
@@ -29,7 +38,14 @@ public class ParticipacaoAtividade {
     public void setId(int id) {
         this.id = id;
     }
+    
+    public int getIdAtividade() {
+        return idAtividade;
+    }
 
+    public void setIdAtividade(int idAtividade) {
+        this.idAtividade = idAtividade;
+    }
 
     public String getDescricao() {
         return descricao;
@@ -54,18 +70,42 @@ public class ParticipacaoAtividade {
     public void setHorarioFinal(String horarioFinal) {
         this.horarioFinal = horarioFinal;
     }
-
-    public Atividade getAtividade() {
-        return atividade;
+    
+    
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setAtividade(Atividade atividade) {
-        this.atividade = atividade;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
     
+    public String getDataInicial() {
+        return dataInicial;
+    }
+
+    public void setDataInicial(String dataInicial) {
+        this.dataInicial = dataInicial;
+    }
     
+    public String getDataFinal() {
+        return dataFinal;
+    }
+
+    public void setDataFinal(String dataFinal) {
+        this.dataFinal = dataFinal;
+    }
     
+     public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
     
+
+        
     public ParticipacaoAtividade buscarParticipacaoAtividade(){
 //        Usuario retorno;
 //        try{
@@ -80,16 +120,19 @@ public class ParticipacaoAtividade {
         return null;
     }
     
-    public void salvarParticipacaoAtividade(){
-//        Usuario retorno;
-//        try{
-//            //busca o Usuario
-//            retorno = UsuarioBD.buscar(this.id);
-//            this.nome = retorno.nome;
-//            this.perfil= retorno.perfil;
-//        }catch(Exception e ){
-//            System.out.println(e);
-//        }
+    public String salvar(){
+        persistencia = new ParticipacaoAtividadeBD();
+        ParticipacaoAtividade retorno;
+        try{
+            retorno = persistencia.salvar(this);
+            
+            //Atualiza o id do usuario, tendo em vista que o usuario criado não tinha
+            this.id = retorno.getId();
+        }
+        catch(Exception e ){
+            System.out.println(e);
+        }
+        return "Participaçã atividade Salvo com sucesso";
     }
     
     public void deletarParticipacaoAtividade(){

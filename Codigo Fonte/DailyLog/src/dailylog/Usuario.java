@@ -13,8 +13,7 @@ import persistencia.UsuarioBD;
  *
  * @author Jardielma e Paulo Ricardo
  */
-public class Usuario 
-{
+public class Usuario implements Observador{
     /* atributos */
     
     private int id;
@@ -159,6 +158,13 @@ public class Usuario
             System.out.println(e);
         }
         return null;
+    }
+
+    @Override
+    public void update(String mensagem) {
+        //Deverar chegar por email - a ser implementado futuramente
+        //Mensagem tela
+        System.out.println("Um novo usuário solicitou participação na atividade "+mensagem);
     }
    
 }

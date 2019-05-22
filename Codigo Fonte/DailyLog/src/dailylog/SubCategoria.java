@@ -5,7 +5,6 @@
  */
 package dailylog;
 
-import banco.Conexao;
 import java.util.ArrayList;
 import persistencia.SubCategoriaBD;
 /**
@@ -41,10 +40,7 @@ public class SubCategoria {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
-    
-
-    
-    
+      
     public SubCategoria buscar(){
         SubCategoria retorno;
         persistencia = new SubCategoriaBD();
@@ -106,7 +102,4 @@ public class SubCategoria {
         }
         return null;
     }
-    
-    
-    
 }

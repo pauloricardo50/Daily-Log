@@ -33,13 +33,13 @@ public class Conexao
      */  
     // função que retorna sempre a mesma instância do objeto
     
-    public static synchronized Connection getConexao() throws ClassNotFoundException 
+    public static synchronized Connection conectar() throws ClassNotFoundException 
     {
          //Conectando ao banco
         try {
            if (conexao == null){
                 Class.forName("com.mysql.jdbc.Driver");
-                conexao =  DriverManager.getConnection("jdbc:mysql://127.0.0.1:3388/daylog","root","");
+                conexao =  DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/daylog","root","");
                 //Conectado.
            }
            else{
@@ -52,18 +52,7 @@ public class Conexao
         }    
         return conexao;
     }
- 
-    /**
-     * Metodo utilizada para conectar ao banco de dados mysql
-     * @param mysql
-     * @throws java.lang.ClassNotFoundException
-     */   
-    
-    public static void conectar() throws ClassNotFoundException  
-    {
-        getConexao();
-    }
-    
+       
     /**
      * Metodo utilizada para desconectar ao banco de dados mysql
      * @param mysql

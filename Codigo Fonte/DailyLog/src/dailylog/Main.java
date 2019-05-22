@@ -15,9 +15,7 @@ import java.util.Scanner;
  */
 
 
-public class Main 
-{
-
+public class Main {
     /**
      * @param args the command line arguments
      */
@@ -99,6 +97,7 @@ public class Main
         ArrayList<Perfil> lista;
         ArrayList<Usuario> listaUser;
         Perfil perfil;
+        Atividade atividade;
         Scanner dados;
         int controleSwitch = 0;
         
@@ -117,9 +116,11 @@ public class Main
             System.out.println("6 - Adicionar Atividade");
             System.out.println("7 - Listar Atividade");
             System.out.println("8 - Excluir Atividade");
+            System.out.println("9 - Registrar Execução de Atividade");
+            System.out.println("10 - Listar Execução de Atividade");
+            //System.out.println("11 - Excluir Execução de Atividade");
             
-            
-            System.out.println("9 - Sair");
+            System.out.println("12 - Sair");
             
             //Pega os dados passado pelo usuário (nextInt) porque espera um int;
             dados = new Scanner(System.in);
@@ -173,6 +174,25 @@ public class Main
                     menuExcluirAtividade();
                     break;
                 case 9:
+                    //Registrar Execução de Atividade
+                    user = menuBuscarUsuario("Informe o ID do Usuario:"); 
+                    atividade = menuBuscarAtividade(user,"Informe o Id da Atividade");
+                    menuCriarParticipacaoAtividade(atividade.getId());
+                    //menuImprimeListaAtividade(user);
+                    break;
+                case 10:
+                    //Listar Execução de Atividade
+                    user = menuBuscarUsuario("Informe o ID do Usuario:"); 
+                    atividade = menuBuscarAtividade(user,"Informe o Id da Atividade");
+                    menuImprimeListaParticipacaoAtividade(atividade.getId());
+                    break;
+                case 11:
+                    //Excluir Execução de Atividade
+//                    user = menuBuscarUsuario("Informe o ID do Usuario:"); 
+//                    menuImprimeListaAtividade(user);
+//                    menuExcluirAtividade();
+                    break;
+                case 12:
                     //Caso ele não queira fazer mais nada no SI ele sai.
                     System.out.println("Saiu");
                     controleSwitch=-1;
@@ -543,6 +563,10 @@ public class Main
         });
     }
     
+    public static void imprimeUsuario(Usuario usuario){
+            System.out.println("\nUsuario: "+usuario.getId()+" - " +usuario.getNome());
+    }
+    
     /**
      * Metodo responsável por imprimir lista de perfil com todos os atributos;
      * @param lista
@@ -560,6 +584,9 @@ public class Main
      * @param lista
      */
     public static void imprimeListaAtividade(ArrayList<Atividade> lista){
+        if(lista.isEmpty()){
+            System.out.println("Nenhuma Execução cadastrada nesta atividade");
+        }
         Expediente expediente = new Expediente();
         SubCategoria subcategoria = new SubCategoria();
         for(Atividade atividade: lista){
@@ -574,6 +601,38 @@ public class Main
                             " - Horario Final: "+ atividade.getHorarioFinal() + " - data: " + atividade.getData()+
                     " - subcategoria: "+ subcategoria.getDescricao()+" - categoria: "+subcategoria.getCategoria().getDescricao());
         }
+    }
+    
+    public static void imprimeListaParticipacaoAtividade(ArrayList<ParticipacaoAtividade> lista){
+        if(lista.isEmpty()){
+            System.out.println("Nenhuma Execução cadastrada nesta atividade");
+        }
+        Usuario usuario = new Usuario();
+        System.out.println("\n");
+        for(ParticipacaoAtividade participacaoAtividade: lista){
+            usuario = new Usuario();
+            usuario.setId(participacaoAtividade.getIdUsuario());
+            usuario.buscar();
+            
+            System.out.println("Execução: id_Atividade: "+participacaoAtividade.getId()+" -- Usuario: "+usuario.getNome()+ " - Titulo: "+ participacaoAtividade.getTitulo()+
+                    " - Des.: "+ participacaoAtividade.getDescricao() + " - Horario Ini.: " +participacaoAtividade.getHorarioInicial()+
+                            " - Horario Final: "+ participacaoAtividade.getHorarioFinal() + " - data Inicial: " + participacaoAtividade.getDataInicial()+
+                    " - data Final: " + participacaoAtividade.getDataFinal());
+        }
+    }
+    
+        /**
+     * Metodo responsável por imprimir Atividade;
+     */
+    public static void imprimeAtividade(Atividade atividade){
+        SubCategoria subcategoria = new SubCategoria();
+            subcategoria.setId(atividade.getIdSubCategoria());
+            subcategoria.buscar();
+            System.out.println("\n Atividade: id: "+atividade.getId()+" - Titulo: "+ atividade.getTitulo()+
+                    " - Des.: "+ atividade.getDescricao() + " - Horario Ini.: " +atividade.getHorarioInicial()+
+                            " - Horario Final: "+ atividade.getHorarioFinal() + " - data: " + atividade.getData()+
+                    " - subcategoria: "+ subcategoria.getDescricao()+" - categoria: "+subcategoria.getCategoria().getDescricao());
+        
     }
     
     /**
@@ -1074,6 +1133,83 @@ public class Main
         atividade.deletar();
 
         System.out.println("Atividade deletada com sucesso!");
+    }
+    
+    
+    public static Atividade menuBuscarAtividade(Usuario user, String mensagem){
+        menuImprimeListaAtividade(user);
+        
+        System.out.println(mensagem);
+        Scanner dados = new Scanner(System.in);
+        
+        Atividade atividade = new Atividade();
+        atividade.setId(dados.nextInt());
+        atividade.buscar(atividade.getId());
+
+
+        System.out.println(atividade.getId()+" - "+atividade.getTitulo());
+        return atividade;
+    }
+    
+    
+    public static void menuCriarParticipacaoAtividade(int idAtividade){
+       //Caso desejar criar um novo usuário, o sistema pede todas informações do usuário;
+            
+        String texto;
+        ParticipacaoAtividade participacaoAtividade = new ParticipacaoAtividade();
+        System.out.println("Informe o titulo da Execucao da atividade:");
+        Scanner dados = new Scanner(System.in);
+        participacaoAtividade.setTitulo(dados.next());
+        
+        System.out.println("Informe a descricao da atividade:");
+        dados = new Scanner(System.in);
+        participacaoAtividade.setDescricao(dados.next());
+        
+        System.out.println("Informe a Hora inicio da atividade: HH:MM:SS");
+        dados = new Scanner(System.in);
+        participacaoAtividade.setHorarioInicial(dados.next());
+        
+        System.out.println("Informe a Hora final da atividade: HH:MM:SS");
+        dados = new Scanner(System.in);
+        participacaoAtividade.setHorarioFinal(dados.next());
+        
+        System.out.println("Informe a data Inicial da atividade: AAAA/MM/DD");
+        dados = new Scanner(System.in);
+        participacaoAtividade.setDataInicial(dados.next());
+        
+        System.out.println("Informe a data Final da atividade: AAAA/MM/DD");
+        dados = new Scanner(System.in);
+        participacaoAtividade.setDataFinal(dados.next());
+        
+        System.out.println("Informe o Usuario que executou essa atividade:");
+        dados = new Scanner(System.in);
+        participacaoAtividade.setIdUsuario(dados.nextInt());
+        
+        participacaoAtividade.setIdAtividade(idAtividade);
+        
+        Atividade atividade = new Atividade();
+        atividade.setId(idAtividade);
+        atividade.buscar(idAtividade);
+        atividade.identificarUsuarioDiferente(participacaoAtividade);
+        
+        participacaoAtividade.salvar();
+        
+    }
+    
+    
+    public static void menuImprimeListaParticipacaoAtividade(int idAtividade){
+        Atividade atividade = new Atividade();
+        atividade.buscar(idAtividade);
+        //Imprime usuário
+        Usuario usuario = new Usuario();
+        usuario.setId(atividade.getIdUsuario());
+        usuario.buscar();
+        
+        imprimeUsuario(usuario);
+        //imprime atividade
+        imprimeAtividade(atividade);
+        //imprime paticipacaoatividade
+        imprimeListaParticipacaoAtividade(atividade.getlistaParticipacaoAtividade());
     }
     
 }

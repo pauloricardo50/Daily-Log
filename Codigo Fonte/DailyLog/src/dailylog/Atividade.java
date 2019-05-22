@@ -6,14 +6,14 @@
 package dailylog;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import persistencia.AtividadeBD;
 
 /**
  *
  * @author Jardielma e Paulo Ricardo
  */
-public class Atividade 
-{
+public class Atividade extends Observado{
     private int id;
     private String titulo;
     private String descricao;
@@ -25,16 +25,24 @@ public class Atividade
     private int idUsuario;
     private String data;
     private AtividadeBD persistencia;
-
-
-    // GETTERS E SETTERS PARA O BD
+    private ArrayList<ParticipacaoAtividade> listaParticipacaoAtividade ;
     
     public int getId() {
         return id;
+        
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+    
+    public ArrayList<ParticipacaoAtividade> getlistaParticipacaoAtividade() {
+        return listaParticipacaoAtividade;
+        
+    }
+
+    public void setlistaParticipacaoAtividade(ArrayList<ParticipacaoAtividade> listaParticipacaoAtividade) {
+        this.listaParticipacaoAtividade = listaParticipacaoAtividade;
     }
 
     public String getTitulo() {
@@ -109,12 +117,12 @@ public class Atividade
         this.idUsuario = idUsuario;
     }
     
-    
     public String salvar(Usuario user, Expediente expediente, SubCategoria subcategoria){
-         persistencia = new AtividadeBD();
+        persistencia = new AtividadeBD();
         Atividade retorno;
         try{
             retorno = persistencia.salvar(this,user.getId(),expediente.getId(),subcategoria.getId());
+            
             //Atualiza o id do usuario, tendo em vista que o usuario criado não tinha
             this.id = retorno.getId();
         }
@@ -134,6 +142,10 @@ public class Atividade
         }
     }
     
+    public void adicionarParticipacao(ParticipacaoAtividade novaParticipacao){
+        this.listaParticipacaoAtividade.add(novaParticipacao);
+    }
+    
     /**
      *
      * @param user
@@ -151,4 +163,62 @@ public class Atividade
         }
         return null;
     }
+    
+    
+    
+    
+    /**
+     * Busca o usuario pelo id do objeto
+     * Caso encontre, retorna o usuário encontrado e seta as váriaveis do objeto no objeto atual
+     * Caso não encontre, retorna null.
+     * @return
+     */
+    public Atividade buscar(int idAtividade){
+        Atividade retorno;
+        persistencia = new AtividadeBD();
+        try{
+            //busca o Usuario
+            retorno = persistencia.buscar(idAtividade);
+            //verifica se encontrou registro
+            if(retorno == null){
+                //retorna objeto como null caso não encontra
+                return null;
+            }
+            this.titulo = retorno.titulo;
+            this.descricao = retorno.descricao;
+            this.horarioFinal = retorno.horarioFinal;
+            this.horarioInicial = retorno.horarioInicial;
+            this.idCategoria = retorno.idCategoria;
+            this.idExpediente = retorno.idExpediente;
+            this.idSubCategoria = retorno.idSubCategoria;
+            this.idUsuario = retorno.idUsuario;
+            this.listaParticipacaoAtividade = retorno.listaParticipacaoAtividade;
+        }catch(Exception e ){
+            System.out.println(e);
+        }
+        return this;
+    }
+    
+    public String identificarUsuarioDiferente(ParticipacaoAtividade participacaoAtividade){
+        
+        if(participacaoAtividade.getIdUsuario()==this.idUsuario){
+            //não é usuario diferente
+            return "";
+        }
+        int i = 0;
+        for(ParticipacaoAtividade participacaoRegistrada: this.listaParticipacaoAtividade){
+            
+            if(participacaoRegistrada.getIdUsuario()==participacaoAtividade.getIdUsuario()){
+                i++;
+            }
+        }
+        if(i==0){
+            Usuario usuario = new Usuario();
+            usuario.setId(this.idUsuario);
+            usuario.buscar();
+            usuario.update(this.titulo);
+        }
+        return"";
+    }
+    
 }

@@ -7,9 +7,11 @@ package persistencia;
 
 import banco.Conexao;
 import dailylog.Atividade;
+import dailylog.ParticipacaoAtividade;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -17,6 +19,45 @@ import java.util.ArrayList;
  */
 public class AtividadeBD 
 {
+    public  ResultSet rs;
+    
+     //Classe utilizada para buscar 1 usuário
+    public Atividade buscar(int idAtividade){
+        //Preparando váriaveis e Sql
+        Atividade atividade = new Atividade();
+        String sql = "select data,descricao,horarioFim,horarioInicio,id_expediente,id_subcategoria,id_usuario,titulo from tbl_atividade where flag_ativo = 'A' and id_atividade = "+idAtividade;
+        
+        try {
+           //verifica se está conectado, caso não esteja conecta
+           Conexao.conectar();
+           rs = Conexao.executeQuerySql(sql);
+//           if(rs.first()== false){
+//            //Caso o usuário não existe retorna null
+//            return null;
+//           }
+           while(rs.next()){
+                //Recupera valor referente ao nome
+                 atividade.setTitulo(rs.getString("titulo"));
+                 atividade.setDescricao(rs.getString("descricao"));
+                 atividade.setHorarioInicial(rs.getTime("horarioInicio").toString());
+                 atividade.setHorarioFinal(rs.getTime("horarioFim").toString());
+                 atividade.setData(rs.getDate("data").toString());
+                 atividade.setIdUsuario(rs.getInt("id_usuario"));
+                 atividade.setIdExpediente(rs.getInt("id_expediente"));
+                 atividade.setIdSubCategoria(rs.getInt("id_subcategoria"));
+                 atividade.setId(idAtividade);
+                 
+            }
+           ParticipacaoAtividadeBD participacaoAtividadeBD = new ParticipacaoAtividadeBD();
+           atividade.setlistaParticipacaoAtividade(participacaoAtividadeBD.listar(idAtividade));
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        return atividade;
+        
+    }
+    
    public Atividade salvar(Atividade atividade,int idUsuario, int idExpediente, int idSubCategoria){
         String sql = "";
         //Caso o usuário já exista ele possuí ID
@@ -28,11 +69,11 @@ public class AtividadeBD
             //caso não seja atualização ele cria o usuário
             //Preparando váriaveis e Sql
             sql = "INSERT INTO `daylog`.`tbl_atividade` "
-                    + "(`titulo`, `descricao`, `horarioInicio`, `horarioFim`, `data`, `id_usuario`, `id_expediente`, `id_subcategoria`) "
+                    + "(`titulo`, `descricao`, `horarioInicio`, `horarioFim`, `data`, `id_usuario`, `id_expediente`, `id_subcategoria`, 'flag_ativo') "
                     + "VALUES ('"+atividade.getTitulo()+"', '"+atividade.getDescricao()+"', "
                     + "'"+atividade.getHorarioInicial()+"', '"+atividade.getHorarioFinal()+"', "
                     + "'"+atividade.getData()+"', '"+idUsuario+"', "
-                    + "'"+idExpediente+"', '"+idSubCategoria+"');";
+                    + "'"+idExpediente+"', '"+idSubCategoria+"'"+", 'A');";
         }
         try {
            //verifica se está conectado, caso não esteja conecta
@@ -98,4 +139,5 @@ public class AtividadeBD
         }
         return null;
     }
+    
 }

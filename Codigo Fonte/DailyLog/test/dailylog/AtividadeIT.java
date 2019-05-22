@@ -48,7 +48,7 @@ public class AtividadeIT {
         try{
             Conexao.conectar();
             
-            Atividade atividade = new Atividade();
+            Atividade novaAtividade = new Atividade();
             Usuario user = new Usuario();
             Expediente expediente = new Expediente();
             SubCategoria subCategoria = new SubCategoria();
@@ -63,24 +63,24 @@ public class AtividadeIT {
             subCategoria.setId(1);
             subCategoria.buscar();
         
-            atividade.setTitulo("Teste unitario");
-            atividade.setDescricao("Teste Criar Atividade.");
-            atividade.setHorarioInicial("12:00:00");
-            atividade.setHorarioFinal("18:00:00");
-            atividade.setData("2018/12/07");
+            novaAtividade.setTitulo("Teste unitario");
+            novaAtividade.setDescricao("Teste Criar Atividade.");
+            novaAtividade.setHorarioInicial("12:00:00");
+            novaAtividade.setHorarioFinal("18:00:00");
+            novaAtividade.setData("2018/12/07");
         
-            atividade.salvar(user,expediente,subCategoria); 
-            ArrayList<Atividade> lista = atividade.listar(user);
+            novaAtividade.salvar(user,expediente,subCategoria); 
+            ArrayList<Atividade> lista = novaAtividade.listar(user);
             
             Main.imprimeListaAtividade(lista);
             
             for (Atividade a : lista){
-                if(a.getId() == atividade.getId()) {
+                if(a.getId() == novaAtividade.getId()) {
                     System.out.println("Atividade Salva com Sucesso!");
                 }
             }         
             
-            atividade.deletar();
+            novaAtividade.deletar();
         }
         catch(Exception e){
             System.out.println(e);

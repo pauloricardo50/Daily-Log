@@ -5,7 +5,6 @@
  */
 package dailylog;
 
-import banco.Conexao;
 import java.util.ArrayList;
 import persistencia.CategoriaBD;
 
@@ -36,10 +35,7 @@ public class Categoria
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
-
-    
-    
+        
     public Categoria buscar(){
         Categoria retorno;
         persistencia = new CategoriaBD();
@@ -100,7 +96,5 @@ public class Categoria
         }
         return null;
     }
-    
-    
-    
+      
 }
