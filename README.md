@@ -7,7 +7,6 @@
 **Integrantes do grupo:**<br>
 -  Jardielma Queiroz de Lima:<a href="url"> jardielmaqueiroz@hotmail.com </a>
 -  Paulo Ricardo Viana Ferreira:<a href="url"> paulo_ricardosf@outlook.com <br></a>
--  Hugo Ramalho:<a href="url"> ramalho.hg@gmail.com <br></a>
 -  Lucas Eduardo S'antana Gianordoli: <a href="url"> gianordolilucas@gmail.com  <br></a>
 
 
