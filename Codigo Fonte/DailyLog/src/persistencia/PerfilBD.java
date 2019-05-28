@@ -23,7 +23,7 @@ public class PerfilBD {
     public Perfil buscar(int idperfil)
     {
         //Preparando váriaveis e Sql
-        this.perfil = new Perfil();
+        this.perfil = new PerfilBuilder().criarPerfil();
         String sql = "select descricao,\n" +
                             "horarioPadraoInicial,\n" +
                             "horarioPadraoFinal,\n" +
@@ -36,12 +36,14 @@ public class PerfilBD {
            rs = Conexao.executeQuerySql(sql);
            while(rs.next()){
                 //Recupera valores
-                perfil.setId(idperfil);
-                perfil.setDescricao(rs.getString("descricao"));
-                perfil.setHorarioPadraoInicial(rs.getString("horarioPadraoInicial"));
-                perfil.setHorarioPadraoFinal(rs.getString("horarioPadraoFinal"));
-                perfil.setTamanhoFonte(rs.getInt("tamanhoFonte"));
-                perfil.setAutoContraste(rs.getBoolean("autoContraste"));
+        	   Perfil perfil_rt = new PerfilBuilder()
+        			   	.setId(idperfil)
+        			   	.setDescricao(rs.getString("descricao"))
+        			   	.setHorarioPadraoInicial(rs.getString("horarioPadraoInicial"))
+        	   			.setHorarioPadraoFinal(rs.getString("horarioPadraoFinal"))
+        	   			.setTamanhoFonte(rs.getInt("tamanhoFonte"))
+        	   			.setAutoContraste(rs.getBoolean("autoContraste"))
+        	   			.criarPerfil();
             }
         }
         catch(Exception e) {
