@@ -38,6 +38,10 @@
 -  **Java:** Implementação do código fonte;
 -  **MySQL Workbench:** Implementação do Banco de Dados;
 -  **Balsamiq:** Protótipós;
+### 6.1 PADRÕES DE PROJETO UTILIZADOS<br>
+-  **SINGLETON:** Permite o controle sobre como e quando os clientes acessam a instância, além de permitir que várias classes singleton podem obedecer uma mesma interface. Com apenas uma implementação interna do singleton pode-se fazer com que o singleton crie um número controlado de instâncias, alem de ser mais flexível que métodos estáticos por permitir o polimorfismo. Também é utilizado na interação com o banco para garantir que nesta execução será instanciada a classe somente uma vez. Lembrando que este padrão é considerado por muitos desenvolvedores um antipadrão, então devemos ter cuidado quando for utilizá-lo.
+-  **BUILDER:** ;
+-  **OBSERVER:** ;
 
 ### 7. DIÁRIO DE BORDO<br>
 -  [Link Para Acessar o documento no Drive.](https://docs.google.com/document/d/1InH9X7oqH3iYVlX3xz8kX7wTIYcAmi3jNy94Y1scZEo/edit?usp=sharing)
