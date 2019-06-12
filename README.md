@@ -40,8 +40,8 @@
 -  **Balsamiq:** Protótipós;
 ### 6.1 PADRÕES DE PROJETO UTILIZADOS<br>
 -  **SINGLETON:** Permite o controle sobre como e quando os clientes acessam a instância, além de permitir que várias classes singleton podem obedecer uma mesma interface. Com apenas uma implementação interna do singleton pode-se fazer com que o singleton crie um número controlado de instâncias, alem de ser mais flexível que métodos estáticos por permitir o polimorfismo. Também é utilizado na interação com o banco para garantir que nesta execução será instanciada a classe somente uma vez. Lembrando que este padrão é considerado por muitos desenvolvedores um antipadrão, então devemos ter cuidado quando for utilizá-lo.
--  **BUILDER:** ;
--  **OBSERVER:** ;
+-  **BUILDER:** Proporciona criação de diversos objetos semelhantes (Perfil em nosso caso) e Cria os novos objetos utilizando o mesmo código. Geralmente são separados por hierarquia e assim que a execução termina, o principal aproveita o construtor;
+-  **OBSERVER:** Observer tem como objetivo manter o estado de objetos sempre atualizados através do conceito de observadores e observados. Também é utilizado para notificar quando outra pessoa adicionar uma participação na atividade. Quando um objeto mudar seu estado, todos os seus dependentes serão avisados e atualizados automaticamente. Tanto os observadores quanto os sujeitos (observados) podem ser reutilizados, já que existe um baixo acoplamento entre se;
 
 ### 7. DIÁRIO DE BORDO<br>
 -  [Link Para Acessar o documento no Drive.](https://docs.google.com/document/d/1InH9X7oqH3iYVlX3xz8kX7wTIYcAmi3jNy94Y1scZEo/edit?usp=sharing)
