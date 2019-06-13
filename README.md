@@ -41,7 +41,12 @@ O sistema deve possuir opções de acessibilidade, tais como, alteração no tam
 -  **MySQL Workbench:** Implementação do Banco de Dados;
 -  **Balsamiq:** Protótipós;
 ### 6.1 PADRÕES DE PROJETO UTILIZADOS<br>
--  **SINGLETON:** <P align="justify"> Permite o controle sobre como e quando os clientes acessam a instância, além de permitir que várias classes singleton podem obedecer uma mesma interface. Com apenas uma implementação interna do singleton pode-se fazer com que o singleton crie um número controlado de instâncias, alem de ser mais flexível que métodos estáticos por permitir o polimorfismo. Também é utilizado na interação com o banco para garantir que nesta execução será instanciada a classe somente uma vez. Lembrando que este padrão é considerado por muitos desenvolvedores um antipadrão, então devemos ter cuidado quando for utilizá-lo.</p>
+-  **SINGLETON:** <P align="justify"> O padrão Singleton permite criar objetos únicos para os quais há apenas uma instância. Este padrão oferece um ponto de acesso global. Devido a caracteristica citada, implementamos o Singleton para controlarmos a interação com o banco de dados, com o objetivo de garantir que a classe conexão gerencie sua própria instância, além de evitar que qualquer outra classe crie uma instância dela. 
+ Sempre que for necessário fazer uma conexão com o banco o metódo conectar() é chamado, ele irá verificar se já existe uma instância de Conexão, caso já existe classe sempre vai oferecer a própria instância dela e caso não tenha ainda uma instância, então ela mesma cria e retorna essa nova instância criada.
+ 
+ As imagens abaixo mostra mais detalhes sobre o funcionamento do padrão Singleton:
+
+</p>
 
 -  **BUILDER:** <P align="justify"> Proporciona criação de diversos objetos semelhantes (Perfil em nosso caso) e Cria os novos objetos utilizando o mesmo código. Geralmente são separados por hierarquia e assim que a execução termina, o principal aproveita o construtor;</p>
 
