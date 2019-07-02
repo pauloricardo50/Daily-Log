@@ -1,14 +1,12 @@
 # _Daily Log 1.1.0_
 
-<P align="justify">&nbsp&nbsp Continuação do projeto Daily Log, que surgio por meio da disciplina de Programação Orientada a Objetos do curso Bacharelado em Sistemas de Informação (IFES - Campus Serra) no semestre 2019/1. Nessa nova versão do projeto iremos implementar padrões de projeto e também analisar o sistema do ponto de vista de projeto de sistema.</p>
+<P align="justify">&nbsp&nbsp Continuação do projeto Daily Log, que surgio por meio da disciplina de Programação Orientada a Objetos do curso Bacharelado em Sistemas de Informação (IFES - Campus Serra) no semestre 2018/2. Nessa nova versão do projeto iremos implementar padrões de projeto e também analisar o sistema do ponto de vista de projeto de sistema.</p>
 
 
 ### 1. COMPONENTES<br>
 **Integrantes do grupo:**<br>
 -  Jardielma Queiroz de Lima:<a href="url"> jardielmaqueiroz@hotmail.com </a>
 -  Paulo Ricardo Viana Ferreira:<a href="url"> paulo_ricardosf@outlook.com <br></a>
--  Lucas Eduardo S'antana Gianordoli: <a href="url"> gianordolilucas@gmail.com  <br></a>
-
 
 ### 2. JUSTIFICATIVA DO SISTEMA<br>
 <P align="justify">&nbsp&nbsp O sistema tem como propósito principal fazer o controle do tempo gasto com realização de atividades durante o expediente de trabalho. Além disso, o mesmo será utilizado como mediador para tomada de decisões estratégicas referentes à organização de atividades no trabalho, uma vez que essa ferramenta terá a capacidade de medir o tempo que está sendo gasto com cada atividade.</p>
@@ -40,6 +38,7 @@ O sistema deve possuir opções de acessibilidade, tais como, alteração no tam
 -  **Java:** Implementação do código fonte;
 -  **MySQL Workbench:** Implementação do Banco de Dados;
 -  **Balsamiq:** Protótipós;
+
 ### 6.1 PADRÕES DE PROJETO UTILIZADOS<br>
 -  **SINGLETON:** <P align="justify"> O padrão Singleton permite criar objetos únicos para os quais há apenas uma instância. Este padrão oferece um ponto de acesso global. Devido a caracteristica citada, implementamos o Singleton para controlarmos a interação com o banco de dados, com o objetivo de garantir que a classe conexão gerencie sua própria instância, além de evitar que qualquer outra classe crie uma instância dela. 
  Sempre que for necessário fazer uma conexão com o banco o metódo conectar() é chamado, ele irá verificar se já existe uma instância de Conexão, caso já existe classe sempre vai oferecer a própria instância dela e caso não tenha ainda uma instância, então ela mesma cria e retorna essa nova instância criada.
@@ -53,7 +52,7 @@ O sistema deve possuir opções de acessibilidade, tais como, alteração no tam
 -  **OBSERVER:** <P align="justify"> tem como objetivo manter o estado de objetos sempre atualizados através do conceito de observadores e observados. Também é utilizado para notificar quando outra pessoa adicionar uma participação na atividade. Quando um objeto mudar seu estado, todos os seus dependentes serão avisados e atualizados automaticamente. Tanto os observadores quanto os sujeitos (observados) podem ser reutilizados, já que existe um baixo acoplamento entre se;</p>
 
 ### 7. DIÁRIO DE BORDO<br>
--  [Link Para Acessar o documento no Drive.](https://docs.google.com/document/d/1InH9X7oqH3iYVlX3xz8kX7wTIYcAmi3jNy94Y1scZEo/edit?usp=sharing)
+-  [Link Para Acessar o documento.](https://docs.google.com/document/d/1InH9X7oqH3iYVlX3xz8kX7wTIYcAmi3jNy94Y1scZEo/edit?usp=sharing)
 
 ### 8. QUADRO KANBAN<br>
 -  [Trello.](https://trello.com/b/HZuN7nHJ/dailylog2)
@@ -64,7 +63,7 @@ O sistema deve possuir opções de acessibilidade, tais como, alteração no tam
 -  [MOCKUP - PERFIL ADMINISTRADOR](https://github.com/pauloricardo50/Daily-Log-1.1/blob/master/Documentos/Prot%C3%B3tipos/Daily%20Log%20-%20Perfil%20Usuario%20Comum%20.pdf)
 
 ### 11. DIAGRAMA DE CLASSES UML<br>
- ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Diagrama%20de%20Classe%20-%20Daily%20Log.jpg?raw=true)
+ ![Alt Text](https://github.com/pauloricardo50/Daily-Log-1.1/blob/master/Imagens/Diagrama%20de%20Classe%20-%20Daily%20Log.jpg?raw=true)
 
 ### 12. DIAGRAMA DE CASO DE USO <br>
  ![Alt Text](https://github.com/pauloricardo50/Daily-Log-1.1/blob/master/Imagens/Diagrama%20de%20Caso%20de%20Uso%20-%20Daily%20Log.jpg)
