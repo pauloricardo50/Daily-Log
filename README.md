@@ -52,7 +52,7 @@ O sistema deve possuir opções de acessibilidade, tais como, alteração no tam
 -  **OBSERVER:** <P align="justify"> tem como objetivo manter o estado de objetos sempre atualizados através do conceito de observadores e observados. Também é utilizado para notificar quando outra pessoa adicionar uma participação na atividade. Quando um objeto mudar seu estado, todos os seus dependentes serão avisados e atualizados automaticamente. Tanto os observadores quanto os sujeitos (observados) podem ser reutilizados, já que existe um baixo acoplamento entre se;</p>
 
 ### 7. DIÁRIO DE BORDO<br>
--  [Link Para Acessar o documento no Drive.](https://docs.google.com/document/d/1InH9X7oqH3iYVlX3xz8kX7wTIYcAmi3jNy94Y1scZEo/edit?usp=sharing)
+-  [Link Para Acessar o documento.](https://docs.google.com/document/d/1InH9X7oqH3iYVlX3xz8kX7wTIYcAmi3jNy94Y1scZEo/edit?usp=sharing)
 
 ### 8. QUADRO KANBAN<br>
 -  [Trello.](https://trello.com/b/HZuN7nHJ/dailylog2)
