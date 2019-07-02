@@ -29,7 +29,7 @@ O sistema deve possuir opções de acessibilidade, tais como, alteração no tam
 
 ### 4.PROJECT MODEL CANVAS (PMC)<br>
  ![Alt Text](https://github.com/pauloricardo50/Daily-Log-1.1/blob/master/Imagens/PROJECT%20MODEL%20CANVAS%20(PMC).PNG)
--  [Link Para Acessar o documento no Drive.](https://docs.google.com/document/d/1LCl8LuVsgQ8qMymWssgEbuBA2PrL6HwTJfxHi1nR5sU/edit?usp=sharing)
+-  [Link Para Acessar o documento.](https://docs.google.com/document/d/1LCl8LuVsgQ8qMymWssgEbuBA2PrL6HwTJfxHi1nR5sU/edit?usp=sharing)
 
 ### 5.MAPA MENTAL<br>
  ![Alt Text](https://github.com/JardielmaQueiroz/Daily-Log/blob/master/Imagens/Mapa%20Mental%20do%20Sistema.PNG?raw=true)
@@ -40,11 +40,17 @@ O sistema deve possuir opções de acessibilidade, tais como, alteração no tam
 -  **Balsamiq:** Protótipós;
 
 ### 6.1 PADRÕES DE PROJETO UTILIZADOS<br>
--  **SINGLETON:** <P align="justify"> O padrão Singleton permite criar objetos únicos para os quais há apenas uma instância. Este padrão oferece um ponto de acesso global. Devido a caracteristica citada, implementamos o Singleton para controlarmos a interação com o banco de dados, com o objetivo de garantir que a classe conexão gerencie sua própria instância, além de evitar que qualquer outra classe crie uma instância dela. 
- Sempre que for necessário fazer uma conexão com o banco o metódo conectar() é chamado, ele irá verificar se já existe uma instância de Conexão, caso já existe classe sempre vai oferecer a própria instância dela e caso não tenha ainda uma instância, então ela mesma cria e retorna essa nova instância criada.
+-  **_SINGLETON_** <P align="justify"> O padrão Singleton permite criar objetos únicos para os quais há apenas uma instância. Este padrão oferece um ponto de acesso global. Devido a caracteristica citada, implementamos o Singleton para controlarmos a interação com o banco de dados, com o objetivo de garantir que a classe conexão gerencie sua própria instância, além de evitar que qualquer outra classe crie uma instância dela. 
+ Sempre que for necessário fazer uma conexão com o banco o metódo conectar() é chamado, ele irá verificar se já existe uma instância de Conexão, caso já existe classe sempre vai oferecer a própria instância dela e caso não tenha ainda uma instância, então ela mesma cria e retorna essa nova instância criada.</p>
  
- As imagens abaixo mostra mais detalhes sobre o funcionamento do padrão Singleton:
-
+     + O Diagrama de classe abaixo mostra mais detalhes sobre o funcionamento do padrão Singleton:
+      <img src="https://github.com/pauloricardo50/Daily-Log-1.1/blob/master/Imagens/diagrama%20Singleton.PNG?raw=true" width="80%"/>
+      
+     + <P align="justify"> No diagrama de classe acima tem-se a classe Conexão, nessa existe o atributo conectar que é do tipo da sua própria classe e é estático, nessa variável tem-se a única instância da classe. Na imagem 2 pode-se observar que o construtor da classe Conexao() é PRIVADO. Ou seja, um construtor privado não permite que a classe seja instanciada a não ser que seja feito por ela mesmo na qual será instanciada pelo método getConexao() que é estático e assim pode ser acessado de qualquer outra classe sem precisar instanciar Conexao. 
+     
+     + Segue abaixo a implementação do Padrão Singleton no nosso trabalho:
+      <img src="https://github.com/pauloricardo50/Daily-Log-1.1/blob/master/Imagens/ClasseConexaoSingleton.PNG?raw=true" width="90%"/>
+     <img src="https://github.com/pauloricardo50/Daily-Log-1.1/blob/master/Imagens/ConexaoSingleton.PNG?raw=true" width="90%"/>
 </p>
 
 -  **BUILDER:** <P align="justify"> Proporciona criação de diversos objetos semelhantes (Perfil em nosso caso) e Cria os novos objetos utilizando o mesmo código. Geralmente são separados por hierarquia e assim que a execução termina, o principal aproveita o construtor;</p>
