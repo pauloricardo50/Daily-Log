@@ -40,7 +40,7 @@ O sistema deve possuir opções de acessibilidade, tais como, alteração no tam
 -  **Balsamiq:** Protótipós;
 
 ### 6.1 PADRÕES DE PROJETO UTILIZADOS<br>
--  **_SINGLETON_** <P align="justify"> O padrão Singleton permite criar objetos únicos para os quais há apenas uma instância. Este padrão oferece um ponto de acesso global. Devido a caracteristica citada, implementamos o Singleton para controlarmos a interação com o banco de dados, com o objetivo de garantir que a classe conexão gerencie sua própria instância, além de evitar que qualquer outra classe crie uma instância dela. 
+-  **_Singleton_** <P align="justify"> O padrão Singleton permite criar objetos únicos para os quais há apenas uma instância. Este padrão oferece um ponto de acesso global. Devido a caracteristica citada, implementamos o Singleton para controlarmos a interação com o banco de dados, com o objetivo de garantir que a classe conexão gerencie sua própria instância, além de evitar que qualquer outra classe crie uma instância dela. 
  Sempre que for necessário fazer uma conexão com o banco o metódo conectar() é chamado, ele irá verificar se já existe uma instância de Conexão, caso já existe classe sempre vai oferecer a própria instância dela e caso não tenha ainda uma instância, então ela mesma cria e retorna essa nova instância criada.</p>
  
      + O Diagrama de classe abaixo mostra mais detalhes sobre o funcionamento do padrão Singleton:
@@ -49,11 +49,11 @@ O sistema deve possuir opções de acessibilidade, tais como, alteração no tam
      + <P align="justify"> No diagrama de classe acima tem-se a classe Conexão, nessa existe o atributo conectar que é do tipo da sua própria classe e é estático, nessa variável tem-se a única instância da classe. Na classe Conexao pode-se observar que o construtor da classe Conexao() é PRIVADO. Ou seja, um construtor privado não permite que a classe seja instanciada a não ser que seja feito por ela mesmo na qual será instanciada pelo método getConexao() que é estático e assim pode ser acessado de qualquer outra classe sem precisar instanciar Conexao. 
 </p>
 
--  **_BUILDER_:** <P align="justify"> Proporciona criação de diversos objetos semelhantes e Cria os novos objetos utilizando o mesmo código. Geralmente são separados por hierarquia e assim que a execução termina, o principal aproveita o construtor.
+-  **_Builder_:** <P align="justify"> Proporciona criação de diversos objetos semelhantes e Cria os novos objetos utilizando o mesmo código. Geralmente são separados por hierarquia e assim que a execução termina, o principal aproveita o construtor.
 Implementamos o padrão builder foi feita para controlar os perfis de permissão dos usuários. Sabendo que no sistema teremos três perfis de usuário que são: Admintrador, Comum e Cadastro.
  </p>
 
--  **_OBSERVER_:** <P align="justify"> tem como objetivo manter o estado de objetos sempre atualizados através do conceito de observadores e observados. Também é utilizado para notificar quando outra pessoa adicionar uma participação na atividade. Quando um objeto mudar seu estado, todos os seus dependentes serão avisados e atualizados automaticamente. Tanto os observadores quanto os sujeitos (observados) podem ser reutilizados, já que existe um baixo acoplamento entre se. 
+-  **_Observer_:** <P align="justify"> tem como objetivo manter o estado de objetos sempre atualizados através do conceito de observadores e observados. Também é utilizado para notificar quando outra pessoa adicionar uma participação na atividade. Quando um objeto mudar seu estado, todos os seus dependentes serão avisados e atualizados automaticamente. Tanto os observadores quanto os sujeitos (observados) podem ser reutilizados, já que existe um baixo acoplamento entre se. 
   Implementamos o observer para fazer o monitoramento das participações das atividades, uma vez que uma atividade é composta por participações, que podem ser participações feitas pelo dono da atividade ou não. Sendo assim sempre que uma participação for adicionada a atividade e o usuário que participou da atividade não ser o dono da mesma o usuário que participou da atividade deve ser notificado.
 
      + O Diagrama de classe abaixo mostra mais detalhes sobre o funcionamento do padrão Observer:
