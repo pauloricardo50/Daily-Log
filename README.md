@@ -51,9 +51,12 @@ O sistema deve possuir opções de acessibilidade, tais como, alteração no tam
 
 -  **_Builder_** <P align="justify"> Proporciona criação de diversos objetos semelhantes e Cria os novos objetos utilizando o mesmo código. Geralmente são separados por hierarquia e assim que a execução termina, o principal aproveita o construtor.
 Implementamos o padrão builder foi feita para controlar os perfis de permissão dos usuários. Sabendo que no sistema teremos três perfis de usuário que são: Admintrador, Comum e Cadastro.
+ Implementamos o PerfilBuilder que define define os métodos do perfil, como pode ser visto no perfil abaixo, os quais retornam um objeto PerfilBuilder.
+ Outro método importante na interface é o criaPerfil(). Este método tem como retorno um objeto Perfil, o qual retorna o objeto criado pelo builder.
+ As classe concreta Perfil vai implementar os métodos da interface PerfilBuilder. Deste modo, se o usuário cadastrado tiver perfil de administrador, usará a classe PerfilBuilder.
  
       + O Diagrama de classe abaixo mostra mais detalhes sobre o funcionamento do padrão Builder:
-      <img src="" width="80%"/>
+      <img src="https://github.com/pauloricardo50/Daily-Log-1.1/blob/master/Imagens/ClasseBuilder.png?raw=true" width="80%"/>
  </p>
 
 -  **_Observer_** <P align="justify"> tem como objetivo manter o estado de objetos sempre atualizados através do conceito de observadores e observados. Também é utilizado para notificar quando outra pessoa adicionar uma participação na atividade. Quando um objeto mudar seu estado, todos os seus dependentes serão avisados e atualizados automaticamente. Tanto os observadores quanto os sujeitos (observados) podem ser reutilizados, já que existe um baixo acoplamento entre se. 
