@@ -53,9 +53,26 @@ O sistema deve possuir opções de acessibilidade, tais como, alteração no tam
      <img src="https://github.com/pauloricardo50/Daily-Log-1.1/blob/master/Imagens/ConexaoSingleton.PNG?raw=true" width="90%"/>
 </p>
 
--  **BUILDER:** <P align="justify"> Proporciona criação de diversos objetos semelhantes (Perfil em nosso caso) e Cria os novos objetos utilizando o mesmo código. Geralmente são separados por hierarquia e assim que a execução termina, o principal aproveita o construtor;</p>
+-  **BUILDER:** <P align="justify"> Proporciona criação de diversos objetos semelhantes e Cria os novos objetos utilizando o mesmo código. Geralmente são separados por hierarquia e assim que a execução termina, o principal aproveita o construtor.
+Implementamos o padrão builder foi feita para controlar os perfis de permissão dos usuários. Sabendo que no sistema teremos três perfis de usuário que são: Admintrador, Comum e Cadastro.
+ 
+ </p>
 
--  **OBSERVER:** <P align="justify"> tem como objetivo manter o estado de objetos sempre atualizados através do conceito de observadores e observados. Também é utilizado para notificar quando outra pessoa adicionar uma participação na atividade. Quando um objeto mudar seu estado, todos os seus dependentes serão avisados e atualizados automaticamente. Tanto os observadores quanto os sujeitos (observados) podem ser reutilizados, já que existe um baixo acoplamento entre se;</p>
+-  **OBSERVER:** <P align="justify"> tem como objetivo manter o estado de objetos sempre atualizados através do conceito de observadores e observados. Também é utilizado para notificar quando outra pessoa adicionar uma participação na atividade. Quando um objeto mudar seu estado, todos os seus dependentes serão avisados e atualizados automaticamente. Tanto os observadores quanto os sujeitos (observados) podem ser reutilizados, já que existe um baixo acoplamento entre se. 
+  Implementamos o observer para fazer o monitoramento das participações das atividades, uma vez que uma atividade é composta por participações, que podem ser participações feitas pelo dono da atividade ou não. Sendo assim sempre que uma participação for adicionada a atividade e o usuário que participou da atividade não ser o dono da mesma o usuário que participou da atividade deve ser notificado.
+
+     + O Diagrama de classe abaixo mostra mais detalhes sobre o funcionamento do padrão Observer:
+     <img src="https://github.com/pauloricardo50/Daily-Log-1.1/blob/master/Imagens/ClasseObserver.PNG?raw=true" width="90%"/>
+
+ 
+ 
+
+
+ 
+ 
+ 
+ 
+ </p>
 
 ### 7. DIÁRIO DE BORDO<br>
 -  [Link Para Acessar o documento.](https://docs.google.com/document/d/1InH9X7oqH3iYVlX3xz8kX7wTIYcAmi3jNy94Y1scZEo/edit?usp=sharing)
