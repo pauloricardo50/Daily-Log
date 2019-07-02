@@ -46,11 +46,7 @@ O sistema deve possuir opções de acessibilidade, tais como, alteração no tam
      + O Diagrama de classe abaixo mostra mais detalhes sobre o funcionamento do padrão Singleton:
       <img src="https://github.com/pauloricardo50/Daily-Log-1.1/blob/master/Imagens/diagrama%20Singleton.PNG?raw=true" width="80%"/>
       
-     + <P align="justify"> No diagrama de classe acima tem-se a classe Conexão, nessa existe o atributo conectar que é do tipo da sua própria classe e é estático, nessa variável tem-se a única instância da classe. Na imagem 2 pode-se observar que o construtor da classe Conexao() é PRIVADO. Ou seja, um construtor privado não permite que a classe seja instanciada a não ser que seja feito por ela mesmo na qual será instanciada pelo método getConexao() que é estático e assim pode ser acessado de qualquer outra classe sem precisar instanciar Conexao. 
-     
-     + Segue abaixo a implementação do Padrão Singleton no nosso trabalho:
-      <img src="https://github.com/pauloricardo50/Daily-Log-1.1/blob/master/Imagens/ClasseConexaoSingleton.PNG?raw=true" width="90%"/>
-     <img src="https://github.com/pauloricardo50/Daily-Log-1.1/blob/master/Imagens/ConexaoSingleton.PNG?raw=true" width="90%"/>
+     + <P align="justify"> No diagrama de classe acima tem-se a classe Conexão, nessa existe o atributo conectar que é do tipo da sua própria classe e é estático, nessa variável tem-se a única instância da classe. Na classe Conexao pode-se observar que o construtor da classe Conexao() é PRIVADO. Ou seja, um construtor privado não permite que a classe seja instanciada a não ser que seja feito por ela mesmo na qual será instanciada pelo método getConexao() que é estático e assim pode ser acessado de qualquer outra classe sem precisar instanciar Conexao. 
 </p>
 
 -  **BUILDER:** <P align="justify"> Proporciona criação de diversos objetos semelhantes e Cria os novos objetos utilizando o mesmo código. Geralmente são separados por hierarquia e assim que a execução termina, o principal aproveita o construtor.
@@ -64,15 +60,7 @@ Implementamos o padrão builder foi feita para controlar os perfis de permissão
      + O Diagrama de classe abaixo mostra mais detalhes sobre o funcionamento do padrão Observer:
      <img src="https://github.com/pauloricardo50/Daily-Log-1.1/blob/master/Imagens/ClasseObserver.PNG?raw=true" width="90%"/>
 
- 
- 
-
-
- 
- 
- 
- 
- </p>
+     + <P align="justify"> No diagrama de classe acima tem-se a classe Observado, que é responsável por fazer o monitoramento de atividades que contem a lista de atividades e é responsável por registrar as atualizações. O método monitorAtividade() será utilizado para atualizar todos os observadores registrados sempre que o seu estado mudar. Existe também a interface Observador que tem o método update() que é chamado quando o estado do Observado é alterado. A classe NotSistema implementa a interface Observer, definindo assim o método update(), que será utilizado para notificar o usuário.</p>
 
 ### 7. DIÁRIO DE BORDO<br>
 -  [Link Para Acessar o documento.](https://docs.google.com/document/d/1InH9X7oqH3iYVlX3xz8kX7wTIYcAmi3jNy94Y1scZEo/edit?usp=sharing)
