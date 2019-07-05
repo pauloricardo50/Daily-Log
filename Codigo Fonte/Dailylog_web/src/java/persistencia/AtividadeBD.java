@@ -6,8 +6,8 @@
 package persistencia;
 
 import banco.Conexao;
-import dailylog.Atividade;
-import dailylog.ParticipacaoAtividade;
+import Dominio.Atividade;
+import Dominio.ParticipacaoAtividade;
 import static java.lang.System.out;
 import java.sql.ResultSet;
 import java.sql.SQLException;

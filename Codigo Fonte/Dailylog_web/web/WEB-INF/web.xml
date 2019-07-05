@@ -6,47 +6,47 @@
     </servlet>
     <servlet>
         <servlet-name>servlet_usuario</servlet-name>
-        <servlet-class>servlets.Servlet_usuario</servlet-class>
+        <servlet-class>InterfaceUsuario.Servlet_usuario</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>servlet_listaUsuarios</servlet-name>
-        <servlet-class>servlets.Servlet_listaUsuarios</servlet-class>
+        <servlet-class>InterfaceUsuario.Servlet_listaUsuarios</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>servlet_listaAtividades</servlet-name>
-        <servlet-class>servlets.Servlet_listaAtividades</servlet-class>
+        <servlet-class>InterfaceUsuario.Servlet_listaAtividades</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>servlet_atividade</servlet-name>
-        <servlet-class>servlets.Servlet_atividade</servlet-class>
+        <servlet-class>InterfaceUsuario.Servlet_atividade</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>servlet_participacaoAtividade</servlet-name>
-        <servlet-class>servlets.Servlet_participacaoAtividade</servlet-class>
+        <servlet-class>InterfaceUsuario.Servlet_participacaoAtividade</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>servlet_login</servlet-name>
-        <servlet-class>servlets.Servlet_login</servlet-class>
+        <servlet-class>InterfaceUsuario.Servlet_login</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>servlet_logout</servlet-name>
-        <servlet-class>servlets.Servlet_logout</servlet-class>
+        <servlet-class>InterfaceUsuario.Servlet_logout</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>servlet_perfil</servlet-name>
-        <servlet-class>servlets.Servlet_perfil</servlet-class>
+        <servlet-class>InterfaceUsuario.Servlet_perfil</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>servlet_menuPrincipal</servlet-name>
-        <servlet-class>servlets.Servlet_menuPrincipal</servlet-class>
+        <servlet-class>InterfaceUsuario.Servlet_menuPrincipal</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>servlet_errorPermissao</servlet-name>
-        <servlet-class>servlets.Servlet_errorPermissao</servlet-class>
+        <servlet-class>InterfaceUsuario.Servlet_errorPermissao</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>servlet_excluirParticipacaoAtividade</servlet-name>
-        <servlet-class>servlets.Servlet_excluirParticipacaoAtividade</servlet-class>
+        <servlet-class>InterfaceUsuario.Servlet_excluirParticipacaoAtividade</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>servlet_listaPerfil</servlet-name>
@@ -54,15 +54,15 @@
     </servlet>
     <servlet>
         <servlet-name>servlet_listaPerfils</servlet-name>
-        <servlet-class>servlets.Servlet_listaPerfils</servlet-class>
+        <servlet-class>InterfaceUsuario.Servlet_listaPerfils</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>servlet_excluirAtividade</servlet-name>
-        <servlet-class>servlets.Servlet_excluirAtividade</servlet-class>
+        <servlet-class>InterfaceUsuario.Servlet_excluirAtividade</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>servlet_expediente</servlet-name>
-        <servlet-class>servlets.Servlet_expediente</servlet-class>
+        <servlet-class>InterfaceUsuario.Servlet_expediente</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>criarUsuario</servlet-name>

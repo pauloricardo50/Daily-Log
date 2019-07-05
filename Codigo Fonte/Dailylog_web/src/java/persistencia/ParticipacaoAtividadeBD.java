@@ -6,9 +6,9 @@
 package persistencia;
 
 import banco.Conexao;
-import dailylog.Atividade;
-import dailylog.ParticipacaoAtividade;
-import dailylog.Perfil;
+import Dominio.Atividade;
+import Dominio.ParticipacaoAtividade;
+import Dominio.Perfil;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 

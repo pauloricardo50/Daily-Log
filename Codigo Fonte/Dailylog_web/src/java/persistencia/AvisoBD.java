@@ -6,7 +6,7 @@
 package persistencia;
 
 import banco.Conexao;
-import dailylog.Aviso;
+import Dominio.Aviso;
 import static java.lang.System.out;
 import java.sql.ResultSet;
 import java.util.ArrayList;

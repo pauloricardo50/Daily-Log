@@ -5,8 +5,8 @@
  */
 package persistencia;
 import banco.Conexao;
-import dailylog.Categoria;
-import dailylog.SubCategoria;
+import Dominio.Categoria;
+import Dominio.SubCategoria;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 /**
